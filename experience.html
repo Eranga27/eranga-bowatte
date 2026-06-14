@@ -1395,6 +1395,55 @@
     background:#FF6A1A;
     box-shadow:0 0 0 4px rgba(255,106,26,0.18);
   }
+
+  /* ---------- Lightbox ---------- */
+  .lightbox {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(11, 10, 9, 0.95);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    align-items: center;
+    justify-content: center;
+  }
+  .lightbox.show {
+    display: flex;
+    opacity: 1;
+  }
+  .lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+  }
+  .lightbox.show .lightbox-content {
+    transform: scale(1);
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+    z-index: 100000;
+  }
+  .lightbox-close:hover {
+    color: #FF6A1A;
+  }
+  img {
+    cursor: pointer;
+  }
 </style>
 </head>
 <body>
@@ -1758,7 +1807,53 @@
   }
   window.addEventListener('scroll', updateProgress, { passive: true });
   updateProgress();
+
+  /* ---- Lightbox Logic ---- */
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const allImages = document.querySelectorAll('img');
+
+  allImages.forEach(img => {
+    img.addEventListener('click', (e) => {
+      // Don't lightbox if it's explicitly prevented or part of a component that handles its own clicks
+      if (img.closest('.nav-links') || img.closest('header')) return; 
+      
+      lightbox.classList.add('show');
+      lightboxImg.src = img.src;
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+    });
+  });
+
+  const closeLightbox = () => {
+    lightbox.classList.remove('show');
+    setTimeout(() => {
+      lightboxImg.src = '';
+      document.body.style.overflow = '';
+    }, 300);
+  };
+
+  if(lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+  if(lightbox) {
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox && lightbox.classList.contains('show')) {
+      closeLightbox();
+    }
+  });
+
 </script>
+
+<!-- ===================== LIGHTBOX ===================== -->
+<div id="lightbox" class="lightbox">
+  <span class="lightbox-close" id="lightboxClose">&times;</span>
+  <img class="lightbox-content" id="lightboxImg">
+</div>
 
 </body>
 </html>
