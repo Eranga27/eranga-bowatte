@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eranga Bowatte — Communication Trainer & Speaker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B0A09;
+    --paper:#FAFAF8;
+    --line:#2A2825;
+    --stone:#8E8A84;
+    --surface:#161412;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  /* ---------- Custom Cursor ---------- */
+  body{cursor:none;}
+
+  .cursor-dot{
+    position:fixed;
+    width:8px; height:8px;
+    background:#FF6A1A;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:9999;
+    transform:translate(-50%,-50%);
+    transition:transform 0.08s ease, background 0.2s ease;
+    mix-blend-mode:normal;
+  }
+
+  .cursor-ring{
+    position:fixed;
+    width:36px; height:36px;
+    border:1.5px solid rgba(255,106,26,0.55);
+    border-radius:50%;
+    pointer-events:none;
+    z-index:9998;
+    transform:translate(-50%,-50%);
+    transition:width 0.25s ease, height 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
+  }
+
+  body.cursor-hover .cursor-dot{
+    transform:translate(-50%,-50%) scale(2.5);
+    background:#FF6A1A;
+    mix-blend-mode:normal;
+  }
+
+  body.cursor-hover .cursor-ring{
+    width:52px; height:52px;
+    border-color:rgba(255,106,26,0.3);
+  }
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    font-weight:400;
+    overflow-x:hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  a{color:inherit;}
+
+  /* ---------- Utility ---------- */
+  .label{
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--stone);
+  }
+
+  .container{
+    max-width:1240px;
+    margin:0 auto;
+    padding:0 40px;
+  }
+
+  section{
+    padding:140px 0;
+  }
+
+  @media (max-width:768px){
+    section{padding:80px 0;}
+    .container{padding:0 24px;}
+  }
+
+  /* ---------- Nav ---------- */
+  nav{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:100;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    padding:32px 40px;
+    color:var(--paper);
+    font-family:'Space Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    mix-blend-mode:exclusion;
+  }
+  nav a{
+    text-decoration:none;
+    opacity:0.6;
+    transition:opacity 0.25s ease, color 0.25s ease, letter-spacing 0.25s ease;
+    position:relative;
+  }
+  nav a::after{
+    content:'';
+    position:absolute;
+    bottom:-4px; left:0; right:0;
+    height:1px;
+    background:#FF6A1A;
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+  nav a:hover{
+    opacity:1;
+    color:#FF6A1A;
+    letter-spacing:0.24em;
+  }
+  nav a:hover::after{
+    transform:scaleX(1);
+  }
+  .nav-links{display:flex; gap:36px;}
+  @media (max-width:640px){
+    .nav-links{gap:18px;}
+    nav{font-size:0.62rem; padding:22px 24px;}
+  }
+
+  /* ---------- Hero — full bleed cinematic ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
+  }
+
+  .hero-bg{
+    position:absolute;
+    inset:0;
+    z-index:0;
+  }
+
+  .hero-bg img{
+    width:100%; height:100%;
+    object-fit:cover;
+    object-position:center 20%;
+    filter:grayscale(35%) brightness(0.55) contrast(1.08);
+  }
+
+  .hero-bg::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(11,10,9,0.15) 0%, rgba(11,10,9,0.35) 55%, rgba(11,10,9,0.95) 100%);
+  }
+
+  .hero-content{
+    position:relative;
+    z-index:1;
+    width:100%;
+    padding-bottom:100px;
+    padding-top:160px;
+  }
+
+  .hero-eyebrow{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:24px;
+  }
+
+  .hero-eyebrow .line{
+    height:1px;
+    width:48px;
+    background:var(--paper);
+    opacity:0.4;
+  }
+
+  h1.headline{
+    font-family:'Poppins',sans-serif;
+    font-weight:400;
+    font-style:normal;
+    font-size:clamp(2.8rem, 8vw, 6.8rem);
+    line-height:1.04;
+    letter-spacing:-0.01em;
+    max-width:18ch;
+  }
+
+  h1.headline .accent-word{
+    font-style:normal;
+    font-weight:800;
+    display:block;
+  }
+
+  .hero-sub{
+    margin-top:32px;
+    font-size:1.05rem;
+    line-height:1.7;
+    color:#C7C3BC;
+    max-width:42ch;
+  }
+
+  .hero-meta{
+    margin-top:56px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:48px;
+    align-items:flex-end;
+  }
+
+  .hero-meta .frame-label{
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    color:var(--stone);
+  }
+
+  /* ---------- Waveform signature ---------- */
+  .waveform{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    height:40px;
+  }
+
+  .waveform .bar{
+    width:4px;
+    background:var(--paper);
+    opacity:0.85;
+    border-radius:2px;
+    transform-origin:center;
+    animation:pulse 1.8s ease-in-out infinite;
+  }
+
+  @keyframes pulse{
+    0%, 100% { transform: scaleY(0.18); }
+    50% { transform: scaleY(1); }
+  }
+
+  /* ---------- Section headers ---------- */
+  .section-head{
+    margin-bottom:72px;
+  }
+
+  .section-head .label{display:block; margin-bottom:20px;}
+
+  .section-head h2{
+    font-family:'Poppins',sans-serif;
+    font-weight:500;
+    font-size:clamp(2.2rem, 5vw, 4rem);
+    line-height:1.15;
+    max-width:18ch;
+  }
+
+  .section-head h2 em{
+    font-style:normal;
+    font-weight:800;
+    color:#FF6A1A;
+  }
+
+  /* ---------- Story section ---------- */
+  .story-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:96px;
+    align-items:start;
+  }
+
+  @media (max-width:900px){
+    .story-grid{grid-template-columns:1fr; gap:48px;}
+  }
+
+  .story-text p{
+    font-size:1.08rem;
+    line-height:1.9;
+    color:#C7C3BC;
+    margin-bottom:26px;
+    max-width:48ch;
+  }
+
+  .story-text p strong{
+    color:var(--paper);
+    font-weight:600;
+  }
+
+  .pause-graphic{
+    border:1px solid var(--line);
+    padding:48px 36px;
+    background:var(--surface);
+  }
+
+  .pause-line{
+    display:flex;
+    align-items:flex-end;
+    gap:10px;
+    margin-bottom:36px;
+  }
+
+  .pause-line:last-child{margin-bottom:0;}
+
+  .pause-line .pl-label{
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    color:var(--stone);
+    width:78px;
+    flex-shrink:0;
+    letter-spacing:0.05em;
+    padding-bottom:4px;
+  }
+
+  .pause-bars{
+    display:flex;
+    align-items:flex-end;
+    gap:3px;
+    height:40px;
+    flex:1;
+  }
+
+  .pause-bars .pb{
+    width:5px;
+    background:#3A3733;
+    border-radius:1px;
+  }
+
+  .pause-bars.lively .pb{
+    background:var(--paper);
+    animation:pulse 2s ease-in-out infinite;
+  }
+
+  /* ---------- Cinematic full-bleed banner ---------- */
+  .banner{
+    position:relative;
+    width:100%;
+    aspect-ratio:16/8;
+    overflow:hidden;
+  }
+
+  @media (max-width:768px){
+    .banner{aspect-ratio:4/5;}
+  }
+
+  .banner img{
+    width:100%; height:100%;
+    object-fit:cover;
+    filter:grayscale(30%) brightness(0.75) contrast(1.05);
+  }
+
+  .banner-caption{
+    position:absolute;
+    bottom:32px; left:40px;
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    color:rgba(250,250,248,0.7);
+  }
+
+  /* ---------- What I do ---------- */
+  .offer-list{
+    display:flex;
+    flex-direction:column;
+  }
+
+  .offer-row{
+    display:grid;
+    grid-template-columns:120px 1fr 1.4fr;
+    gap:40px;
+    padding:44px 0;
+    border-top:1px solid var(--line);
+    align-items:baseline;
+    transition:opacity 0.3s ease;
+  }
+
+  .offer-row:last-child{border-bottom:1px solid var(--line);}
+
+  @media (max-width:768px){
+    .offer-row{
+      grid-template-columns:1fr;
+      gap:12px;
+      padding:32px 0;
+    }
+  }
+
+  .offer-num{
+    font-family:'Space Mono',monospace;
+    font-size:0.8rem;
+    color:var(--stone);
+    letter-spacing:0.1em;
+  }
+
+  .offer-row h3{
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:1.7rem;
+    line-height:1.3;
+  }
+
+  .offer-row p{
+    font-size:0.98rem;
+    line-height:1.75;
+    color:var(--stone);
+    max-width:48ch;
+  }
+
+  /* ---------- Filmstrip gallery ---------- */
+  .filmstrip-head{
+    padding-bottom:48px;
+  }
+
+  .filmstrip{
+    display:flex;
+    gap:16px;
+    overflow-x:auto;
+    padding:0 40px 12px;
+    scroll-snap-type:x proximate;
+    scrollbar-width:thin;
+  }
+
+  .filmstrip::-webkit-scrollbar{height:4px;}
+  .filmstrip::-webkit-scrollbar-thumb{background:var(--line); border-radius:2px;}
+  .filmstrip::-webkit-scrollbar-track{background:transparent;}
+
+  .film-item{
+    flex-shrink:0;
+    height:440px;
+    scroll-snap-align:start;
+    overflow:hidden;
+    position:relative;
+    background:var(--surface);
+  }
+
+  .film-item.portrait{width:320px;}
+  .film-item.landscape{width:600px;}
+
+  @media (max-width:768px){
+    .filmstrip{padding:0 24px 12px;}
+    .film-item{height:300px;}
+    .film-item.portrait{width:220px;}
+    .film-item.landscape{width:400px;}
+  }
+
+  .film-item img{
+    width:100%; height:100%;
+    object-fit:cover;
+    filter:grayscale(25%) contrast(1.05);
+    transition:filter 0.4s ease, transform 0.6s ease;
+  }
+
+  .film-item:hover img{
+    filter:grayscale(0%) contrast(1.05);
+    transform:scale(1.03);
+  }
+
+  .film-item .film-tag{
+    position:absolute;
+    bottom:0; left:0;
+    background:rgba(11,10,9,0.85);
+    color:var(--paper);
+    font-family:'Space Mono',monospace;
+    font-size:0.65rem;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    padding:10px 16px;
+  }
+
+  /* ---------- Sessions ---------- */
+  .sessions-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+  }
+
+  @media (max-width:900px){
+    .sessions-grid{grid-template-columns:repeat(2, 1fr);}
+  }
+
+  @media (max-width:600px){
+    .sessions-grid{grid-template-columns:1fr;}
+  }
+
+  .session-card{
+    display:flex;
+    flex-direction:column;
+  }
+
+  .session-thumb{
+    aspect-ratio:4/3;
+    background:var(--surface);
+    border:1px dashed var(--line);
+    border-radius:2px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:18px;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .session-thumb img{
+    width:100%; height:100%;
+    object-fit:cover;
+    filter:grayscale(25%) contrast(1.05);
+  }
+
+  .session-thumb .placeholder-mark{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    color:var(--line);
+    font-family:'Space Mono',monospace;
+    font-size:0.65rem;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+  }
+
+  .session-thumb .placeholder-mark svg{
+    width:32px; height:32px;
+    stroke:var(--line);
+  }
+
+  .session-card h3{
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:1.15rem;
+    margin-bottom:8px;
+  }
+
+  .session-card .session-meta{
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--stone);
+    margin-bottom:10px;
+  }
+
+  .session-card p{
+    font-size:0.92rem;
+    line-height:1.65;
+    color:var(--stone);
+  }
+
+  /* ---------- Track record / timeline ---------- */
+  .timeline{
+    position:relative;
+    padding-left:48px;
+  }
+
+  .timeline::before{
+    content:'';
+    position:absolute;
+    top:0; bottom:0; left:6px;
+    width:1px;
+    background:var(--line);
+  }
+
+  .timeline-row{
+    position:relative;
+    display:grid;
+    grid-template-columns:180px 1fr;
+    gap:48px;
+    padding:56px 0;
+    align-items:start;
+  }
+
+  .timeline-row:first-child{padding-top:8px;}
+  .timeline-row:last-child{padding-bottom:8px;}
+
+  .timeline-row::before{
+    content:'';
+    position:absolute;
+    left:-48px;
+    top:14px;
+    width:13px; height:13px;
+    border-radius:50%;
+    background:var(--line);
+    border:2px solid var(--ink);
+  }
+
+  .timeline-row.is-current::before{
+    background:#FF6A1A;
+    box-shadow:0 0 0 4px rgba(255,106,26,0.15);
+  }
+
+  .timeline-row.is-current{
+    position:relative;
+  }
+
+  .timeline-row.is-current::after{
+    content:'';
+    position:absolute;
+    left:-42px;
+    top:26px;
+    bottom:-56px;
+    width:1px;
+    background:#FF6A1A;
+  }
+
+  @media (max-width:768px){
+    .timeline{padding-left:36px;}
+    .timeline::before{left:5px;}
+    .timeline-row{
+      grid-template-columns:1fr;
+      gap:12px;
+      padding:40px 0;
+    }
+    .timeline-row::before{left:-36px; top:10px;}
+    .timeline-row.is-current::after{left:-31px; top:22px; bottom:-40px;}
+  }
+
+  .timeline-row .t-year{
+    font-family:'Poppins',sans-serif;
+    font-weight:800;
+    font-size:clamp(2.4rem, 5vw, 3.6rem);
+    line-height:1;
+    color:var(--line);
+    letter-spacing:-0.01em;
+  }
+
+  .timeline-row.is-current .t-year{
+    color:#FF6A1A;
+  }
+
+  .timeline-row .t-role{
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:1.05rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+
+  .timeline-row .t-role span{
+    display:block;
+    font-family:'Inter',sans-serif;
+    font-weight:400;
+    font-size:0.9rem;
+    text-transform:none;
+    letter-spacing:normal;
+    color:var(--stone);
+    margin-top:6px;
+  }
+
+  .timeline-row .t-detail{
+    font-size:0.95rem;
+    line-height:1.75;
+    color:var(--stone);
+    max-width:54ch;
+  }
+
+  /* ---------- Recognition strip ---------- */
+  .recog-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+
+  .recog-item{
+    background:var(--ink);
+    padding:36px 32px;
+  }
+
+  .recog-item .label{margin-bottom:14px; display:block;}
+
+  .recog-item p{
+    font-size:0.98rem;
+    line-height:1.65;
+    color:#D4D1CB;
+  }
+
+  /* ---------- Credentials ---------- */
+  .creds-list{
+    display:flex;
+    flex-direction:column;
+  }
+
+  .creds-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    padding:24px 0;
+    border-bottom:1px solid var(--line);
+    gap:24px;
+  }
+
+  .creds-row:first-child{border-top:1px solid var(--line);}
+
+  .creds-row .c-name{
+    font-size:1.02rem;
+    font-weight:500;
+  }
+
+  .creds-row .c-org{
+    font-family:'Space Mono',monospace;
+    font-size:0.75rem;
+    color:var(--stone);
+    text-align:right;
+    flex-shrink:0;
+  }
+
+  @media (max-width:640px){
+    .creds-row{flex-direction:column; gap:6px;}
+    .creds-row .c-org{text-align:left;}
+  }
+
+  /* ---------- CTA / contact ---------- */
+  .cta h2{
+    font-family:'Poppins',sans-serif;
+    font-weight:400;
+    font-style:normal;
+    font-size:clamp(2.6rem, 8vw, 6rem);
+    line-height:1.08;
+    max-width:16ch;
+    margin:28px 0 56px;
+  }
+
+  .cta h2 .accent-word{
+    font-style:normal;
+    font-weight:800;
+    display:block;
+  }
+
+  .cta-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+
+  .cta-link{
+    font-family:'Space Mono',monospace;
+    font-size:0.85rem;
+    letter-spacing:0.05em;
+    text-decoration:none;
+    color:var(--paper);
+    border:1px solid var(--line);
+    padding:18px 30px;
+    transition:border-color 0.25s ease, opacity 0.25s ease;
+  }
+
+  .cta-link:hover{
+    border-color:var(--paper);
+    opacity:0.65;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding:36px 40px;
+    display:flex;
+    justify-content:space-between;
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    color:var(--stone);
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    flex-wrap:wrap;
+    gap:12px;
+    border-top:1px solid var(--line);
+  }
+
+  /* ---------- Reveal on scroll (fade in + fade out) ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(32px);
+    transition:opacity 0.85s cubic-bezier(0.4,0,0.2,1), transform 0.85s cubic-bezier(0.4,0,0.2,1);
+  }
+  .reveal.in{
+    opacity:1;
+    transform:translateY(0);
+  }
+  .reveal.out{
+    opacity:0;
+    transform:translateY(-24px);
+    transition:opacity 0.55s ease, transform 0.55s ease;
+  }
+
+  /* ---------- Pause / Story — section label font ---------- */
+  #story .section-head .label,
+  .pause-graphic .pl-label{
+    font-family:'Playfair Display', serif;
+    font-style:italic;
+    font-size:0.88rem;
+    letter-spacing:0.06em;
+    text-transform:none;
+  }
+
+  /* ---------- Journey graphic ---------- */
+  .journey-graphic{
+    position:relative;
+    padding:40px 0;
+  }
+
+  .journey-path{
+    position:relative;
+    padding-left:28px;
+  }
+
+  .journey-path::before{
+    content:'';
+    position:absolute;
+    top:0; bottom:0; left:0;
+    width:1px;
+    background:linear-gradient(180deg, transparent, var(--line) 10%, #FF6A1A 70%, var(--line));
+  }
+
+  .journey-node{
+    position:relative;
+    margin-bottom:36px;
+    opacity:0;
+    transform:translateX(-10px);
+    transition:opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .journey-node.visible{
+    opacity:1;
+    transform:translateX(0);
+  }
+
+  .journey-node::before{
+    content:'';
+    position:absolute;
+    left:-28px;
+    top:6px;
+    width:9px; height:9px;
+    border-radius:50%;
+    background:var(--line);
+    border:1.5px solid var(--ink);
+    transition:background 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .journey-node.lit::before{
+    background:#FF6A1A;
+    box-shadow:0 0 0 5px rgba(255,106,26,0.18);
+  }
+
+  .journey-node.today::before{
+    background:#FF6A1A;
+    box-shadow:0 0 0 6px rgba(255,106,26,0.2), 0 0 20px rgba(255,106,26,0.25);
+    animation:nodePulse 2.4s ease-in-out infinite;
+  }
+
+  @keyframes nodePulse{
+    0%,100%{box-shadow:0 0 0 4px rgba(255,106,26,0.2);}
+    50%{box-shadow:0 0 0 9px rgba(255,106,26,0.08), 0 0 24px rgba(255,106,26,0.3);}
+  }
+
+  .journey-label{
+    font-family:'Space Mono',monospace;
+    font-size:0.68rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--stone);
+    margin-bottom:4px;
+  }
+
+  .journey-node.lit .journey-label,
+  .journey-node.today .journey-label{
+    color:#FF6A1A;
+  }
+
+  .journey-text{
+    font-family:'Inter', sans-serif;
+    font-size:0.92rem;
+    line-height:1.6;
+    color:#C7C3BC;
+  }
+
+  .journey-node.today .journey-text{
+    color:var(--paper);
+    font-weight:500;
+  }
+
+  /* ---------- Timeline dynamic highlight ---------- */
+  .timeline-row{
+    transition:opacity 0.4s ease;
+  }
+  .timeline-row.tl-dim{
+    opacity:0.28;
+  }
+  .timeline-row.tl-active .t-year{
+    color:#FF6A1A;
+  }
+  .timeline-row.tl-active::before{
+    background:#FF6A1A;
+    box-shadow:0 0 0 4px rgba(255,106,26,0.18);
+  }
+</style>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav>
+  <div class="nav-links">
+    <a href="#story">Story</a>
+    <a href="#work">Training</a>
+    <a href="#gallery">In the Room</a>
+    <a href="#sessions">Sessions</a>
+    <a href="#record">Record</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero" id="top">
+  <div class="hero-bg">
+    <img src="images/hero.jpg" alt="Eranga Bowatte speaking at a Toastmasters conference podium">
+  </div>
+  <div class="hero-content">
+    <div class="container">
+      <div class="hero-eyebrow">
+        <span class="line"></span>
+        <span class="label">Communication Trainer · Speaker</span>
+      </div>
+      <h1 class="headline">Your voice is louder<span class="accent-word">than your fear.</span></h1>
+      <p class="hero-sub">I'm Eranga Bowatte — once unable to speak in front of a room, now training others to find the words they didn't know they had. Based in Sri Lanka, working globally.</p>
+
+      <div class="hero-meta">
+        <div class="waveform" id="heroWaveform"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== THE PAUSE / STORY ===================== -->
+<section id="story">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="label">The Pause — 00:01</span>
+      <h2>Before the words came, <em>there was silence.</em></h2>
+    </div>
+    <div class="story-grid reveal">
+      <div class="story-text">
+        <p>Till I was the age of 15, speaking in front of people wasn't difficult — it was paralysing. I'd freeze, lose my place, and shrink into the back row whenever a room turned its attention toward me.</p>
+        <p>What changed wasn't a single moment. It was <strong>years of small, deliberate repetitions</strong> — joining clubs, taking the mic when I didn't want to, getting it wrong in front of people and trying again the next week.</p>
+        <p>That gradual climb took me from a quiet kid avoiding eye contact to <strong>Contest Master at a national Toastmasters conference</strong>, multiple recognitions in national public speaking championships and debating championships, hosting/compering in events I never thought I would be able to, and someone who now runs training sessions for the same kind of nervous speaker I used to be.</p>
+        <p>I built this work because <strong>I know exactly where the fear lives</strong> — and exactly what it takes to talk it down.</p>
+      </div>
+      <div class="journey-graphic" id="journeyGraphic">
+        <div class="journey-path">
+          <div class="journey-node" data-delay="0">
+            <div class="journey-label">Age 15 — The Freeze</div>
+            <div class="journey-text">A quiet kid in the back row. Room turns. Heart stops. Nothing comes out.</div>
+          </div>
+          <div class="journey-node" data-delay="150">
+            <div class="journey-label">Gavel Club — First Mic</div>
+            <div class="journey-text">Joined SLIIT Gavel Club. First speech: 90 seconds felt like 90 minutes. Showed up again anyway.</div>
+          </div>
+          <div class="journey-node" data-delay="300">
+            <div class="journey-label">Competitions — Earning the Stage</div>
+            <div class="journey-text">Multiple recognitions in national public speaking championships and debating championships. Runners-Up, SLIIT IEEE Inter-University Debate.</div>
+          </div>
+          <div class="journey-node" data-delay="450">
+            <div class="journey-label">Hosting &amp; Compering</div>
+            <div class="journey-text">Hosting and compering events I never thought I would be able to stand in front of — from campus stages to national conferences.</div>
+          </div>
+          <div class="journey-node today" data-delay="600">
+            <div class="journey-label">Today — Beyond The Mic</div>
+            <div class="journey-text">50+ sessions. Corporates, universities, schools. Training the same nervous speaker I used to be.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CINEMATIC BANNER ===================== -->
+<div class="banner reveal">
+  <img src="images/mic4.jpg" alt="Eranga Bowatte presenting to an audience with a microphone">
+  <span class="banner-caption">Beyond The Mic — Training Session</span>
+</div>
+
+<!-- ===================== WHAT I DO ===================== -->
+<section id="work">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="label">What I Do</span>
+      <h2>Training built for <em>real rooms</em>, not theory.</h2>
+    </div>
+    <div class="offer-list reveal">
+      <div class="offer-row">
+        <span class="offer-num">01</span>
+        <h3>Public Speaking &amp; Confidence</h3>
+        <p>Hands-on sessions for individuals and teams who freeze up at the mic — built from a method I used on myself first. Delivered to corporate, university, and school audiences.</p>
+      </div>
+      <div class="offer-row">
+        <span class="offer-num">02</span>
+        <h3>Communication Workshops</h3>
+        <p>50+ sessions run on clarity, structure, and delivery — helping teams communicate decisions, pitches, and feedback without losing the room.</p>
+      </div>
+      <div class="offer-row">
+        <span class="offer-num">03</span>
+        <h3>Brand &amp; HR Communication</h3>
+        <p>Employer branding, engagement campaigns, and internal communications — grounded in HR experience managing initiatives for 350+ employees.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FILMSTRIP GALLERY ===================== -->
+<section id="gallery">
+  <div class="container filmstrip-head">
+    <div class="section-head reveal" style="margin-bottom:0;">
+      <span class="label">In the Room</span>
+      <h2>Moments from <em>the stage and the floor.</em></h2>
+    </div>
+  </div>
+  <div class="filmstrip reveal">
+    <div class="film-item landscape">
+      <img src="images/training-session.jpg" alt="Training session with university students" style="object-position:center;">
+      <span class="film-tag">University Training Session</span>
+    </div>
+    <div class="film-item portrait">
+      <img src="images/mic2.jpg" alt="Eranga Bowatte mid-speech with microphone">
+      <span class="film-tag">Beyond The Mic</span>
+    </div>
+    <div class="film-item landscape">
+      <img src="images/team.jpg" alt="Virtusa HR team group photo">
+      <span class="film-tag">Virtusa HR Team</span>
+    </div>
+    <div class="film-item portrait">
+      <img src="images/mic3.jpg" alt="Eranga Bowatte speaking on stage">
+      <span class="film-tag">On Stage</span>
+    </div>
+    <div class="film-item landscape">
+      <img src="images/stage.jpg" alt="Presenting in a lecture hall">
+      <span class="film-tag">Lecture Hall Session</span>
+    </div>
+    <div class="film-item portrait">
+      <img src="images/kids.jpg" alt="Eranga Bowatte engaging with children at an event">
+      <span class="film-tag">Community Engagement</span>
+    </div>
+    <div class="film-item landscape">
+      <img src="images/mic1.jpg" alt="Eranga Bowatte smiling during a session">
+      <span class="film-tag">Workshop Floor</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SESSIONS ===================== -->
+<section id="sessions">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="label">Sessions Conducted</span>
+      <h2>Workshops &amp; talks <em>delivered so far.</em></h2>
+    </div>
+    <div class="sessions-grid reveal">
+      <div class="session-card">
+        <div class="session-thumb">
+          <div class="placeholder-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Photo coming soon</span>
+          </div>
+        </div>
+        <span class="session-meta">University · 2025</span>
+        <h3>Public Speaking Fundamentals</h3>
+        <p>An introductory session on overcoming stage fear, structuring talks, and commanding a room — delivered to first-year students.</p>
+      </div>
+      <div class="session-card">
+        <div class="session-thumb">
+          <div class="placeholder-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Photo coming soon</span>
+          </div>
+        </div>
+        <span class="session-meta">Corporate · 2025</span>
+        <h3>Communication Skills Workshop</h3>
+        <p>A half-day workshop on clarity, structure, and confident delivery for cross-functional teams in a corporate setting.</p>
+      </div>
+      <div class="session-card">
+        <div class="session-thumb">
+          <div class="placeholder-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Photo coming soon</span>
+          </div>
+        </div>
+        <span class="session-meta">School · 2025</span>
+        <h3>Confidence Building for Students</h3>
+        <p>An interactive session helping school students build confidence in expressing themselves in front of peers and teachers.</p>
+      </div>
+      <div class="session-card">
+        <div class="session-thumb">
+          <div class="placeholder-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Photo coming soon</span>
+          </div>
+        </div>
+        <span class="session-meta">Toastmasters · 2025</span>
+        <h3>Contest Master, Mid Year Conference</h3>
+        <p>Led the speaking contest segment for a national joint-division Toastmasters conference, Division F &amp; I.</p>
+      </div>
+      <div class="session-card">
+        <div class="session-thumb">
+          <div class="placeholder-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Photo coming soon</span>
+          </div>
+        </div>
+        <span class="session-meta">Community · 2025</span>
+        <h3>Communication Training for Volunteers</h3>
+        <p>Practical communication training for AIESEC volunteers preparing for international exchange and delegation work.</p>
+      </div>
+      <div class="session-card">
+        <div class="session-thumb">
+          <div class="placeholder-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Photo coming soon</span>
+          </div>
+        </div>
+        <span class="session-meta">Corporate · 2026</span>
+        <h3>Executive Presence &amp; Delivery</h3>
+        <p>A focused session on tone, pacing, and presence for professionals preparing for high-stakes presentations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TRACK RECORD ===================== -->
+<section id="record">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="label">Track Record</span>
+      <h2>From intern to <em>international delegate.</em></h2>
+    </div>
+    <div class="timeline reveal">
+      <div class="timeline-row">
+        <span class="t-year">2022</span>
+        <div>
+          <div class="t-role">Club Secretary<span>SLIIT Gavel Club</span></div>
+          <p class="t-detail">All-Island Inter-University Best Speakers Finalist; Inter-University Debate Runners-Up; multiple public speaking competitions through 2024.</p>
+        </div>
+      </div>
+      <div class="timeline-row">
+        <span class="t-year">2024</span>
+        <div>
+          <div class="t-role">Executive, Group Human Resources<span>MAS Holdings — Oct 2024 to Apr 2025</span></div>
+          <p class="t-detail">Led university engagement and employer branding; built a new Career Fair productivity dashboard from scratch.</p>
+        </div>
+      </div>
+      <div class="timeline-row">
+        <span class="t-year">2025</span>
+        <div>
+          <div class="t-role">Communication Trainer<span>Beyond The Mic — Jan 2025 to Present</span></div>
+          <p class="t-detail">Conducted 50+ training sessions across corporate, university, and school levels on public speaking and communication.</p>
+        </div>
+      </div>
+      <div class="timeline-row">
+        <span class="t-year">2025</span>
+        <div>
+          <div class="t-role">Business Partner Executive, HR<span>Virtusa Corporation — Jul 2025 to Apr 2026</span></div>
+          <p class="t-detail">Managed end-to-end HR operations and engagement initiatives for 350 employees, including Sri Lanka's GPTW survey &amp; Culture Audit.</p>
+        </div>
+      </div>
+      <div class="timeline-row">
+        <span class="t-year">2025</span>
+        <div>
+          <div class="t-role">Contest Master<span>Toastmasters — Division F &amp; I Mid Year Conference, Nov 2025</span></div>
+          <p class="t-detail">Ran the speaking contest segment for a national joint-division conference.</p>
+        </div>
+      </div>
+      <div class="timeline-row">
+        <span class="t-year">2026</span>
+        <div>
+          <div class="t-role">Head of Business Development<span>AIESEC International Congress, UAE — Oct 2025 to Feb 2026</span></div>
+          <p class="t-detail">CCVP BD for the International Congress Core Committee 2026 — coordinating delegations across global chapters.</p>
+        </div>
+      </div>
+      <div class="timeline-row is-current">
+        <span class="t-year">2026</span>
+        <div>
+          <div class="t-role">Global Account Delivery Manager<span>AIESEC International — Global Support Team, Dec 2025 to Present</span></div>
+          <p class="t-detail">Business development role within AIESEC's international delegation, working across multiple country teams.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RECOGNITION ===================== -->
+<section id="recognition">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="label">Recognition</span>
+      <h2>Said by the people <em>in the room.</em></h2>
+    </div>
+    <div class="recog-grid reveal">
+      <div class="recog-item">
+        <span class="label">Legacy Awards Night, 2023</span>
+        <p>Best Emerging Incoming Global Volunteer (CXP, B2B) &amp; nominated Best Emerging Young Leader.</p>
+      </div>
+      <div class="recog-item">
+        <span class="label">Scouting, 2013–2019</span>
+        <p>President Sea Scout Award Winner — National Colours, Lyceum International School.</p>
+      </div>
+      <div class="recog-item">
+        <span class="label">SLIIT IEEE Inter-University Debate</span>
+        <p>Runners-Up — competed across multiple national public speaking competitions.</p>
+      </div>
+      <div class="recog-item">
+        <span class="label">University of Kelaniya</span>
+        <p>All-Island Inter-University Best Speakers — Finalist.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CREDENTIALS ===================== -->
+<section id="credentials">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="label">Credentials</span>
+      <h2>Always learning <em>the next thing.</em></h2>
+    </div>
+    <div class="creds-list reveal">
+      <div class="creds-row">
+        <span class="c-name">Brand Identity &amp; Strategy — Professional Certification</span>
+        <span class="c-org">IE Business School</span>
+      </div>
+      <div class="creds-row">
+        <span class="c-name">Data Analytics — Professional Certificate (in progress)</span>
+        <span class="c-org">Google</span>
+      </div>
+      <div class="creds-row">
+        <span class="c-name">Full Stack Developer — Software Engineering (in progress)</span>
+        <span class="c-org">IBM</span>
+      </div>
+      <div class="creds-row">
+        <span class="c-name">Sales Operations Professional — Certificate (in progress)</span>
+        <span class="c-org">Salesforce</span>
+      </div>
+      <div class="creds-row">
+        <span class="c-name">BSc in Information Technology (Hons.) — in progress, 2022–present</span>
+        <span class="c-org">SLIIT Malabe</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="cta" id="contact">
+  <div class="container">
+    <span class="label">Get in Touch</span>
+    <h2>Ready to find<span class="accent-word">your voice?</span></h2>
+    <div class="cta-links">
+      <a class="cta-link" href="mailto:eranbwt27@gmail.com">EMAIL — eranbwt27@gmail.com</a>
+      <a class="cta-link" href="tel:+94765900817">CALL — +94 76 590 0817</a>
+      <a class="cta-link" href="https://www.linkedin.com/in/eranga-bowatte" target="_blank" rel="noopener">LINKEDIN — Eranga Bowatte</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Eranga Bowatte</span>
+  <span>Growth · Impact · Redefine</span>
+</footer>
+
+<script>
+  /* ---- Custom cursor ---- */
+  const dot = document.getElementById('cursorDot');
+  const ring = document.getElementById('cursorRing');
+  let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+  let rx = mx, ry = my;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.left = mx + 'px';
+    dot.style.top  = my + 'px';
+  });
+
+  // Ring follows with lag
+  function animateRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top  = ry + 'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  // Hover state for interactive elements
+  document.querySelectorAll('a, button, .film-item, .offer-row, .session-card, .timeline-row, .cta-link').forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+  });
+
+  /* ---- Hero waveform generation ---- */
+  const wf = document.getElementById('heroWaveform');
+  const heights = [10,28,16,38,22,40,18,34,26,40,14,30,20,38,24,40,16,32,28,38,18,34];
+  heights.forEach((h, i) => {
+    const bar = document.createElement('div');
+    bar.className = 'bar';
+    bar.style.height = h + 'px';
+    bar.style.animationDelay = (i * 0.07) + 's';
+    wf.appendChild(bar);
+  });
+
+  /* ---- Scroll reveal with fade-out ---- */
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        entry.target.classList.remove('out');
+      } else {
+        // Only fade-out elements that have already been revealed
+        if (entry.target.classList.contains('in')) {
+          entry.target.classList.add('out');
+        }
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+  revealEls.forEach(el => revealIO.observe(el));
+
+  /* ---- Journey nodes animate in ---- */
+  const journeyNodes = document.querySelectorAll('.journey-node');
+  const journeyIO = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      journeyNodes.forEach((node, i) => {
+        const delay = parseInt(node.dataset.delay || 0);
+        setTimeout(() => {
+          node.classList.add('visible');
+          // Light up past nodes
+          if (!node.classList.contains('today')) node.classList.add('lit');
+        }, delay);
+      });
+      journeyIO.disconnect();
+    }
+  }, { threshold: 0.2 });
+  const journeyGraphic = document.getElementById('journeyGraphic');
+  if (journeyGraphic) journeyIO.observe(journeyGraphic);
+
+  /* ---- Dynamic timeline scroll highlight ---- */
+  const timelineRows = document.querySelectorAll('.timeline-row');
+
+  function updateTimeline() {
+    if (!timelineRows.length) return;
+    const viewMid = window.innerHeight * 0.45;
+    let closestDist = Infinity;
+    let closestIdx = 0;
+    timelineRows.forEach((row, i) => {
+      const rect = row.getBoundingClientRect();
+      const rowMid = rect.top + rect.height / 2;
+      const dist = Math.abs(rowMid - viewMid);
+      if (dist < closestDist) { closestDist = dist; closestIdx = i; }
+    });
+    timelineRows.forEach((row, i) => {
+      row.classList.remove('tl-active', 'tl-dim', 'is-current');
+      if (i === closestIdx) {
+        row.classList.add('tl-active');
+      } else {
+        row.classList.add('tl-dim');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateTimeline, { passive: true });
+  updateTimeline();
+</script>
+
+</body>
+</html>
