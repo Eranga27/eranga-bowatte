@@ -1473,11 +1473,11 @@
   <div class="banner-stats-side">
     <h3 class="stats-headline">By the Numbers</h3>
     <div class="stat-row">
-      <span class="stat-number">75+</span>
+      <span class="stat-number"><span class="counter" data-target="75">0</span>+</span>
       <span class="stat-label">Sessions<br>Conducted</span>
     </div>
     <div class="stat-row">
-      <span class="stat-number">1,000+</span>
+      <span class="stat-number"><span class="counter" data-target="1000">0</span>+</span>
       <span class="stat-label">Attendees<br>Reached</span>
     </div>
   </div>
@@ -1967,6 +1967,46 @@
   }
   window.addEventListener('scroll', updateProgress, { passive: true });
   updateProgress();
+
+  /* ---- Number Counter Animation ---- */
+  const counterSpeed = 40; // controls the medium pace
+
+  const counterIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const sectionCounters = entry.target.querySelectorAll('.counter');
+        sectionCounters.forEach(counter => {
+          const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const currentString = counter.innerText.replace(/,/g, '');
+            const count = +currentString;
+            
+            const inc = target / counterSpeed;
+            
+            if (count < target) {
+              counter.innerText = Math.ceil(count + inc).toLocaleString();
+              setTimeout(updateCount, 30);
+            } else {
+              counter.innerText = target.toLocaleString();
+            }
+          };
+          updateCount();
+        });
+      } else {
+        // Reset to 0 when section leaves the screen to replay on return
+        const sectionCounters = entry.target.querySelectorAll('.counter');
+        sectionCounters.forEach(counter => {
+          counter.innerText = '0';
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const statsSection = document.querySelector('.banner-stats-side');
+  if (statsSection) {
+    counterIO.observe(statsSection);
+  }
+
 </script>
 
 </body>
