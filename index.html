@@ -67,7 +67,12 @@
   html{scroll-behavior:smooth;}
 
   body{
-    background:var(--ink);
+    background: #0B0A09;
+    background-image:
+      radial-gradient(ellipse 90% 60% at 0% 0%,   rgba(195,140,6,0.10) 0%, transparent 55%),
+      radial-gradient(ellipse 80% 55% at 100% 100%, rgba(180,120,4,0.08) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 40% at 50% 50%,  rgba(150,100,3,0.04) 0%, transparent 65%);
+    background-attachment: fixed;
     color:var(--paper);
     font-family:'Inter',sans-serif;
     font-weight:400;
@@ -102,6 +107,24 @@
   @media (max-width:768px){
     section{padding:80px 0;}
     .container{padding:0 24px;}
+  }
+
+  /* ---------- Scroll Progress Bar ---------- */
+  .scroll-bar{
+    position:fixed;
+    top:0; left:0;
+    height:2px;
+    width:0%;
+    background:linear-gradient(90deg, #FF6A1A 0%, #D4AF37 60%, #FF6A1A 100%);
+    background-size:200% 100%;
+    z-index:200;
+    transition:width 0.08s linear;
+    animation:shimmer 3s linear infinite;
+  }
+
+  @keyframes shimmer{
+    0%  { background-position: 0%   50%; }
+    100%{ background-position: 200% 50%; }
   }
 
   /* ---------- Nav ---------- */
@@ -1008,6 +1031,9 @@
 </head>
 <body>
 
+<!-- Scroll Progress Bar -->
+<div class="scroll-bar" id="scrollBar"></div>
+
 <!-- Custom Cursor -->
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="cursor-ring" id="cursorRing"></div>
@@ -1503,6 +1529,17 @@
 
   window.addEventListener('scroll', updateTimeline, { passive: true });
   updateTimeline();
+
+  /* ---- Scroll progress bar ---- */
+  const scrollBar = document.getElementById('scrollBar');
+  function updateProgress() {
+    const scrolled  = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrolled / docHeight) * 100 : 0;
+    scrollBar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
 </script>
 
 </body>
