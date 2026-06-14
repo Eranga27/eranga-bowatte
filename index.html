@@ -133,7 +133,7 @@
     top:0; left:0; right:0;
     z-index:100;
     display:flex;
-    justify-content:flex-end;
+    justify-content:space-between;
     align-items:center;
     padding:28px 40px;
     color:var(--paper);
@@ -164,6 +164,54 @@
 
   .nav-links{ display:flex; gap:36px; }
 
+  /* ---------- Audio Button ---------- */
+  .audio-toggle{
+    background:none;
+    border:none;
+    color:var(--paper);
+    font-family:'Space Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    cursor:pointer;
+    opacity:0.6;
+    transition:opacity 0.25s ease, color 0.25s ease;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .audio-toggle:hover{
+    opacity:1;
+    color:#FF6A1A;
+  }
+  .audio-bars{
+    display:flex;
+    gap:2px;
+    height:12px;
+    align-items:flex-end;
+  }
+  .audio-bars span{
+    display:block;
+    width:2px;
+    background:currentColor;
+    border-radius:1px;
+    transition:height 0.2s ease;
+  }
+  .audio-bars span:nth-child(1){height:4px;}
+  .audio-bars span:nth-child(2){height:8px;}
+  .audio-bars span:nth-child(3){height:6px;}
+  
+  .audio-toggle.playing .audio-bars span{
+    animation: bounce 1s ease infinite alternate;
+  }
+  .audio-toggle.playing .audio-bars span:nth-child(2){ animation-delay: 0.2s; }
+  .audio-toggle.playing .audio-bars span:nth-child(3){ animation-delay: 0.4s; }
+  
+  @keyframes bounce {
+    0% { height: 3px; }
+    100% { height: 12px; }
+  }
+
   /* Hamburger button — hidden on desktop */
   .nav-toggle{
     display:none;
@@ -189,7 +237,7 @@
   @media (max-width:768px){
     nav{
       padding:20px 24px;
-      justify-content:flex-end;
+      justify-content:space-between;
       mix-blend-mode:normal;
       background:rgba(11,10,9,0.95);
       /* NO backdrop-filter here — it would trap fixed children inside the nav bar */
@@ -1137,7 +1185,18 @@
   <a href="#contact">Contact</a>
 </div>
 
+<audio id="bgMusic" loop preload="none">
+  <source src="images/bg-music.mp3" type="audio/mpeg">
+</audio>
+
 <nav>
+  <button class="audio-toggle" id="audioToggle" aria-label="Toggle background music">
+    <span>Music</span>
+    <div class="audio-bars">
+      <span></span><span></span><span></span>
+    </div>
+  </button>
+
   <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
@@ -1558,6 +1617,23 @@
   // Close when tapping backdrop (outside the link area)
   mobileMenu.addEventListener('click', e => {
     if (e.target === mobileMenu) closeMenu();
+  });
+
+  /* ---- Background Music Toggle ---- */
+  const audioToggle = document.getElementById('audioToggle');
+  const bgMusic = document.getElementById('bgMusic');
+  
+  // Set initial volume low so it's subtle
+  bgMusic.volume = 0.2;
+
+  audioToggle.addEventListener('click', () => {
+    if (bgMusic.paused) {
+      bgMusic.play();
+      audioToggle.classList.add('playing');
+    } else {
+      bgMusic.pause();
+      audioToggle.classList.remove('playing');
+    }
   });
 
   /* ---- Custom cursor (mouse only) ---- */
