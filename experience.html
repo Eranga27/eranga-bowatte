@@ -1182,14 +1182,28 @@
   @media (max-width:768px){
     .accordion-container{
       flex-direction:column;
-      height:600px;
+      height:auto;
+    }
+    .acc-card {
+      flex:none;
+      height: 180px;
     }
     .acc-card h3{
-      transform:translate(-50%, 50%) rotate(0deg);
+      position:relative;
+      bottom:0;
+      left:0;
+      transform:none;
       opacity:1;
+      white-space:normal;
+      text-align:center;
+      text-shadow:0 2px 10px rgba(0,0,0,0.5);
+    }
+    .acc-card::before{
+      background:linear-gradient(to top, rgba(11,10,9,0.95) 0%, transparent 60%);
     }
     .acc-card:hover, .acc-card.active{
-      flex:3;
+      flex:none;
+      height: 180px;
     }
   }
 
@@ -1326,12 +1340,14 @@
   <button class="mobile-menu-close" id="mobileClose" aria-label="Close menu">
     <span></span><span></span>
   </button>
-  <a href="#story">Story</a>
-  <a href="#work">Training</a>
-  <a href="#gallery">In the Room</a>
-  <a href="#sessions">Sessions</a>
-  <a href="#record">Record</a>
-  <a href="#contact">Contact</a>
+  <a href="index.html#top">Home</a>
+  <a href="index.html#story">Story</a>
+  <a href="#experience-rollup">Experience</a>
+  <a href="index.html#work">Training</a>
+  <a href="index.html#gallery">In the Room</a>
+  <a href="index.html#sessions">Sessions</a>
+  <a href="index.html#record">Record</a>
+  <a href="index.html#contact">Contact</a>
 </div>
 
 <audio id="bgMusic" loop preload="none">
@@ -1354,12 +1370,14 @@
     <span></span><span></span><span></span>
   </button>
   <div class="nav-links" id="navLinks">
-    <a href="#story">Story</a>
-    <a href="#work">Training</a>
-    <a href="#gallery">In the Room</a>
-    <a href="#sessions">Sessions</a>
-    <a href="#record">Record</a>
-    <a href="#contact">Contact</a>
+    <a href="index.html#top">Home</a>
+    <a href="index.html#story">Story</a>
+    <a href="#experience-rollup">Experience</a>
+    <a href="index.html#work">Training</a>
+    <a href="index.html#gallery">In the Room</a>
+    <a href="index.html#sessions">Sessions</a>
+    <a href="index.html#record">Record</a>
+    <a href="index.html#contact">Contact</a>
   </div>
 </nav>
 
