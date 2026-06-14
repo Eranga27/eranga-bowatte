@@ -1278,6 +1278,23 @@
     opacity: 0.5;
   }
 
+  /* ---------- 5-image row grid (IIT Business School) ---------- */
+  .media-grid-5 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+    margin-top: 24px;
+  }
+  @media (max-width: 900px) {
+    .media-grid-5 { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .media-grid-5 { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .media-grid-5 { grid-template-columns: 1fr; }
+  }
+
   /* ---------- Reveal on scroll (fade in + fade out) ---------- */
   .reveal.out{
     opacity:0;
@@ -1626,6 +1643,41 @@
         <!-- Image 4 -->
         <div class="exp-media-item">
           <img src="images/solo-branding-4.jpg" alt="Personal Branding Session">
+        </div>
+      </div>
+    </div>
+
+    <!-- You are a Brand - IIT Business School -->
+    <div class="exp-entry reveal">
+      <h3 class="exp-entry-title">You are a Brand – Tips for Personal Branding</h3>
+      <div class="exp-entry-meta">IIT Business School — Informatics Institute of Technology</div>
+      <p class="exp-entry-desc">
+        My second session conducted for Informatics Institute of Technology, this time for their Business School. The interaction was lively — the students truly knew how to make a session worth being done. The energy in the room was palpable, with genuine curiosity and engagement that made every moment memorable.
+      </p>
+
+      <!-- YouTube — Main Feature -->
+      <div class="exp-media-grid" style="margin-bottom:0;">
+        <div class="exp-media-item" style="grid-column: 1 / -1; aspect-ratio: 21/9;">
+          <iframe src="https://www.youtube.com/embed/ca3BqS4o9PM" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- 5 images — perfectly aligned row -->
+      <div class="media-grid-5">
+        <div class="exp-media-item">
+          <img src="images/iit-business-1.jpg" alt="IIT Business School Personal Branding Session">
+        </div>
+        <div class="exp-media-item">
+          <img src="images/iit-business-2.jpg" alt="IIT Business School Personal Branding Session">
+        </div>
+        <div class="exp-media-item">
+          <img src="images/iit-business-3.jpg" alt="IIT Business School Personal Branding Session">
+        </div>
+        <div class="exp-media-item">
+          <img src="images/iit-business-4.jpg" alt="IIT Business School Personal Branding Session">
+        </div>
+        <div class="exp-media-item">
+          <img src="images/iit-business-5.jpg" alt="IIT Business School Personal Branding Session">
         </div>
       </div>
     </div>
