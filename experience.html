@@ -664,94 +664,6 @@
     }
   }
 
-  /* ---------- Cinematic Accordion ---------- */
-  .accordion-container{
-    display:flex;
-    gap:16px;
-    height:500px;
-    width:100%;
-    margin-top:40px;
-  }
-  .acc-card{
-    position:relative;
-    flex:1;
-    border-radius:12px;
-    background-size:cover;
-    background-position:center;
-    overflow:hidden;
-    transition:flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-    cursor:pointer;
-    text-decoration:none;
-    display:flex;
-  }
-  .acc-card::before{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:linear-gradient(to top, rgba(11,10,9,0.95) 0%, rgba(11,10,9,0.4) 40%, rgba(11,10,9,0.4) 100%);
-    transition:background 0.6s ease;
-  }
-  .acc-card:hover, .acc-card.active{
-    flex:4;
-  }
-  .acc-card:hover::before, .acc-card.active::before{
-    background:linear-gradient(to top, rgba(11,10,9,0.95) 0%, transparent 40%);
-  }
-  .acc-content{
-    position:relative;
-    z-index:2;
-    width:100%;
-    height:100%;
-    display:flex;
-    align-items:flex-end;
-    justify-content:center;
-    padding:40px 24px;
-  }
-  .acc-card h3{
-    font-family:'Inter', sans-serif;
-    font-weight:700;
-    font-size:1.1rem;
-    color:var(--paper);
-    letter-spacing:0.05em;
-    text-transform:uppercase;
-    margin:0;
-    transition:all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-    
-    /* Default collapsed state: Vertical */
-    position:absolute;
-    bottom:50%;
-    left:50%;
-    transform:translate(-50%, 50%) rotate(-90deg);
-    white-space:nowrap;
-    opacity:0.6;
-  }
-  .acc-card:hover h3, .acc-card.active h3{
-    /* Expanded state: Horizontal bottom */
-    position:relative;
-    bottom:0;
-    left:0;
-    transform:translate(0, 0) rotate(0deg);
-    opacity:1;
-    white-space:normal;
-    text-align:center;
-    font-size:1.4rem;
-    text-shadow:0 2px 10px rgba(0,0,0,0.5);
-  }
-  
-  @media (max-width:768px){
-    .accordion-container{
-      flex-direction:column;
-      height:600px;
-    }
-    .acc-card h3{
-      transform:translate(-50%, 50%) rotate(0deg);
-      opacity:1;
-    }
-    .acc-card:hover, .acc-card.active{
-      flex:3;
-    }
-  }
-
   /* ---------- What I do ---------- */
   .offer-list{
     display:flex;
@@ -1193,16 +1105,95 @@
     footer{ padding:24px; flex-direction:column; align-items:center; text-align:center; gap:8px; font-size:0.62rem; }
   }
 
-  /* ---------- Reveal on scroll (fade in + fade out) ---------- */
-  .reveal{
-    opacity:0;
-    transform:translateY(32px);
-    transition:opacity 0.85s cubic-bezier(0.4,0,0.2,1), transform 0.85s cubic-bezier(0.4,0,0.2,1);
+  /* ---------- Cinematic Accordion ---------- */
+  .accordion-container{
+    display:flex;
+    gap:16px;
+    height:500px;
+    width:100%;
+    margin-top:40px;
   }
-  .reveal.in{
+  .acc-card{
+    position:relative;
+    flex:1;
+    border-radius:12px;
+    background-size:cover;
+    background-position:center;
+    overflow:hidden;
+    transition:flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    cursor:pointer;
+    text-decoration:none;
+    display:flex;
+  }
+  .acc-card::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top, rgba(11,10,9,0.95) 0%, rgba(11,10,9,0.4) 40%, rgba(11,10,9,0.4) 100%);
+    transition:background 0.6s ease;
+  }
+  .acc-card:hover, .acc-card.active{
+    flex:4;
+  }
+  .acc-card:hover::before, .acc-card.active::before{
+    background:linear-gradient(to top, rgba(11,10,9,0.95) 0%, transparent 40%);
+  }
+  .acc-content{
+    position:relative;
+    z-index:2;
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    padding:40px 24px;
+  }
+  .acc-card h3{
+    font-family:'Inter', sans-serif;
+    font-weight:700;
+    font-size:1.1rem;
+    color:var(--paper);
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    margin:0;
+    transition:all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    
+    /* Default collapsed state: Vertical */
+    position:absolute;
+    bottom:50%;
+    left:50%;
+    transform:translate(-50%, 50%) rotate(-90deg);
+    white-space:nowrap;
+    opacity:0.6;
+  }
+  .acc-card:hover h3, .acc-card.active h3{
+    /* Expanded state: Horizontal bottom */
+    position:relative;
+    bottom:0;
+    left:0;
+    transform:translate(0, 0) rotate(0deg);
     opacity:1;
-    transform:translateY(0);
+    white-space:normal;
+    text-align:center;
+    font-size:1.4rem;
+    text-shadow:0 2px 10px rgba(0,0,0,0.5);
   }
+  
+  @media (max-width:768px){
+    .accordion-container{
+      flex-direction:column;
+      height:600px;
+    }
+    .acc-card h3{
+      transform:translate(-50%, 50%) rotate(0deg);
+      opacity:1;
+    }
+    .acc-card:hover, .acc-card.active{
+      flex:3;
+    }
+  }
+
+  /* ---------- Reveal on scroll (fade in + fade out) ---------- */
   .reveal.out{
     opacity:0;
     transform:translateY(-24px);
@@ -1336,7 +1327,6 @@
     <span></span><span></span>
   </button>
   <a href="#story">Story</a>
-  <a href="experience.html">Experience</a>
   <a href="#work">Training</a>
   <a href="#gallery">In the Room</a>
   <a href="#sessions">Sessions</a>
@@ -1365,7 +1355,6 @@
   </button>
   <div class="nav-links" id="navLinks">
     <a href="#story">Story</a>
-    <a href="experience.html">Experience</a>
     <a href="#work">Training</a>
     <a href="#gallery">In the Room</a>
     <a href="#sessions">Sessions</a>
@@ -1373,98 +1362,6 @@
     <a href="#contact">Contact</a>
   </div>
 </nav>
-
-<!-- ===================== HERO ===================== -->
-<header class="hero" id="top">
-  <div class="hero-bg">
-    <video
-      autoplay
-      muted
-      loop
-      playsinline
-      disablepictureinpicture
-      preload="auto"
-      aria-hidden="true">
-      <source src="images/hero.mp4" type="video/mp4">
-      <source src="images/hero.webm" type="video/webm">
-    </video>
-  </div>
-  <div class="hero-content">
-    <div class="container">
-      <div class="hero-eyebrow">
-        <span class="line"></span>
-        <span class="label">Communication Trainer · Public Speaker · Comperer</span>
-      </div>
-      <h1 class="headline">Your voice is louder<span class="accent-word">than your fear.</span></h1>
-      <p class="hero-sub">I'm Eranga Bowatte, once unable to speak in front of a room, now training others to find the words they didn't know they had. Based in Sri Lanka, working globally.</p>
-
-      <div class="hero-meta">
-        <div class="waveform" id="heroWaveform"></div>
-      </div>
-    </div>
-  </div>
-</header>
-
-<!-- ===================== THE PAUSE / STORY ===================== -->
-<section id="story">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="label">Glimpse of the Journey — Section I</span>
-      <h2>Before the words came, <em>there was silence.</em></h2>
-    </div>
-    <div class="story-grid reveal">
-      <div class="story-text">
-        <p>Till I was the age of 15, speaking in front of people wasn't difficult, it was paralysing. I'd freeze, lose my place and shrink into the back row whenever a room turned its attention toward me.</p>
-        <p>What changed wasn't a single moment. It was <strong>years of small, deliberate repetitions</strong>, from starting my own YouTube Channel to joining clubs, taking the mic when I didn't want to, getting it wrong in front of people and trying again the next week.</p>
-        <p>That gradual climb took me from a quiet kid avoiding eye contact to <strong>a Contest Master at a national Toastmasters conference</strong>, multiple recognitions in national public speaking championships and debating championships, hosting/compering in events I never thought I would be able to, and someone who now runs training sessions in diverse subjects for everyone I believe who are capable of excelling themselves they never imagined.</p>
-        <p>I built and is passionate about this work because <strong>I know exactly where the fear lives</strong> , and exactly what it takes to talk it down.</p>
-      </div>
-      <div class="journey-graphic" id="journeyGraphic">
-        <div class="journey-path">
-          <div class="journey-node" data-delay="0">
-            <div class="journey-label">Until Age 15 — The Freeze</div>
-            <div class="journey-text">A quiet kid in the back row. Room turns. Heart stops. Nothing comes out.</div>
-          </div>
-          <div class="journey-node" data-delay="150">
-            <div class="journey-label">Intra-University Best Speakers Championship — First Verbal Competition</div>
-            <div class="journey-text">Joined SLIIT Gavel Club. First speech: first 90 seconds felt like 90 minutes. Showed up anyway and was able to defeat my odds.</div>
-          </div>
-          <div class="journey-node" data-delay="300">
-            <div class="journey-label">National Competitions — Earning the Stage</div>
-            <div class="journey-text">Multiple recognitions in national public speaking championships and debating championships. Final Competition result was Runners-Up, IEEE Inter-University Debate Championship.</div>
-          </div>
-          <div class="journey-node" data-delay="450">
-            <div class="journey-label">Hosting &amp; Compering</div>
-            <div class="journey-text">Hosting and compering events I never thought I would be able to stand in front of, from campus/military stages to national conferences.</div>
-          </div>
-          <div class="journey-node today" data-delay="600">
-            <div class="journey-label">Today — Corporate Communicational Trainer</div>
-            <div class="journey-text">50+ sessions. Corporates, universities, schools. Training the same nervous speakers I used to be.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== CINEMATIC BANNER ===================== -->
-<div class="banner-split reveal">
-  <div class="banner-img-side">
-    <img src="images/mic4.jpg" alt="Eranga Bowatte presenting to an audience with a microphone">
-    <span class="banner-caption">Beyond The Mic — Training Session</span>
-  </div>
-  <div class="banner-stats-side">
-    <h3 class="stats-headline">By the Numbers</h3>
-    <div class="stat-row">
-      <span class="stat-number">75+</span>
-      <span class="stat-label">Sessions<br>Conducted</span>
-    </div>
-    <div class="stat-row">
-      <span class="stat-number">1,000+</span>
-      <span class="stat-label">Attendees<br>Reached</span>
-    </div>
-  </div>
-</div>
 
 <!-- ===================== EXPERIENCE ROLL-UP ===================== -->
 <section id="experience-rollup" style="padding-top:140px;">
@@ -1474,17 +1371,17 @@
       <h2>My Core <em>Experience</em></h2>
     </div>
     <div class="accordion-container reveal">
-      <a href="experience.html#branding" class="acc-card active" style="background-image:url('images/mic4.jpg');">
+      <a href="#branding" class="acc-card active" style="background-image:url('images/mic4.jpg');">
         <div class="acc-content">
           <h3>Personal Branding</h3>
         </div>
       </a>
-      <a href="experience.html#training" class="acc-card" style="background-image:url('images/training-session.jpg');">
+      <a href="#training" class="acc-card" style="background-image:url('images/training-session.jpg');">
         <div class="acc-content">
           <h3>Communication Trainings</h3>
         </div>
       </a>
-      <a href="experience.html#emcee" class="acc-card" style="background-image:url('images/team.jpg');">
+      <a href="#emcee" class="acc-card" style="background-image:url('images/team.jpg');">
         <div class="acc-content">
           <h3>Emcee / Hosting</h3>
         </div>
@@ -1493,281 +1390,41 @@
   </div>
 </section>
 
-<!-- ===================== WHAT I DO ===================== -->
-<section id="work">
+<!-- ===================== 1. PERSONAL BRANDING ===================== -->
+<section id="branding" style="padding-top:100px; min-height:60vh;">
   <div class="container">
     <div class="section-head reveal">
-      <span class="label">What I Do</span>
-      <h2>Training built for <em>real rooms</em>, not theory.</h2>
+      <span class="label">Sector 01</span>
+      <h2>Personal <em>Branding</em></h2>
     </div>
-    <div class="offer-list reveal">
-      <div class="offer-row">
-        <span class="offer-num">01</span>
-        <h3>Public Speaking &amp; Confidence</h3>
-        <p>Hands-on sessions for individuals and teams who freeze up at the mic — built from a method I used on myself first. Delivered to corporate, university, and school audiences.</p>
-      </div>
-      <div class="offer-row">
-        <span class="offer-num">02</span>
-        <h3>Communication Workshops</h3>
-        <p>50+ sessions run on clarity, structure, and delivery — helping teams communicate decisions, pitches, and feedback without losing the room.</p>
-      </div>
-      <div class="offer-row">
-        <span class="offer-num">03</span>
-        <h3>Brand &amp; HR Communication</h3>
-        <p>Employer branding, engagement campaigns, and internal communications — grounded in HR experience managing initiatives for 350+ employees.</p>
-      </div>
+    <div class="reveal" style="color:var(--stone); max-width:600px; line-height:1.8;">
+      <p>This is a placeholder for your detailed text on Personal Branding. You can describe your unique "WOW" factor, your approaches, and past successes in building personal brands for clients and individuals.</p>
     </div>
   </div>
 </section>
 
-<!-- ===================== FILMSTRIP GALLERY ===================== -->
-<section id="gallery">
-  <div class="container filmstrip-head">
-    <div class="section-head reveal" style="margin-bottom:0;">
-      <span class="label">In the Room</span>
-      <h2>Moments from <em>the stage and the floor.</em></h2>
-    </div>
-  </div>
-  <div class="filmstrip reveal">
-    <div class="film-item landscape">
-      <img src="images/training-session.jpg" alt="Training session with university students" style="object-position:center;">
-      <span class="film-tag">University Training Session</span>
-    </div>
-    <div class="film-item portrait">
-      <img src="images/mic2.jpg" alt="Eranga Bowatte mid-speech with microphone">
-      <span class="film-tag">Beyond The Mic</span>
-    </div>
-    <div class="film-item landscape">
-      <img src="images/team.jpg" alt="Virtusa HR team group photo">
-      <span class="film-tag">Virtusa HR Team</span>
-    </div>
-    <div class="film-item portrait">
-      <img src="images/mic3.jpg" alt="Eranga Bowatte speaking on stage">
-      <span class="film-tag">On Stage</span>
-    </div>
-    <div class="film-item landscape">
-      <img src="images/stage.jpg" alt="Presenting in a lecture hall">
-      <span class="film-tag">Lecture Hall Session</span>
-    </div>
-    <div class="film-item portrait">
-      <img src="images/kids.jpg" alt="Eranga Bowatte engaging with children at an event">
-      <span class="film-tag">Community Engagement</span>
-    </div>
-    <div class="film-item landscape">
-      <img src="images/mic1.jpg" alt="Eranga Bowatte smiling during a session">
-      <span class="film-tag">Workshop Floor</span>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== SESSIONS ===================== -->
-<section id="sessions">
+<!-- ===================== 2. COMMUNICATION TRAININGS ===================== -->
+<section id="training" style="padding-top:100px; min-height:60vh;">
   <div class="container">
     <div class="section-head reveal">
-      <span class="label">Sessions Conducted</span>
-      <h2>Workshops &amp; talks <em>delivered so far.</em></h2>
+      <span class="label">Sector 02</span>
+      <h2>Communication <em>Trainings</em></h2>
     </div>
-    <div class="sessions-grid reveal">
-      <div class="session-card">
-        <div class="session-thumb">
-          <div class="placeholder-mark">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
-            <span>Photo coming soon</span>
-          </div>
-        </div>
-        <span class="session-meta">University · 2025</span>
-        <h3>Public Speaking Fundamentals</h3>
-        <p>An introductory session on overcoming stage fear, structuring talks, and commanding a room — delivered to first-year students.</p>
-      </div>
-      <div class="session-card">
-        <div class="session-thumb">
-          <div class="placeholder-mark">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
-            <span>Photo coming soon</span>
-          </div>
-        </div>
-        <span class="session-meta">Corporate · 2025</span>
-        <h3>Communication Skills Workshop</h3>
-        <p>A half-day workshop on clarity, structure, and confident delivery for cross-functional teams in a corporate setting.</p>
-      </div>
-      <div class="session-card">
-        <div class="session-thumb">
-          <div class="placeholder-mark">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
-            <span>Photo coming soon</span>
-          </div>
-        </div>
-        <span class="session-meta">School · 2025</span>
-        <h3>Confidence Building for Students</h3>
-        <p>An interactive session helping school students build confidence in expressing themselves in front of peers and teachers.</p>
-      </div>
-      <div class="session-card">
-        <div class="session-thumb">
-          <div class="placeholder-mark">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
-            <span>Photo coming soon</span>
-          </div>
-        </div>
-        <span class="session-meta">Toastmasters · 2025</span>
-        <h3>Contest Master, Mid Year Conference</h3>
-        <p>Led the speaking contest segment for a national joint-division Toastmasters conference, Division F &amp; I.</p>
-      </div>
-      <div class="session-card">
-        <div class="session-thumb">
-          <div class="placeholder-mark">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
-            <span>Photo coming soon</span>
-          </div>
-        </div>
-        <span class="session-meta">Community · 2025</span>
-        <h3>Communication Training for Volunteers</h3>
-        <p>Practical communication training for AIESEC volunteers preparing for international exchange and delegation work.</p>
-      </div>
-      <div class="session-card">
-        <div class="session-thumb">
-          <div class="placeholder-mark">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
-            <span>Photo coming soon</span>
-          </div>
-        </div>
-        <span class="session-meta">Corporate · 2026</span>
-        <h3>Executive Presence &amp; Delivery</h3>
-        <p>A focused session on tone, pacing, and presence for professionals preparing for high-stakes presentations.</p>
-      </div>
+    <div class="reveal" style="color:var(--stone); max-width:600px; line-height:1.8;">
+      <p>This is a placeholder for your detailed text on Communication Trainings. Detail the 75+ sessions, audience engagement strategies, and communication development frameworks you use.</p>
     </div>
   </div>
 </section>
 
-<!-- ===================== TRACK RECORD ===================== -->
-<section id="record">
+<!-- ===================== 3. EMCEE / HOSTING ===================== -->
+<section id="emcee" style="padding-top:100px; padding-bottom:100px; min-height:60vh;">
   <div class="container">
     <div class="section-head reveal">
-      <span class="label">Track Record</span>
-      <h2>From intern to <em>international delegate.</em></h2>
+      <span class="label">Sector 03</span>
+      <h2>Emcee / <em>Hosting</em></h2>
     </div>
-    <div class="timeline reveal">
-      <div class="timeline-row">
-        <span class="t-year">2022</span>
-        <div>
-          <div class="t-role">Club Secretary<span>SLIIT Gavel Club</span></div>
-          <p class="t-detail">All-Island Inter-University Best Speakers Finalist; Inter-University Debate Runners-Up; multiple public speaking competitions through 2024.</p>
-        </div>
-      </div>
-      <div class="timeline-row">
-        <span class="t-year">2024</span>
-        <div>
-          <div class="t-role">Executive, Group Human Resources<span>MAS Holdings — Oct 2024 to Apr 2025</span></div>
-          <p class="t-detail">Led university engagement and employer branding; built a new Career Fair productivity dashboard from scratch.</p>
-        </div>
-      </div>
-      <div class="timeline-row">
-        <span class="t-year">2025</span>
-        <div>
-          <div class="t-role">Communication Trainer<span>Beyond The Mic — Jan 2025 to Present</span></div>
-          <p class="t-detail">Conducted 50+ training sessions across corporate, university, and school levels on public speaking and communication.</p>
-        </div>
-      </div>
-      <div class="timeline-row">
-        <span class="t-year">2025</span>
-        <div>
-          <div class="t-role">Business Partner Executive, HR<span>Virtusa Corporation — Jul 2025 to Apr 2026</span></div>
-          <p class="t-detail">Managed end-to-end HR operations and engagement initiatives for 350 employees, including Sri Lanka's GPTW survey &amp; Culture Audit.</p>
-        </div>
-      </div>
-      <div class="timeline-row">
-        <span class="t-year">2025</span>
-        <div>
-          <div class="t-role">Contest Master<span>Toastmasters — Division F &amp; I Mid Year Conference, Nov 2025</span></div>
-          <p class="t-detail">Ran the speaking contest segment for a national joint-division conference.</p>
-        </div>
-      </div>
-      <div class="timeline-row">
-        <span class="t-year">2026</span>
-        <div>
-          <div class="t-role">Head of Business Development<span>AIESEC International Congress, UAE — Oct 2025 to Feb 2026</span></div>
-          <p class="t-detail">CCVP BD for the International Congress Core Committee 2026 — coordinating delegations across global chapters.</p>
-        </div>
-      </div>
-      <div class="timeline-row is-current">
-        <span class="t-year">2026</span>
-        <div>
-          <div class="t-role">Global Account Delivery Manager<span>AIESEC International — Global Support Team, Dec 2025 to Present</span></div>
-          <p class="t-detail">Business development role within AIESEC's international delegation, working across multiple country teams.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== RECOGNITION ===================== -->
-<section id="recognition">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="label">Recognition</span>
-      <h2>Said by the people <em>in the room.</em></h2>
-    </div>
-    <div class="recog-grid reveal">
-      <div class="recog-item">
-        <span class="label">Legacy Awards Night, 2023</span>
-        <p>Best Emerging Incoming Global Volunteer (CXP, B2B) &amp; nominated Best Emerging Young Leader.</p>
-      </div>
-      <div class="recog-item">
-        <span class="label">Scouting, 2013–2019</span>
-        <p>President Sea Scout Award Winner — National Colours, Lyceum International School.</p>
-      </div>
-      <div class="recog-item">
-        <span class="label">SLIIT IEEE Inter-University Debate</span>
-        <p>Runners-Up — competed across multiple national public speaking competitions.</p>
-      </div>
-      <div class="recog-item">
-        <span class="label">University of Kelaniya</span>
-        <p>All-Island Inter-University Best Speakers — Finalist.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== CREDENTIALS ===================== -->
-<section id="credentials">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="label">Credentials</span>
-      <h2>Always learning <em>the next thing.</em></h2>
-    </div>
-    <div class="creds-list reveal">
-      <div class="creds-row">
-        <span class="c-name">Brand Identity &amp; Strategy — Professional Certification</span>
-        <span class="c-org">IE Business School</span>
-      </div>
-      <div class="creds-row">
-        <span class="c-name">Data Analytics — Professional Certificate (in progress)</span>
-        <span class="c-org">Google</span>
-      </div>
-      <div class="creds-row">
-        <span class="c-name">Full Stack Developer — Software Engineering (in progress)</span>
-        <span class="c-org">IBM</span>
-      </div>
-      <div class="creds-row">
-        <span class="c-name">Sales Operations Professional — Certificate (in progress)</span>
-        <span class="c-org">Salesforce</span>
-      </div>
-      <div class="creds-row">
-        <span class="c-name">BSc in Information Technology (Hons.) — in progress, 2022–present</span>
-        <span class="c-org">SLIIT Malabe</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== CTA ===================== -->
-<section class="cta" id="contact">
-  <div class="container">
-    <span class="label">Get in Touch</span>
-    <h2>Ready to find<span class="accent-word">your voice?</span></h2>
-    <div class="cta-links">
-      <a class="cta-link" href="mailto:eranbwt27@gmail.com">EMAIL — eranbwt27@gmail.com</a>
-      <a class="cta-link" href="tel:+94765900817">CALL — +94 76 590 0817</a>
-      <a class="cta-link" href="https://www.linkedin.com/in/eranga-bowatte" target="_blank" rel="noopener">LINKEDIN — Eranga Bowatte</a>
+    <div class="reveal" style="color:var(--stone); max-width:600px; line-height:1.8;">
+      <p>This is a placeholder for your detailed text on Emcee and Hosting engagements. Describe the events, conferences, and the stage presence you bring to live settings.</p>
     </div>
   </div>
 </section>
