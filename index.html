@@ -506,6 +506,20 @@
     .story-grid{ grid-template-columns:1fr; gap:40px; }
   }
 
+  /* ---------- Story Section Faded Background ---------- */
+  .story-bg-img {
+    position: absolute;
+    inset: 0;
+    background-image: url('images/journey-glimpse.jpg');
+    background-size: cover;
+    background-position: center 20%;
+    opacity: 0.15;
+    mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+    z-index: 0;
+    pointer-events: none;
+  }
+
   .story-text p{
     font-size:1.05rem;
     line-height:1.85;
@@ -1485,8 +1499,9 @@
 </header>
 
 <!-- ===================== THE PAUSE / STORY ===================== -->
-<section id="story">
-  <div class="container">
+<section id="story" style="position:relative; overflow:hidden;">
+  <div class="story-bg-img"></div>
+  <div class="container" style="position:relative; z-index:2;">
     <div class="section-head reveal">
       <span class="label">Glimpse of the Journey — Section I</span>
       <h2>Before the words came, <em>there was silence.</em></h2>
