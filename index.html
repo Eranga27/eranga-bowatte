@@ -1490,13 +1490,12 @@
   }
   /* Hover state */
   .donut-segment:hover {
-    transform: scale(1.06);
+    transform: translate(var(--tx), var(--ty)) scale(1.03);
     z-index: 10;
   }
   .donut-segment:hover .donut-path {
     stroke: #FF6A1A;
-    fill: #1a1815;
-    filter: drop-shadow(0 0 15px rgba(255, 106, 26, 0.3));
+    filter: drop-shadow(0 0 15px rgba(255, 106, 26, 0.4));
   }
   .donut-segment:hover .donut-text {
     fill: var(--paper);
@@ -1669,50 +1668,59 @@
     <div class="portfolio-circle-container reveal">
       <svg viewBox="0 0 600 600" class="portfolio-donut" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <!-- Icons -->
-          <g id="icon-comm" transform="scale(1.5)"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g>
-          <g id="icon-lead" transform="scale(1.5)"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g>
-          <g id="icon-hr" transform="scale(1.5)"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g>
-          <g id="icon-creative" transform="scale(1.5)"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .34 2.02 1.5 3.5.76.76 1.23 1.52 1.41 2.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g>
-          <g id="icon-it" transform="scale(1.5)"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g>
+          <pattern id="img-0" patternUnits="userSpaceOnUse" width="600" height="600">
+            <image href="images/mic1.jpg" x="0" y="0" width="600" height="600" preserveAspectRatio="xMidYMid slice"/>
+            <rect x="0" y="0" width="600" height="600" fill="#0B0A09" fill-opacity="0.6"/>
+          </pattern>
+          <pattern id="img-1" patternUnits="userSpaceOnUse" width="600" height="600">
+            <image href="images/team.jpg" x="0" y="0" width="600" height="600" preserveAspectRatio="xMidYMid slice"/>
+            <rect x="0" y="0" width="600" height="600" fill="#0B0A09" fill-opacity="0.6"/>
+          </pattern>
+          <pattern id="img-2" patternUnits="userSpaceOnUse" width="600" height="600">
+            <image href="images/virtusa-training-1.jpg" x="0" y="0" width="600" height="600" preserveAspectRatio="xMidYMid slice"/>
+            <rect x="0" y="0" width="600" height="600" fill="#0B0A09" fill-opacity="0.6"/>
+          </pattern>
+          <pattern id="img-3" patternUnits="userSpaceOnUse" width="600" height="600">
+            <image href="images/solo-branding-1.jpg" x="0" y="0" width="600" height="600" preserveAspectRatio="xMidYMid slice"/>
+            <rect x="0" y="0" width="600" height="600" fill="#0B0A09" fill-opacity="0.6"/>
+          </pattern>
+          <pattern id="img-4" patternUnits="userSpaceOnUse" width="600" height="600">
+            <image href="images/iit-business-1.jpg" x="0" y="0" width="600" height="600" preserveAspectRatio="xMidYMid slice"/>
+            <rect x="0" y="0" width="600" height="600" fill="#0B0A09" fill-opacity="0.6"/>
+          </pattern>
         </defs>
-        <g class="donut-segment" data-index="0" onclick="window.location.href='#communication'">
-          <path d="M 304.36 50.04 A 250 250 0 0 1 536.38 218.61 L 394.55 267.44 A 100 100 0 0 0 301.75 200.02 Z" class="donut-path" />
-          <use href="#icon-comm" x="384.8624191511828" y="113.42202598438419" class="donut-icon" />
-          <text x="402.8624191511828" y="168.4220259843842" class="donut-text" text-anchor="middle">
-            <tspan x="402.8624191511828" dy="0">1. Communication</tspan>
+        <g class="donut-segment" data-index="0" onclick="window.location.href='#communication'" style="--tx: 7.05px; --ty: -9.71px;">
+          <path d="M 304.36 50.04 A 250 250 0 0 1 536.38 218.61 L 394.55 267.44 A 100 100 0 0 0 301.75 200.02 Z" class="donut-path" fill="url(#img-0)" />
+          <text x="402.8624191511828" y="152.4220259843842" class="donut-text" text-anchor="middle">
+            <tspan x="402.8624191511828" dy="0">Communication</tspan>
             <tspan x="402.8624191511828" dy="22">Portfolio</tspan>
           </text>
         </g>
-        <g class="donut-segment" data-index="1" onclick="window.location.href='#leadership'">
-          <path d="M 539.08 226.91 A 250 250 0 0 1 450.45 499.66 L 360.18 379.86 A 100 100 0 0 0 395.63 270.76 Z" class="donut-path" />
-          <use href="#icon-lead" x="448.43489035165186" y="309.0779740156158" class="donut-icon" />
-          <text x="466.43489035165186" y="364.0779740156158" class="donut-text" text-anchor="middle">
-            <tspan x="466.43489035165186" dy="0">2. Leadership</tspan>
+        <g class="donut-segment" data-index="1" onclick="window.location.href='#leadership'" style="--tx: 11.41px; --ty: 3.71px;">
+          <path d="M 539.08 226.91 A 250 250 0 0 1 450.45 499.66 L 360.18 379.86 A 100 100 0 0 0 395.63 270.76 Z" class="donut-path" fill="url(#img-1)" />
+          <text x="466.43489035165186" y="348.0779740156158" class="donut-text" text-anchor="middle">
+            <tspan x="466.43489035165186" dy="0">Leadership</tspan>
             <tspan x="466.43489035165186" dy="22">Portfolio</tspan>
           </text>
         </g>
-        <g class="donut-segment" data-index="2" onclick="window.location.href='#hr'">
-          <path d="M 443.39 504.79 A 250 250 0 0 1 156.61 504.79 L 242.64 381.92 A 100 100 0 0 0 357.36 381.92 Z" class="donut-path" />
-          <use href="#icon-hr" x="282.0" y="430.0" class="donut-icon" />
-          <text x="300.0" y="485.0" class="donut-text" text-anchor="middle">
-            <tspan x="300.0" dy="0">3. HR</tspan>
+        <g class="donut-segment" data-index="2" onclick="window.location.href='#hr'" style="--tx: 0.00px; --ty: 12.00px;">
+          <path d="M 443.39 504.79 A 250 250 0 0 1 156.61 504.79 L 242.64 381.92 A 100 100 0 0 0 357.36 381.92 Z" class="donut-path" fill="url(#img-2)" />
+          <text x="300.0" y="469.0" class="donut-text" text-anchor="middle">
+            <tspan x="300.0" dy="0">HR</tspan>
             <tspan x="300.0" dy="22">Portfolio</tspan>
           </text>
         </g>
-        <g class="donut-segment" data-index="3" onclick="window.location.href='#creative'">
-          <path d="M 149.55 499.66 A 250 250 0 0 1 60.92 226.91 L 204.37 270.76 A 100 100 0 0 0 239.82 379.86 Z" class="donut-path" />
-          <use href="#icon-creative" x="115.56510964834814" y="309.07797401561584" class="donut-icon" />
-          <text x="133.56510964834814" y="364.07797401561584" class="donut-text" text-anchor="middle">
-            <tspan x="133.56510964834814" dy="0">4. Creative</tspan>
+        <g class="donut-segment" data-index="3" onclick="window.location.href='#creative'" style="--tx: -11.41px; --ty: 3.71px;">
+          <path d="M 149.55 499.66 A 250 250 0 0 1 60.92 226.91 L 204.37 270.76 A 100 100 0 0 0 239.82 379.86 Z" class="donut-path" fill="url(#img-3)" />
+          <text x="133.56510964834814" y="348.07797401561584" class="donut-text" text-anchor="middle">
+            <tspan x="133.56510964834814" dy="0">Creative</tspan>
             <tspan x="133.56510964834814" dy="22">Portfolio</tspan>
           </text>
         </g>
-        <g class="donut-segment" data-index="4" onclick="window.location.href='#it'">
-          <path d="M 63.62 218.61 A 250 250 0 0 1 295.64 50.04 L 298.25 200.02 A 100 100 0 0 0 205.45 267.44 Z" class="donut-path" />
-          <use href="#icon-it" x="179.13758084881718" y="113.42202598438422" class="donut-icon" />
-          <text x="197.13758084881718" y="168.42202598438422" class="donut-text" text-anchor="middle">
-            <tspan x="197.13758084881718" dy="0">5. IT Projects</tspan>
+        <g class="donut-segment" data-index="4" onclick="window.location.href='#it'" style="--tx: -7.05px; --ty: -9.71px;">
+          <path d="M 63.62 218.61 A 250 250 0 0 1 295.64 50.04 L 298.25 200.02 A 100 100 0 0 0 205.45 267.44 Z" class="donut-path" fill="url(#img-4)" />
+          <text x="197.13758084881718" y="152.42202598438422" class="donut-text" text-anchor="middle">
+            <tspan x="197.13758084881718" dy="0">IT Projects</tspan>
             <tspan x="197.13758084881718" dy="22">Portfolio</tspan>
           </text>
         </g>
