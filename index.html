@@ -1451,7 +1451,7 @@
     position: relative;
   }
   .portfolio-circle-container {
-    max-width: 650px;
+    max-width: 750px;
     margin: 60px auto 0;
     position: relative;
     display: flex;
@@ -1471,7 +1471,8 @@
   .donut-path {
     stroke: var(--line);
     stroke-width: 2;
-    transition: fill 0.3s ease, stroke 0.3s ease, filter 0.3s ease;
+    transition: fill 0.3s ease, stroke 0.3s ease, filter 0.4s ease;
+    filter: grayscale(60%) brightness(0.7);
   }
   .donut-text {
     font-family: 'Inter', sans-serif;
@@ -1495,7 +1496,7 @@
   }
   .donut-segment:hover .donut-path {
     stroke: #FF6A1A;
-    filter: drop-shadow(0 0 15px rgba(255, 106, 26, 0.4));
+    filter: grayscale(0%) brightness(1) drop-shadow(0 0 15px rgba(255, 106, 26, 0.4));
   }
   .donut-segment:hover .donut-text {
     fill: var(--paper);
@@ -1671,23 +1672,18 @@
         <defs>
           <pattern id="img-0" patternUnits="userSpaceOnUse" width="600" height="600">
             <image href="images/mic1.jpg" x="0" y="0" width="600" height="600" preserveAspectRatio="xMidYMid slice"/>
-            <rect x="0" y="0" width="600" height="600" fill="#0B0A09" fill-opacity="0.6"/>
           </pattern>
           <pattern id="img-1" patternUnits="userSpaceOnUse" width="600" height="600">
             <image href="images/team.jpg" x="0" y="0" width="600" height="600" preserveAspectRatio="xMidYMid slice"/>
-            <rect x="0" y="0" width="600" height="600" fill="#0B0A09" fill-opacity="0.6"/>
           </pattern>
           <pattern id="img-2" patternUnits="userSpaceOnUse" width="600" height="600">
             <image href="images/virtusa-training-1.jpg" x="0" y="0" width="600" height="600" preserveAspectRatio="xMidYMid slice"/>
-            <rect x="0" y="0" width="600" height="600" fill="#0B0A09" fill-opacity="0.6"/>
           </pattern>
           <pattern id="img-3" patternUnits="userSpaceOnUse" width="600" height="600">
             <image href="images/solo-branding-1.jpg" x="0" y="0" width="600" height="600" preserveAspectRatio="xMidYMid slice"/>
-            <rect x="0" y="0" width="600" height="600" fill="#0B0A09" fill-opacity="0.6"/>
           </pattern>
           <pattern id="img-4" patternUnits="userSpaceOnUse" width="600" height="600">
             <image href="images/iit-business-1.jpg" x="0" y="0" width="600" height="600" preserveAspectRatio="xMidYMid slice"/>
-            <rect x="0" y="0" width="600" height="600" fill="#0B0A09" fill-opacity="0.6"/>
           </pattern>
         </defs>
         <g class="donut-segment" data-index="0" onclick="window.location.href='#communication'" style="--tx: 7.05px; --ty: -9.71px;">
