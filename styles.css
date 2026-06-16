@@ -3145,3 +3145,10 @@
 .portfolio-donut.paused {
   animation-play-state: paused;
 }
+
+
+.bento-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 106, 26, 0.05) !important;
+  border-color: rgba(255, 106, 26, 0.3) !important;
+}
