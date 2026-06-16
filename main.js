@@ -159,11 +159,6 @@
       if (!isHoveringDonut) {
         rotation += rotationSpeed;
         donutSvg.style.transform = `rotate(${rotation}deg)`;
-        // Counter-rotate the paths inside so they stay upright
-        document.querySelectorAll('.donut-segment').forEach(seg => {
-            seg.style.transformOrigin = '300px 300px';
-            seg.style.transform = `rotate(${-rotation}deg) translate(var(--tx), var(--ty))`;
-        });
       }
       animationFrameId = requestAnimationFrame(rotateDonut);
     }
@@ -174,13 +169,10 @@
         isHoveringDonut = true;
         centerText.innerHTML = segmentDescriptions[seg.dataset.index];
         centerText.style.opacity = '1';
-        // Add a scale on hover on top of counter-rotation
-        seg.style.transform = `rotate(${-rotation}deg) translate(var(--tx), var(--ty)) scale(1.05)`;
       });
       seg.addEventListener('mouseleave', () => {
         isHoveringDonut = false;
         centerText.style.opacity = '0';
-        seg.style.transform = `rotate(${-rotation}deg) translate(var(--tx), var(--ty))`;
       });
     });
   }
