@@ -61,57 +61,51 @@
 </nav>
 
 <!-- ===================== HERO ===================== -->
-<!-- ===================== HERO ===================== -->
 <header class="hero" id="top">
   <div class="hero-bg">
-    <img src="images/solo-branding-1.jpg" alt="Eranga Bowatte - Multi-Disciplinary Professional">
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      disablepictureinpicture
+      preload="auto"
+      aria-hidden="true">
+      <source src="images/hero.mp4" type="video/mp4">
+      <source src="images/hero.webm" type="video/webm">
+    </video>
   </div>
-  <div class="container hero-content">
-    <div class="hero-eyebrow reveal">
-      <div class="line"></div>
-      <span class="label">Eranga Bowatte</span>
-    </div>
-    <h1 class="headline reveal" style="animation-delay:0.1s">
-      I build systems, <br>
-      shape cultures, <span class="accent-word">and drive growth.</span>
-    </h1>
-    <p class="hero-sub reveal" style="animation-delay:0.2s">
-      Bridging the gap between technology, human resources, business development, and high-impact communication. A multi-disciplinary professional turning complexity into clarity.
-    </p>
-    <div class="hero-meta reveal" style="animation-delay:0.3s">
-      <span class="frame-label">Scroll to explore</span>
-      <div class="waveform">
-        <div class="bar" style="animation-delay: 0.0s"></div>
-        <div class="bar" style="animation-delay: 0.2s"></div>
-        <div class="bar" style="animation-delay: 0.4s"></div>
-        <div class="bar" style="animation-delay: 0.1s"></div>
-        <div class="bar" style="animation-delay: 0.3s"></div>
+  <div class="hero-content">
+    <div class="container">
+      <div class="hero-eyebrow">
+        <span class="line"></span>
+        <span class="label">Communication Trainer · Public Speaker · Comperer</span>
+      </div>
+      <h1 class="headline">Your voice is louder<span class="accent-word">than your fear.</span></h1>
+      <p class="hero-sub">I'm Eranga Bowatte, once unable to speak in front of a room, now doing my best to train others to find the words they didn't know they had. Based in Sri Lanka 🇱🇰.</p>
+
+      <div class="hero-meta">
+        <div class="waveform" id="heroWaveform"></div>
       </div>
     </div>
   </div>
 </header>
 
 <!-- ===================== FUN TO KNOW BY NUMBERS ===================== -->
-<div class="banner-split reveal" id="numbers" style="grid-template-columns: 1fr;">
-  <div class="banner-stats-side" style="border-left:none; align-items:center; text-align:center;">
-    <h3 class="stats-headline" style="color:var(--paper); font-size:1.5rem; letter-spacing:0.1em; margin-bottom:40px;">Fun to Know By Numbers</h3>
-    <div style="display:flex; flex-wrap:wrap; gap:60px; justify-content:center;">
-      <div class="stat-row">
-        <span class="stat-number"><span class="counter" data-target="75">0</span>+</span>
-        <span class="stat-label">Training Sessions<br>Conducted</span>
-      </div>
-      <div class="stat-row">
-        <span class="stat-number"><span class="counter" data-target="1500">0</span>+</span>
-        <span class="stat-label">Attendees<br>Reached</span>
-      </div>
-      <div class="stat-row">
-        <span class="stat-number"><span class="counter" data-target="10">0</span>+</span>
-        <span class="stat-label">Tech Projects<br>Delivered</span>
-      </div>
-      <div class="stat-row">
-        <span class="stat-number"><span class="counter" data-target="350">0</span>+</span>
-        <span class="stat-label">Employees<br>Managed (HR)</span>
-      </div>
+<div class="banner-split reveal">
+  <div class="banner-img-side">
+    <img src="images/mic4.jpg" alt="Eranga Bowatte presenting to an audience with a microphone">
+    <span class="banner-caption">Beyond The Mic — Training Session</span>
+  </div>
+  <div class="banner-stats-side">
+    <h3 class="stats-headline">Fun to Know By Numbers</h3>
+    <div class="stat-row">
+      <span class="stat-number"><span class="counter" data-target="75">0</span>+</span>
+      <span class="stat-label">Sessions<br>Conducted</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-number"><span class="counter" data-target="1000">0</span>+</span>
+      <span class="stat-label">Attendees<br>Reached</span>
     </div>
   </div>
 </div>
@@ -120,14 +114,14 @@
 <section id="portfolios" class="portfolio-nav-section" style="padding-top:140px; padding-bottom:140px;">
   <div class="container">
     <div class="section-head reveal" style="text-align:center;">
-      <span class="label">Explore The Branches</span>
+      <span class="label" style="display:block; margin-bottom:20px;">Explore The Branches</span>
       <h2>My Core <em>Disciplines</em></h2>
       <p style="color:var(--stone); margin-top:20px; max-width:600px; margin-left:auto; margin-right:auto;">
         Select a portfolio below to dive deep into my specialized experience across different industries.
       </p>
     </div>
     
-    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:60px; justify-content:center;" class="reveal">
+    <div style="display:flex; flex-direction:column; align-items:center; gap:80px;" class="reveal">
       
       <!-- The Interactive Donut -->
       <div class="portfolio-circle-container" style="flex-shrink:0;">
@@ -168,7 +162,7 @@
       </div>
 
       <!-- Bento Grid Navigation Links -->
-      <div class="bento-links" style="display:flex; flex-direction:column; gap:16px; flex:1; min-width:300px;">
+      <div class="bento-links" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; width:100%;">
         <a href="technology.html" class="bento-card" style="padding:24px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:12px; text-decoration:none; transition:transform 0.3s ease, background 0.3s ease;">
           <h3 style="color:#FF6A1A; margin-bottom:8px; font-family:'Inter', sans-serif;">Technology & IT</h3>
           <p style="color:var(--stone); font-size:0.9rem;">Full Stack Development, Data Analytics, Software Engineering.</p>
