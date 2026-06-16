@@ -1,53 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Eranga Bowatte — Communication Trainer &amp; Speaker. Based in Sri Lanka, working globally. Public speaking, confidence training, and communication workshops.">
-<meta property="og:title" content="Eranga Bowatte — Communication Trainer &amp; Speaker">
-<meta property="og:description" content="Once unable to speak in front of a room, now training others to find the words they didn't know they had.">
-<meta property="og:type" content="website">
-<meta name="theme-color" content="#0B0A09">
-<title>Eranga Bowatte — Communication Trainer &amp; Speaker</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<nav>
-  <a href="index.html" class="logo">EB.</a>
-  <div class="nav-links">
-    <a href="about.html">About</a>
-    <a href="index.html#portfolios">Portfolios</a>
-    <a href="index.html#contact">Contact</a>
-  </div>
-  <button class="audio-toggle" id="audioToggle" aria-label="Toggle background music">
-    <div class="audio-bars">
-      <span></span><span></span><span></span>
-    </div>
-    <span class="audio-text">Sound</span>
-  </button>
-  <button class="nav-toggle" id="navToggle" aria-label="Open menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-label="Navigation">
-  <button class="mobile-menu-close" id="mobileClose" aria-label="Close menu">
-    <span></span><span></span>
-  </button>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="technology.html">Technology</a>
-  <a href="business-development.html">Business Dev</a>
-  <a href="communication.html">Communication</a>
-  <a href="human-resources.html">Human Resources</a>
-  <a href="leadership.html">Leadership</a>
-  <a href="creative.html">Creative Designing</a>
-  <a href="index.html#contact">Contact</a>
-</div>
+import re
 
-  
+# Read the generic scaffold of technology.html to preserve head/nav/footer
+with open('technology.html', 'r', encoding='utf-8') as f:
+    tech_html = f.read()
+
+top_part_tech = re.search(r'(.*?)<!-- PAGE CONTENT -->', tech_html, re.DOTALL).group(1)
+bottom_part_tech = re.search(r'(<footer>.*)', tech_html, re.DOTALL).group(1)
+
+new_tech_content = """
+<!-- ===================== HERO ===================== -->
+<header class="hero" style="min-height: 60vh;">
+  <div class="hero-bg">
+    <img src="images/solo-branding-1.jpg" alt="Technology & Engineering">
+  </div>
+  <div class="container hero-content" style="padding-top: 160px; padding-bottom: 80px;">
+    <div class="hero-eyebrow reveal">
+      <div class="line"></div>
+      <span class="label">Technology & IT Portfolio</span>
+    </div>
+    <h1 class="headline reveal" style="animation-delay:0.1s">
+      Engineering &amp; <em>Architecture</em>
+    </h1>
+    <p class="hero-sub reveal" style="animation-delay:0.2s">
+      Full stack development, data analytics, and building scalable software solutions that bridge the gap between technical execution and user experience.
+    </p>
+  </div>
+</header>
+
+<!-- ===================== TECH BACKGROUND ===================== -->
+<section style="padding-top: 100px; padding-bottom: 100px; background: var(--surface);">
+  <div class="container">
+    <div class="story-grid reveal" style="align-items: center; margin-bottom: 80px;">
+      <div class="story-text">
+        <span class="label" style="display:block; margin-bottom:15px; color:#FF6A1A;">The Foundation</span>
+        <h2 style="font-family:'Poppins',sans-serif; font-size:2.5rem; margin-bottom:20px; line-height:1.2;">Building systems that scale.</h2>
+        <p>With over 10+ technology projects delivered, my approach to software engineering is rooted in a deep understanding of business requirements. I don't just write code; I architect solutions that solve real-world problems.</p>
+        <p>Currently pursuing my BSc in Information Technology (Hons.) at SLIIT, alongside professional certifications from industry giants like IBM and Google.</p>
+      </div>
+      
+      <!-- Credentials List -->
+      <div class="creds-list" style="width: 100%; border-left: 1px solid var(--line); padding-left: 40px;">
+        <div class="creds-row" style="padding: 20px 0; border-bottom: 1px solid var(--line);">
+          <span class="c-name" style="display:block; font-size: 1.1rem; color: var(--paper); margin-bottom: 5px;">BSc in Information Technology (Hons.)</span>
+          <span class="c-org" style="color: var(--stone); font-size: 0.9rem;">SLIIT Malabe (2022–Present)</span>
+        </div>
+        <div class="creds-row" style="padding: 20px 0; border-bottom: 1px solid var(--line);">
+          <span class="c-name" style="display:block; font-size: 1.1rem; color: var(--paper); margin-bottom: 5px;">Full Stack Developer — Software Engineering</span>
+          <span class="c-org" style="color: var(--stone); font-size: 0.9rem;">IBM Professional Certificate (In Progress)</span>
+        </div>
+        <div class="creds-row" style="padding: 20px 0;">
+          <span class="c-name" style="display:block; font-size: 1.1rem; color: var(--paper); margin-bottom: 5px;">Data Analytics — Professional Certificate</span>
+          <span class="c-org" style="color: var(--stone); font-size: 0.9rem;">Google (In Progress)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="cta" id="contact" style="border-top: 1px solid var(--line);">
+  <div class="container">
+    <span class="label">Let's Connect</span>
+    <h2>Need a <span class="accent-word">technical partner?</span></h2>
+    <p style="color:var(--stone); margin-top:20px; margin-bottom:40px; max-width:500px; margin-left:auto; margin-right:auto; font-size:1.1rem;">Whether it's full-stack development or data-driven insights, let's build something exceptional.</p>
+    <div class="cta-links">
+      <a class="cta-link" href="mailto:eranbwt27@gmail.com">EMAIL — eranbwt27@gmail.com</a>
+      <a class="cta-link" href="https://www.linkedin.com/in/eranga-bowatte" target="_blank" rel="noopener">LINKEDIN — Eranga Bowatte</a>
+    </div>
+  </div>
+</section>
+"""
+
+with open('technology.html', 'w', encoding='utf-8') as f:
+    f.write(top_part_tech + new_tech_content + bottom_part_tech)
+
+# Read the generic scaffold of business-development.html
+with open('business-development.html', 'r', encoding='utf-8') as f:
+    bd_html = f.read()
+
+top_part_bd = re.search(r'(.*?)<!-- PAGE CONTENT -->', bd_html, re.DOTALL).group(1)
+bottom_part_bd = re.search(r'(<footer>.*)', bd_html, re.DOTALL).group(1)
+
+new_bd_content = """
 <!-- ===================== HERO ===================== -->
 <header class="hero" style="min-height: 60vh;">
   <div class="hero-bg">
@@ -126,17 +160,9 @@
     </div>
   </div>
 </section>
-<footer>
-  <span>© 2026 Eranga Bowatte</span>
-  <span>Growth · Impact · Redefine</span>
-</footer>
-<!-- ===================== LIGHTBOX ===================== -->
-<div id="lightbox" class="lightbox">
-  <span class="lightbox-close" id="lightboxClose">&times;</span>
-  <img class="lightbox-content" id="lightboxImg">
-</div>
+"""
 
-<script src="main.js" defer></script>
+with open('business-development.html', 'w', encoding='utf-8') as f:
+    f.write(top_part_bd + new_bd_content + bottom_part_bd)
 
-</body>
-</html>
+print('Updated technology.html and business-development.html')

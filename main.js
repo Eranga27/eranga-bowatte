@@ -146,11 +146,12 @@
     donutContainer.appendChild(centerText);
 
     const segmentDescriptions = {
-      0: 'Communication<br><span style="font-size:0.8rem;opacity:0.7">Public Speaking & Confidence</span>',
-      1: 'Leadership<br><span style="font-size:0.8rem;opacity:0.7">Corporate & Team Dynamics</span>',
-      2: 'HR Practices<br><span style="font-size:0.8rem;opacity:0.7">Employee Engagement</span>',
-      3: 'Creative Arts<br><span style="font-size:0.8rem;opacity:0.7">Content Production</span>',
-      4: 'IT Projects<br><span style="font-size:0.8rem;opacity:0.7">Technical & Software</span>'
+      0: 'Communication<br><span style="font-size:0.8rem;opacity:0.7">Voice & Influence</span>',
+      1: 'Leadership<br><span style="font-size:0.8rem;opacity:0.7">AIESEC & Beyond</span>',
+      2: 'Creative<br><span style="font-size:0.8rem;opacity:0.7">Creative Designing</span>',
+      3: 'HR Practices<br><span style="font-size:0.8rem;opacity:0.7">People & Culture</span>',
+      4: 'Business Dev<br><span style="font-size:0.8rem;opacity:0.7">Growth & Strategy</span>',
+      5: 'Technology<br><span style="font-size:0.8rem;opacity:0.7">Engineering & Architecture</span>'
     };
 
     document.querySelectorAll('.donut-segment').forEach(seg => {

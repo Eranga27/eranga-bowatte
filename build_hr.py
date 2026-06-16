@@ -1,53 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Eranga Bowatte — Communication Trainer &amp; Speaker. Based in Sri Lanka, working globally. Public speaking, confidence training, and communication workshops.">
-<meta property="og:title" content="Eranga Bowatte — Communication Trainer &amp; Speaker">
-<meta property="og:description" content="Once unable to speak in front of a room, now training others to find the words they didn't know they had.">
-<meta property="og:type" content="website">
-<meta name="theme-color" content="#0B0A09">
-<title>Eranga Bowatte — Communication Trainer &amp; Speaker</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<nav>
-  <a href="index.html" class="logo">EB.</a>
-  <div class="nav-links">
-    <a href="about.html">About</a>
-    <a href="index.html#portfolios">Portfolios</a>
-    <a href="index.html#contact">Contact</a>
-  </div>
-  <button class="audio-toggle" id="audioToggle" aria-label="Toggle background music">
-    <div class="audio-bars">
-      <span></span><span></span><span></span>
-    </div>
-    <span class="audio-text">Sound</span>
-  </button>
-  <button class="nav-toggle" id="navToggle" aria-label="Open menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-label="Navigation">
-  <button class="mobile-menu-close" id="mobileClose" aria-label="Close menu">
-    <span></span><span></span>
-  </button>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="technology.html">Technology</a>
-  <a href="business-development.html">Business Dev</a>
-  <a href="communication.html">Communication</a>
-  <a href="human-resources.html">Human Resources</a>
-  <a href="leadership.html">Leadership</a>
-  <a href="creative.html">Creative Designing</a>
-  <a href="index.html#contact">Contact</a>
-</div>
+import re
 
-  
+# Read the generic scaffold of human-resources.html to preserve head/nav/footer
+with open('human-resources.html', 'r', encoding='utf-8') as f:
+    html = f.read()
+
+# Extract top and bottom parts
+top_part = re.search(r'(.*?)<!-- PAGE CONTENT -->', html, re.DOTALL).group(1)
+bottom_part = re.search(r'(<footer>.*)', html, re.DOTALL).group(1)
+
+new_content = """
 <!-- ===================== HERO ===================== -->
 <header class="hero" style="min-height: 60vh;">
   <div class="hero-bg">
@@ -127,17 +88,8 @@
     </div>
   </div>
 </section>
-<footer>
-  <span>© 2026 Eranga Bowatte</span>
-  <span>Growth · Impact · Redefine</span>
-</footer>
-<!-- ===================== LIGHTBOX ===================== -->
-<div id="lightbox" class="lightbox">
-  <span class="lightbox-close" id="lightboxClose">&times;</span>
-  <img class="lightbox-content" id="lightboxImg">
-</div>
+"""
 
-<script src="main.js" defer></script>
-
-</body>
-</html>
+with open('human-resources.html', 'w', encoding='utf-8') as f:
+    f.write(top_part + new_content + bottom_part)
+print('Updated human-resources.html')
