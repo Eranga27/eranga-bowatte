@@ -123,11 +123,8 @@
   const donutContainer = document.querySelector('.portfolio-circle-container');
   const donutSvg = document.querySelector('.portfolio-donut');
   if (donutSvg && donutContainer) {
-    let rotation = 0;
-    let rotationSpeed = 0.05;
-    let isHoveringDonut = false;
-    let animationFrameId;
-
+    // Create central text element
+        // CSS animation handles the rotation now to avoid lag
     // Create central text element
     const centerText = document.createElement('div');
     centerText.className = 'donut-center-text';
@@ -137,7 +134,7 @@
       transform: translate(-50%, -50%);
       text-align: center;
       color: var(--paper);
-      opacity: 0;
+      opacity: 1;
       transition: opacity 0.3s ease;
       pointer-events: none;
       z-index: 5;
@@ -145,34 +142,33 @@
       font-size: 1.2rem;
       max-width: 200px;
     `;
+    centerText.innerHTML = 'Hover to<br>Explore Portfolios';
     donutContainer.appendChild(centerText);
 
     const segmentDescriptions = {
-      0: 'Public Speaking & Confidence Building.',
-      1: 'Corporate Leadership & Team Dynamics.',
-      2: 'HR Practices & Employee Engagement.',
-      3: 'Creative Arts & Content Production.',
-      4: 'Technical & Software Development Projects.'
+      0: 'Communication<br><span style="font-size:0.8rem;opacity:0.7">Public Speaking & Confidence</span>',
+      1: 'Leadership<br><span style="font-size:0.8rem;opacity:0.7">Corporate & Team Dynamics</span>',
+      2: 'HR Practices<br><span style="font-size:0.8rem;opacity:0.7">Employee Engagement</span>',
+      3: 'Creative Arts<br><span style="font-size:0.8rem;opacity:0.7">Content Production</span>',
+      4: 'IT Projects<br><span style="font-size:0.8rem;opacity:0.7">Technical & Software</span>'
     };
-
-    function rotateDonut() {
-      if (!isHoveringDonut) {
-        rotation += rotationSpeed;
-        donutSvg.style.transform = `rotate(${rotation}deg)`;
-      }
-      animationFrameId = requestAnimationFrame(rotateDonut);
-    }
-    rotateDonut();
 
     document.querySelectorAll('.donut-segment').forEach(seg => {
       seg.addEventListener('mouseenter', () => {
-        isHoveringDonut = true;
-        centerText.innerHTML = segmentDescriptions[seg.dataset.index];
-        centerText.style.opacity = '1';
+        donutSvg.classList.add('paused');
+        centerText.style.opacity = '0';
+        setTimeout(() => {
+          centerText.innerHTML = segmentDescriptions[seg.dataset.index];
+          centerText.style.opacity = '1';
+        }, 150);
       });
       seg.addEventListener('mouseleave', () => {
-        isHoveringDonut = false;
+        donutSvg.classList.remove('paused');
         centerText.style.opacity = '0';
+        setTimeout(() => {
+          centerText.innerHTML = 'Hover to<br>Explore Portfolios';
+          centerText.style.opacity = '1';
+        }, 150);
       });
     });
   }
