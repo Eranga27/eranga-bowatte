@@ -350,5 +350,38 @@
     }
   });
 
+  /* ---- Side Navigation Active State ---- */
+  const sideNavDots = document.querySelectorAll('.side-nav-dot');
+  if (sideNavDots.length > 0) {
+    const sections = document.querySelectorAll('header.hero, section, .banner-split');
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          let currentId = entry.target.getAttribute('id');
+          
+          sideNavDots.forEach(dot => {
+            dot.classList.remove('active');
+            if (dot.getAttribute('data-section') === currentId) {
+              dot.classList.add('active');
+            }
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+    
+    sections.forEach(sec => sectionObserver.observe(sec));
+  }
 
-  
+  /* ---- Sticky Header Logic ---- */
+  const mainNav = document.querySelector('nav');
+  const heroSection = document.querySelector('.hero');
+  if (mainNav) {
+    window.addEventListener('scroll', () => {
+      const heroBottom = heroSection ? heroSection.offsetHeight : 300;
+      if (window.scrollY > heroBottom - 80) { // Activate slightly before passing the hero
+        mainNav.classList.add('sticky');
+      } else {
+        mainNav.classList.remove('sticky');
+      }
+    }, { passive: true });
+  }
