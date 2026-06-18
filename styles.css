@@ -595,6 +595,9 @@
     line-height:1.04;
     letter-spacing:-0.01em;
     max-width:18ch;
+    transform-origin: left center;
+    transform: scale(var(--scroll-zoom, 1));
+    will-change: transform;
   }
 
   h1.headline .accent-word{
@@ -609,6 +612,13 @@
     line-height:1.7;
     color:#C7C3BC;
     max-width:42ch;
+    transform-origin: left center;
+    transform: scale(var(--scroll-zoom, 1));
+    will-change: transform;
+  }
+
+  h1.headline.reveal.in, .hero-sub.reveal.in {
+    transform: translateY(0) scale(var(--scroll-zoom, 1));
   }
 
   @media (max-width:480px){

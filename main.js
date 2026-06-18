@@ -32,12 +32,29 @@ window.addEventListener('load', () => {
     document.body.style.overflow = '';
   }
 
-  navToggle.addEventListener('click', () => {
-    mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
-  });
+  if (navToggle) {
+    navToggle.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+  }
 
-  if (mobileClose) mobileClose.addEventListener('click', closeMenu);
+  if (mobileClose) {
+    mobileClose.addEventListener('click', closeMenu);
+  }
 
+  /* ---- Hero Text Scroll Zoom Effect ---- */
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    if (scrollY < 1500) {
+      // Zooms in as you scroll down
+      const zoom = 1 + (scrollY * 0.0004);
+      document.documentElement.style.setProperty('--scroll-zoom', zoom);
+    }
+  }, { passive: true });
   // Close on any link tap
   mobileMenu.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', closeMenu);
