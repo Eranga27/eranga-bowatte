@@ -777,19 +777,34 @@
     }
   }
 
-  /* ---------- My Core Disciplines — two-column split ---------- */
+  /* ---------- My Core Disciplines — full-bleed two-column split ---------- */
+  .disciplines-fullbleed {
+    padding: 0;
+    overflow: hidden;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
   .disciplines-split {
     display: grid;
-    grid-template-columns: 1fr 1.8fr;
-    gap: 64px;
-    align-items: center;
+    grid-template-columns: 1fr 1.6fr;
+    min-height: 78vh;
+    align-items: stretch;
+  }
+
+  .disciplines-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px 60px 100px 80px;
   }
 
   .disciplines-text h2 {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    font-size: clamp(2.8rem, 6vw, 5.5rem);
-    line-height: 1.1;
+    font-size: clamp(2.8rem, 4.5vw, 6rem);
+    line-height: 1.08;
+    margin-top: 16px;
   }
 
   .disciplines-text h2 em {
@@ -798,14 +813,47 @@
     color: #FF6A1A;
   }
 
-  @media (max-width: 900px) {
+  .disciplines-donut-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 60px 60px 20px;
+    background: rgba(255,255,255,0.015);
+    border-left: 1px solid var(--line);
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .disciplines-donut-col .portfolio-donut {
+    width: 100%;
+    max-width: 780px;
+  }
+
+  @media (max-width: 1100px) {
     .disciplines-split {
       grid-template-columns: 1fr;
-      gap: 56px;
+      min-height: auto;
     }
-    .disciplines-split .portfolio-circle-container {
-      max-width: 480px !important;
-      margin: 0 auto;
+    .disciplines-text {
+      padding: 80px 40px 60px;
+    }
+    .disciplines-donut-col {
+      padding: 40px 40px 80px;
+      border-left: none;
+      border-top: 1px solid var(--line);
+      background: none;
+    }
+    .disciplines-donut-col .portfolio-donut {
+      max-width: 520px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .disciplines-text {
+      padding: 60px 24px 40px;
+    }
+    .disciplines-donut-col {
+      padding: 24px 24px 60px;
     }
   }
 
