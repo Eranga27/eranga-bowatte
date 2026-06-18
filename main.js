@@ -1,3 +1,16 @@
+/* ---- Preloader Logic ---- */
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    setTimeout(() => {
+      preloader.classList.add('loaded');
+      setTimeout(() => {
+        preloader.remove();
+      }, 800);
+    }, 1200); // 1.2s to ensure the signature animation plays
+  }
+});
+
 /* ---- Mobile hamburger nav ---- */
   const navToggle   = document.getElementById('navToggle');
   const mobileMenu  = document.getElementById('mobileMenu');
