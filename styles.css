@@ -780,16 +780,16 @@
   /* ---------- My Core Disciplines — two-column split ---------- */
   .disciplines-split {
     display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 80px;
+    grid-template-columns: 1fr 1.8fr;
+    gap: 64px;
     align-items: center;
   }
 
   .disciplines-text h2 {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    font-size: clamp(2.2rem, 5vw, 4rem);
-    line-height: 1.15;
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    line-height: 1.1;
   }
 
   .disciplines-text h2 em {
