@@ -307,9 +307,9 @@
   }, { threshold: 0.3 });
 
   const statsSection = document.querySelector('.banner-stats-side');
-  if (statsSection) {
-    counterIO.observe(statsSection);
-  }
+  const snapshotSection = document.querySelector('.snapshot-cards-col');
+  if (statsSection) counterIO.observe(statsSection);
+  if (snapshotSection) counterIO.observe(snapshotSection);
 
   /* ---- Lightbox Logic ---- */
   const lightbox = document.getElementById('lightbox');

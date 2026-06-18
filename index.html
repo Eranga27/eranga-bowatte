@@ -28,11 +28,14 @@
   <a href="#top" class="side-nav-dot active" aria-label="Hero Section" data-section="top">
     <span class="side-nav-tooltip">Hero</span>
   </a>
-  <a href="#stats" class="side-nav-dot" aria-label="Stats" data-section="stats">
-    <span class="side-nav-tooltip">Stats</span>
+  <a href="#stats" class="side-nav-dot" aria-label="Snapshot" data-section="stats">
+    <span class="side-nav-tooltip">Snapshot</span>
   </a>
   <a href="#portfolios" class="side-nav-dot" aria-label="Portfolios" data-section="portfolios">
-    <span class="side-nav-tooltip">Portfolios</span>
+    <span class="side-nav-tooltip">Disciplines</span>
+  </a>
+  <a href="#comm-teaser" class="side-nav-dot" aria-label="Communication" data-section="comm-teaser">
+    <span class="side-nav-tooltip">Communication</span>
   </a>
   <a href="#about-teaser" class="side-nav-dot" aria-label="About" data-section="about-teaser">
     <span class="side-nav-tooltip">About</span>
@@ -112,40 +115,48 @@
   </div>
 </header>
 
-<!-- ===================== FUN TO KNOW BY NUMBERS ===================== -->
-<div class="banner-split reveal" id="stats">
-  <div class="banner-img-side">
-    <img src="images/mic4.jpg" alt="Eranga Bowatte presenting to an audience with a microphone">
-    <span class="banner-caption">Beyond The Mic — Training Session</span>
+<!-- ===================== SNAPSHOT ===================== -->
+<section id="stats" class="snapshot-section reveal">
+  <div class="snapshot-bg">
+    <img src="images/mic4.jpg" alt="background">
   </div>
-  <div class="banner-stats-side">
-    <h3 class="stats-headline">Fun to Know By Numbers</h3>
-    <div class="stat-row">
-      <span class="stat-number"><span class="counter" data-target="75">0</span>+</span>
-      <span class="stat-label">Sessions<br>Conducted</span>
-    </div>
-    <div class="stat-row">
-      <span class="stat-number"><span class="counter" data-target="1000">0</span>+</span>
-      <span class="stat-label">Attendees<br>Reached</span>
+  <div class="container">
+    <div class="snapshot-inner">
+      <div class="snapshot-title-col">
+        <span class="label">By The Numbers</span>
+        <h2 class="snapshot-heading">Snapshot</h2>
+        <p style="color:var(--stone); font-size:0.95rem; line-height:1.8; max-width:28ch; margin-top:16px;">A quick look at the scale of impact built over the years.</p>
+      </div>
+      <div class="snapshot-cards-col">
+        <div class="snapshot-glass-card">
+          <span class="snapshot-number"><span class="counter" data-target="75">0</span>+</span>
+          <span class="snapshot-label">Sessions<br>Conducted</span>
+        </div>
+        <div class="snapshot-glass-card">
+          <span class="snapshot-number"><span class="counter" data-target="1000">0</span>+</span>
+          <span class="snapshot-label">Attendees<br>Reached</span>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- ===================== PORTFOLIOS (THE GATEWAY) ===================== -->
 <section id="portfolios" class="portfolio-nav-section" style="padding-top:140px; padding-bottom:140px;">
   <div class="container">
-    <div class="section-head reveal" style="text-align:center;">
-      <span class="label" style="display:block; margin-bottom:20px;">Explore The Branches</span>
-      <h2 style="margin: 0 auto;">My Core <em>Disciplines</em></h2>
-      <p style="color:var(--stone); margin-top:20px; max-width:600px; margin-left:auto; margin-right:auto;">
-        Select a portfolio below to dive deep into my specialized experience across different industries.
-      </p>
-    </div>
-    
-    <div style="display:flex; flex-direction:column; align-items:center; gap:80px;" class="reveal">
-      
-      <!-- The Interactive Donut -->
-      <div class="portfolio-circle-container" style="flex-shrink:0; width: 100%; max-width: 750px;">
+    <div class="disciplines-split reveal">
+
+      <!-- Left: Title text -->
+      <div class="disciplines-text">
+        <span class="label" style="display:block; margin-bottom:20px;">Explore The Branches</span>
+        <h2>My Core <em>Disciplines</em></h2>
+        <p style="color:var(--stone); margin-top:24px; max-width:36ch; line-height:1.8;">
+          Six specialisations. One person. Hover over each segment to explore, click to dive in.
+        </p>
+      </div>
+
+      <!-- Right: Donut only -->
+      <div class="portfolio-circle-container" style="flex-shrink:0; width:100%; max-width:560px;">
         <svg viewBox="0 0 600 600" class="portfolio-donut" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="img-0" patternUnits="userSpaceOnUse" width="600" height="600">
@@ -188,34 +199,44 @@
         </svg>
       </div>
 
-      <!-- Bento Grid Navigation Links -->
-      <div class="bento-links" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; width:100%;">
-        <a href="technology.html" class="bento-card" style="padding:24px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:12px; text-decoration:none; transition:transform 0.3s ease, background 0.3s ease;">
-          <h3 style="color:#FF6A1A; margin-bottom:8px; font-family:'Inter', sans-serif;">Technology & IT</h3>
-          <p style="color:var(--stone); font-size:0.9rem;">Full Stack Development, Data Analytics, Software Engineering.</p>
+    </div><!-- end disciplines-split -->
+  </div>
+</section>
+
+<!-- ===================== COMMUNICATION PORTFOLIO TEASER ===================== -->
+<section id="comm-teaser" class="portfolio-teaser-section">
+  <div class="teaser-split">
+
+    <!-- Left: Accordion Cards -->
+    <div class="teaser-accordion-col">
+      <div class="accordion-container" style="margin-top:0; height:520px;">
+        <a href="communication.html#branding" class="acc-card active" style="background-image:url('images/mic4.jpg');">
+          <div class="acc-content"><h3>Personal Branding</h3></div>
         </a>
-        <a href="business-development.html" class="bento-card" style="padding:24px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:12px; text-decoration:none; transition:transform 0.3s ease, background 0.3s ease;">
-          <h3 style="color:#FF6A1A; margin-bottom:8px; font-family:'Inter', sans-serif;">Business Development</h3>
-          <p style="color:var(--stone); font-size:0.9rem;">AIESEC BD, Strategic Partnerships, Growth Initiatives.</p>
+        <a href="communication.html#training" class="acc-card" style="background-image:url('images/mastering-comm-3.jpg');">
+          <div class="acc-content"><h3>Communication Trainings</h3></div>
         </a>
-        <a href="human-resources.html" class="bento-card" style="padding:24px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:12px; text-decoration:none; transition:transform 0.3s ease, background 0.3s ease;">
-          <h3 style="color:#FF6A1A; margin-bottom:8px; font-family:'Inter', sans-serif;">Human Resources</h3>
-          <p style="color:var(--stone); font-size:0.9rem;">Employee Engagement, Culture Audit, Virtusa.</p>
+        <a href="communication.html#emcee" class="acc-card" style="background-image:url('images/training-session.jpg');">
+          <div class="acc-content"><h3>Emcee / Hosting</h3></div>
         </a>
-        <a href="communication.html" class="bento-card" style="padding:24px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:12px; text-decoration:none; transition:transform 0.3s ease, background 0.3s ease;">
-          <h3 style="color:#FF6A1A; margin-bottom:8px; font-family:'Inter', sans-serif;">Communication</h3>
-          <p style="color:var(--stone); font-size:0.9rem;">Corporate Training, Public Speaking, Emcee.</p>
-        </a>
-        <a href="leadership.html" class="bento-card" style="padding:24px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:12px; text-decoration:none; transition:transform 0.3s ease, background 0.3s ease;">
-          <h3 style="color:#FF6A1A; margin-bottom:8px; font-family:'Inter', sans-serif;">Leadership</h3>
-          <p style="color:var(--stone); font-size:0.9rem;">AIESEC, Team Leadership, Awards.</p>
-        </a>
-        <a href="creative.html" class="bento-card" style="padding:24px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:12px; text-decoration:none; transition:transform 0.3s ease, background 0.3s ease;">
-          <h3 style="color:#FF6A1A; margin-bottom:8px; font-family:'Inter', sans-serif;">Creative Designing</h3>
-          <p style="color:var(--stone); font-size:0.9rem;">Personal Branding, Dubbing, Visuals.</p>
+        <a href="communication.html#etiquette" class="acc-card" style="background-image:url('images/peoc.png');">
+          <div class="acc-content"><h3>Etiquette &amp; Creatives</h3></div>
         </a>
       </div>
     </div>
+
+    <!-- Right: Hook Text -->
+    <div class="teaser-hook-col">
+      <span class="label" style="display:block; margin-bottom:20px;">Portfolio 01</span>
+      <h2 style="font-family:'Poppins', sans-serif; font-weight:800; font-size:clamp(2.5rem, 5vw, 4.5rem); line-height:1.05; margin-bottom:28px;">Voice &amp; <em style="font-style:normal; color:#FF6A1A;">Influence.</em></h2>
+      <p style="color:var(--stone); font-size:1.05rem; line-height:1.85; max-width:38ch; margin-bottom:20px;">From corporate boardrooms to national stages — 75+ sessions, 1,000+ attendees, and a growing roster of engagements that span training, hosting, and creative communication.</p>
+      <p style="color:var(--stone); font-size:0.9rem; font-family:'Space Mono',monospace; letter-spacing:0.08em; margin-bottom:40px; opacity:0.7;">← Click a card to jump directly to that section</p>
+      <a href="communication.html" style="display:inline-flex; align-items:center; gap:12px; padding:16px 32px; background:#FF6A1A; color:#0B0A09; text-decoration:none; font-family:'Space Mono',monospace; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; border-radius:4px; transition:transform 0.2s ease, background 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.background='#ff8c4a'" onmouseout="this.style.transform='translateY(0)'; this.style.background='#FF6A1A'">
+        Explore Full Portfolio
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
   </div>
 </section>
 
