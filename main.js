@@ -7,7 +7,7 @@ window.addEventListener('load', () => {
       setTimeout(() => {
         preloader.remove();
       }, 800);
-    }, 1200); // 1.2s to ensure the signature animation plays
+    }, 3200); // Wait 3.2s for signature animation to complete
   }
 });
 
