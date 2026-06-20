@@ -233,7 +233,7 @@
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:28px 40px;
+    padding:12px 40px;
     pointer-events:none;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s ease;
   }
@@ -241,7 +241,7 @@
   nav.sticky {
     position: fixed;
     animation: slideDownNav 0.5s ease forwards;
-    padding: 20px 40px;
+    padding: 12px 40px;
     pointer-events: auto;
   }
 
@@ -404,7 +404,7 @@
 
   @media (max-width:768px){
     nav{
-      padding:20px 24px;
+      padding:12px 24px;
     }
     nav > * {
       padding: 10px 16px;
@@ -2113,7 +2113,7 @@
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:28px 40px;
+    padding:12px 40px;
     color:var(--paper);
     font-family:'Space Mono',monospace;
     font-size:0.72rem;
@@ -2217,7 +2217,7 @@
 
   @media (max-width:768px){
     nav{
-      padding:20px 24px;
+      padding:12px 24px;
       justify-content:space-between;
       background: rgba(11, 10, 9, 0.35);
       backdrop-filter: blur(24px);
