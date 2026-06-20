@@ -133,7 +133,7 @@
     <div class="snapshot-inner">
       <div class="snapshot-title-col">
         <span class="label">By The Numbers</span>
-        <h2 class="snapshot-heading">Snapshot</h2>
+        <h2 class="snapshot-heading reveal-zoom">Snapshot</h2>
         <p style="color:var(--stone); font-size:0.95rem; line-height:1.8; max-width:28ch; margin-top:16px;">A quick look at the scale of impact built over the years.</p>
       </div>
       <div class="snapshot-cards-col">
@@ -155,9 +155,9 @@
   <div class="disciplines-split reveal">
 
     <!-- Left: Title text -->
-    <div class="disciplines-text">
+    <div class="disciplines-text reveal-zoom">
       <span class="label" style="display:block; margin-bottom:20px;">Explore The Branches</span>
-      <h2>My Core <em>Disciplines</em></h2>
+      <h2 class="reveal-zoom">My Core <em>Disciplines</em></h2>
       <p style="color:var(--stone); margin-top:24px; max-width:36ch; line-height:1.8;">
         Six specialisations. One person. Hover over each segment to explore, click to dive in.
       </p>
@@ -235,7 +235,7 @@
     <!-- Right: Hook Text -->
     <div class="teaser-hook-col">
       <span class="label" style="display:block; margin-bottom:20px;">Portfolio 01</span>
-      <h2 style="font-family:'Poppins', sans-serif; font-weight:800; font-size:clamp(2.5rem, 5vw, 4.5rem); line-height:1.05; margin-bottom:28px;">Voice &amp; <em style="font-style:normal; color:#FF6A1A;">Influence.</em></h2>
+      <h2 class="reveal-zoom" style="font-family:'Poppins', sans-serif; font-weight:800; font-size:clamp(2.5rem, 5vw, 4.5rem); line-height:1.05; margin-bottom:28px;">Voice &amp; <em style="font-style:normal; color:#FF6A1A;">Influence.</em></h2>
       <p style="color:var(--stone); font-size:1.05rem; line-height:1.85; max-width:38ch; margin-bottom:20px;">From corporate boardrooms to national stages — 75+ sessions, 1,000+ attendees, and a growing roster of engagements that span training, hosting, and creative communication.</p>
       <p style="color:var(--stone); font-size:0.9rem; font-family:'Space Mono',monospace; letter-spacing:0.08em; margin-bottom:40px; opacity:0.7;">← Click a card to jump directly to that section</p>
       <a href="communication.html" style="display:inline-flex; align-items:center; gap:12px; padding:16px 32px; background:#FF6A1A; color:#0B0A09; text-decoration:none; font-family:'Space Mono',monospace; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; border-radius:4px; transition:transform 0.2s ease, background 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.background='#ff8c4a'" onmouseout="this.style.transform='translateY(0)'; this.style.background='#FF6A1A'">
@@ -247,13 +247,66 @@
   </div>
 </section>
 
+
+<!-- ===================== HR PORTFOLIO TEASER ===================== -->
+<section id="hr-teaser" class="portfolio-teaser-section" style="border-top:1px solid var(--line);">
+  <div class="teaser-split">
+    
+    <!-- Left: Hook Text -->
+    <div class="teaser-hook-col" style="order: 1;">
+      <span class="label" style="display:block; margin-bottom:20px;">Portfolio 02</span>
+      <h2 class="reveal-zoom" style="font-family:'Poppins', sans-serif; font-weight:800; font-size:clamp(2.5rem, 5vw, 4.5rem); line-height:1.05; margin-bottom:28px;">People &amp; <em style="font-style:normal; color:#FF6A1A;">Culture.</em></h2>
+      <p style="color:var(--stone); font-size:1.05rem; line-height:1.85; max-width:38ch; margin-bottom:20px;">Bridging the gap between technical execution and human connection through robust HR practices and cultural development.</p>
+      <a href="human-resources.html" style="display:inline-flex; align-items:center; gap:12px; padding:16px 32px; background:#FF6A1A; color:#0B0A09; text-decoration:none; font-family:'Space Mono',monospace; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; border-radius:4px; transition:transform 0.2s ease, background 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.background='#ff8c4a'" onmouseout="this.style.transform='translateY(0)'; this.style.background='#FF6A1A'">
+        Explore HR Portfolio
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <!-- Right: Flip Cards -->
+    <div class="teaser-accordion-col hr-cards-container" style="order: 2; display: flex; gap: 20px; align-items: center; justify-content: center; width: 100%; height: 520px; overflow: hidden; padding: 20px;">
+      
+      <!-- Card 1 -->
+      <div class="flip-card-wrapper">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3 style="font-family:'Space Mono',monospace; font-size:1.5rem; letter-spacing: 2px;">AIESEC</h3>
+          </div>
+          <div class="flip-card-back" style="background-image:url('images/team.jpg');">
+            <div class="acc-content">
+              <h3>AIESEC Leadership</h3>
+              <a href="human-resources.html" class="visit-btn">VISIT</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="flip-card-wrapper">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3 style="font-family:'Space Mono',monospace; font-size:1.5rem; letter-spacing: 2px;">VIRTUSA</h3>
+          </div>
+          <div class="flip-card-back" style="background-image:url('images/virtusa-training-1.jpg');">
+            <div class="acc-content">
+              <h3>Virtusa Training</h3>
+              <a href="human-resources.html" class="visit-btn">VISIT</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
 <!-- ===================== ABOUT ME TEASER ===================== -->
 <section id="about-teaser" style="background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
   <div class="container">
     <div class="story-grid reveal" style="align-items:center;">
       <div class="story-text">
         <span class="label" style="display:block; margin-bottom:20px;">The Person Behind The Work</span>
-        <h2 style="font-family:'Poppins',sans-serif; font-weight:500; font-size:clamp(2rem, 4vw, 3rem); line-height:1.15; margin-bottom:30px;">
+        <h2 class="reveal-zoom" style="font-family:'Poppins',sans-serif; font-weight:500; font-size:clamp(2rem, 4vw, 3rem); line-height:1.15; margin-bottom:30px;">
           From the back row to <br><em>the global stage.</em>
         </h2>
         <p>Before the words came, there was silence. I spent my early years paralyzed by the thought of public speaking. Today, I don't just speak—I train others to find their voice, I build technology systems that scale, and I lead high-impact teams across the globe.</p>
@@ -271,7 +324,7 @@
 <section class="cta" id="contact">
   <div class="container">
     <span class="label">Let's Connect</span>
-    <h2>Ready to <span class="accent-word">collaborate?</span></h2>
+    <h2 class="reveal-zoom">Ready to <span class="accent-word">collaborate?</span></h2>
     <p style="color:var(--stone); margin-top:20px; margin-bottom:40px; max-width:500px; margin-left:auto; margin-right:auto; font-size:1.1rem;">Whether you need a tech wizard, an HR strategist, a corporate trainer, or a business development lead, I'm ready to bring value to your team.</p>
     <div class="cta-links">
       <a class="cta-link" href="mailto:eranbwt27@gmail.com">EMAIL — eranbwt27@gmail.com</a>

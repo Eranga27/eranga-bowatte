@@ -1924,7 +1924,7 @@
 
   /* ---------- Portfolio Donut Navigation ---------- */
   .portfolio-nav-section {
-    padding: 140px 0;
+    padding: 60px 0;
     position: relative;
   }
   .portfolio-circle-container {
@@ -1984,7 +1984,7 @@
   }
 
   @media (max-width: 768px) {
-    .portfolio-nav-section { padding: 80px 0; }
+    .portfolio-nav-section { padding: 40px 0; }
   }
 /* ================= EXPERIENCE SPECIFIC ================= */
   :root{
@@ -3639,3 +3639,118 @@
   background: rgba(255, 106, 26, 0.05) !important;
   border-color: rgba(255, 106, 26, 0.3) !important;
 }
+
+
+  /* ---------- Reveal Zoom (Enlarge on scroll) ---------- */
+  .reveal-zoom {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.85s cubic-bezier(0.4,0,0.2,1), transform 0.85s cubic-bezier(0.4,0,0.2,1);
+    transform-origin: left center;
+  }
+  .reveal-zoom.in {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .reveal-zoom.out {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+
+  /* ---------- HR Flip Cards ---------- */
+  .hr-cards-container {
+    perspective: 1000px;
+  }
+  .flip-card-wrapper {
+    width: 240px;
+    height: 340px;
+    background-color: transparent;
+    perspective: 1000px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    border-radius: 8px;
+  }
+  .flip-card-wrapper:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .flip-card-front {
+    background-color: var(--surface);
+    color: var(--paper);
+    transition: background-color 0.3s ease;
+  }
+  .flip-card-wrapper:hover .flip-card-front {
+    background-color: var(--ink);
+  }
+  .flip-card-back {
+    background-color: var(--ink);
+    color: white;
+    transform: rotateY(180deg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  .flip-card-back::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(11,10,9,0.95) 0%, rgba(11,10,9,0.3) 100%);
+  }
+  .flip-card-back .acc-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .flip-card-back .visit-btn {
+    margin-top: 15px;
+    padding: 10px 24px;
+    background: #e62020;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    transition: background 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    text-align: center;
+  }
+  .flip-card-back .visit-btn:hover {
+    background: #ff3333;
+    transform: translateY(-2px);
+  }
+  .flip-card-back h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 0;
+    text-align: center;
+  }

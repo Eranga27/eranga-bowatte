@@ -158,19 +158,26 @@ window.addEventListener('load', () => {
     // Create central text element
     const centerText = document.createElement('div');
     centerText.className = 'donut-center-text';
-    centerText.style.cssText = `
+        centerText.style.cssText = `
       position: absolute;
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
       color: var(--paper);
       opacity: 1;
       transition: opacity 0.3s ease;
       pointer-events: none;
       z-index: 5;
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.2rem;
-      max-width: 200px;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+      line-height: 1.3;
+      max-width: 220px;
     `;
     centerText.innerHTML = 'Hover to<br>Explore Portfolios';
     donutContainer.appendChild(centerText);
@@ -218,7 +225,7 @@ window.addEventListener('load', () => {
   }
 
   /* ---- Scroll reveal with fade-out ---- */
-  const revealEls = document.querySelectorAll('.reveal');
+  const revealEls = document.querySelectorAll('.reveal, .reveal-zoom');
   const revealIO = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
