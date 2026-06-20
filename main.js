@@ -422,3 +422,18 @@ window.addEventListener('load', () => {
       }
     }, { passive: true });
   }
+
+  /* ---- Creative Section Slide-In ---- */
+  const creativeTeaser = document.getElementById('creative-teaser');
+  if (creativeTeaser) {
+    const creativeIO = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        } else {
+          entry.target.classList.remove('in-view');
+        }
+      });
+    }, { threshold: 0.2 });
+    creativeIO.observe(creativeTeaser);
+  }
