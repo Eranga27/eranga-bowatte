@@ -95,7 +95,7 @@ window.addEventListener('load', () => {
   let isMagnetic = false;
   let magneticTarget = null;
 
-  if (window.matchMedia('(pointer:fine)').matches) {
+  if (window.matchMedia('(pointer:fine)').matches && dot && ring) {
     document.addEventListener('mousemove', e => {
       if (!isMagnetic) {
         mx = e.clientX; 

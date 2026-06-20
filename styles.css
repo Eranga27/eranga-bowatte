@@ -241,7 +241,49 @@
   nav.sticky {
     position: fixed;
     animation: slideDownNav 0.5s ease forwards;
-    padding: 20px 40px; /* slightly smaller padding when sticky */
+    padding: 20px 40px;
+    pointer-events: auto;
+  }
+
+  nav.sticky > * {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  nav.sticky:hover > * {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  nav.sticky::before {
+    content: 'Hover Over Here';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--paper);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    animation: pulseHoverText 2.5s ease-in-out infinite;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  nav.sticky:hover::before {
+    opacity: 0;
+    animation: none;
+  }
+
+  @keyframes pulseHoverText {
+    0%, 100% { opacity: 0.3; filter: drop-shadow(0 0 0px rgba(255, 106, 26, 0)); }
+    50% { opacity: 1; color: #FF6A1A; filter: drop-shadow(0 0 8px rgba(255, 106, 26, 0.6)); }
   }
 
   @keyframes slideDownNav {
