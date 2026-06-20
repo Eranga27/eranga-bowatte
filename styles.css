@@ -1924,7 +1924,7 @@
 
   /* ---------- Portfolio Donut Navigation ---------- */
   .portfolio-nav-section {
-    padding: 60px 0;
+    padding: 40px 0;
     position: relative;
   }
   .portfolio-circle-container {
@@ -3779,12 +3779,16 @@
   .creative-images-col::before {
     content: "";
     position: absolute;
-    top: 10%; left: 10%; right: 10%; bottom: 10%;
-    background: linear-gradient(60deg, #FF6A1A, #b732c2, #1f6ce8);
-    filter: blur(70px);
-    opacity: 0.45;
+    top: 0; left: -10%; right: -10%; bottom: 0;
+    background-image: url('images/creative-art.png');
+    background-size: cover;
+    background-position: center;
+    filter: blur(4px) brightness(0.65);
+    opacity: 0.9;
     z-index: 1;
-    transform: rotate(-15deg);
+    border-radius: 20px;
+    mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
   }
   .creative-images-col {
     flex: 1.2;
@@ -3796,30 +3800,8 @@
     position: absolute;
     background-size: cover;
     background-position: center;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.8);
-    clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
-    -webkit-mask-image: repeating-linear-gradient(
-      55deg,
-      #000 0px, #000 25px,
-      transparent 25px, transparent 29px,
-      #000 29px, #000 70px,
-      transparent 70px, transparent 76px,
-      rgba(0,0,0,0.75) 76px, rgba(0,0,0,0.75) 90px,
-      transparent 90px, transparent 93px,
-      #000 93px, #000 130px,
-      transparent 130px, transparent 136px
-    );
-    mask-image: repeating-linear-gradient(
-      55deg,
-      #000 0px, #000 25px,
-      transparent 25px, transparent 29px,
-      #000 29px, #000 70px,
-      transparent 70px, transparent 76px,
-      rgba(0,0,0,0.75) 76px, rgba(0,0,0,0.75) 90px,
-      transparent 90px, transparent 93px,
-      #000 93px, #000 130px,
-      transparent 130px, transparent 136px
-    );
+    box-shadow: 0 30px 60px rgba(0,0,0,0.8), inset 0 0 0 1px rgba(255,255,255,0.15);
+    border-radius: 16px;
     transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease, filter 0.3s ease;
     overflow: hidden;
     cursor: pointer;
@@ -3922,12 +3904,16 @@
     .creative-images-col::before {
     content: "";
     position: absolute;
-    top: 10%; left: 10%; right: 10%; bottom: 10%;
-    background: linear-gradient(60deg, #FF6A1A, #b732c2, #1f6ce8);
-    filter: blur(70px);
-    opacity: 0.45;
+    top: 0; left: -10%; right: -10%; bottom: 0;
+    background-image: url('images/creative-art.png');
+    background-size: cover;
+    background-position: center;
+    filter: blur(4px) brightness(0.65);
+    opacity: 0.9;
     z-index: 1;
-    transform: rotate(-15deg);
+    border-radius: 20px;
+    mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
   }
   .creative-images-col { height: 400px; width: 100%; margin-top: 40px; order: 2; }
     .creative-text-col { order: 1; }
@@ -3935,4 +3921,45 @@
     .img-2 { width: 260px; height: 210px; left: 0; margin-top: -105px; }
     .img-3 { width: 200px; height: 160px; bottom: 0; right: 20px; }
     .creative-img-overlay { left: 40px; font-size: 0.8rem; }
+  }
+
+
+  /* ===================== SECTION GLOWS ===================== */
+  #stats::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.12) 0%, transparent 60%);
+    pointer-events: none; z-index: 0;
+  }
+  #portfolios::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(255, 106, 26, 0.12) 0%, transparent 60%);
+    pointer-events: none; z-index: 0;
+  }
+  #comm-teaser::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 80%, rgba(156, 39, 176, 0.12) 0%, transparent 60%);
+    pointer-events: none; z-index: 0;
+  }
+  #hr-teaser::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 10% 90%, rgba(233, 80, 80, 0.12) 0%, transparent 60%);
+    pointer-events: none; z-index: 0;
+  }
+  #about-teaser::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 90% 90%, rgba(255, 193, 7, 0.12) 0%, transparent 60%);
+    pointer-events: none; z-index: 0;
+  }
+  #contact::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 10%, rgba(233, 30, 99, 0.12) 0%, transparent 60%);
+    pointer-events: none; z-index: 0;
+  }
+  #stats, #portfolios, #comm-teaser, #hr-teaser, #about-teaser, #contact {
+    position: relative;
+    overflow: hidden;
+  }
+  #stats > *, #portfolios > *, #comm-teaser > *, #hr-teaser > *, #about-teaser > *, #contact > * {
+    position: relative;
+    z-index: 1;
   }
