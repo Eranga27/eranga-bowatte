@@ -437,3 +437,69 @@ window.addEventListener('load', () => {
     }, { threshold: 0.2 });
     creativeIO.observe(creativeTeaser);
   }
+
+  /* ---- Highlight Reel Carousel ---- */
+  const highlightReel = document.getElementById('highlight-reel');
+  if (highlightReel) {
+    const reelContainer = document.getElementById('reelContainer');
+    const slides = document.querySelectorAll('.reel-slide');
+    const prevBtn = document.getElementById('reelPrev');
+    const nextBtn = document.getElementById('reelNext');
+    const indicator = document.getElementById('reelIndicator');
+    const progressFill = document.getElementById('reelProgress');
+    
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    let progressInterval;
+    let progressPct = 0;
+    const slideDuration = 5000; // 5 seconds per slide
+    const tickRate = 50; // ms
+    
+    function updateSlide(index) {
+      currentSlide = index;
+      if (currentSlide < 0) currentSlide = totalSlides - 1;
+      if (currentSlide >= totalSlides) currentSlide = 0;
+      
+      reelContainer.style.transform = `translateX(-${currentSlide * (100 / totalSlides)}%)`;
+      
+      slides.forEach((s, i) => {
+        if (i === currentSlide) s.classList.add('active');
+        else s.classList.remove('active');
+      });
+      
+      indicator.textContent = `0${currentSlide + 1} / 0${totalSlides}`;
+      resetProgress();
+    }
+    
+    function resetProgress() {
+      progressPct = 0;
+      if (progressFill) progressFill.style.width = '0%';
+    }
+    
+    function tickProgress() {
+      progressPct += (tickRate / slideDuration) * 100;
+      if (progressPct >= 100) {
+        progressPct = 0;
+        updateSlide(currentSlide + 1);
+      }
+      if (progressFill) progressFill.style.width = `${progressPct}%`;
+    }
+    
+    function startAutoPlay() {
+      clearInterval(progressInterval);
+      progressInterval = setInterval(tickProgress, tickRate);
+    }
+    
+    function stopAutoPlay() {
+      clearInterval(progressInterval);
+    }
+    
+    if (prevBtn) prevBtn.addEventListener('click', () => updateSlide(currentSlide - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => updateSlide(currentSlide + 1));
+    
+    highlightReel.addEventListener('mouseenter', stopAutoPlay);
+    highlightReel.addEventListener('mouseleave', startAutoPlay);
+    
+    // Init
+    startAutoPlay();
+  }

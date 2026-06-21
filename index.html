@@ -145,244 +145,103 @@
   </div>
 </header>
 
-<!-- ===================== WHAT I DO BANNER ===================== -->
-<section id="what-i-do" class="what-i-do-section">
-  <div class="container">
-    <div class="wid-header">
-      <span class="label">How I Can Help You</span>
-    </div>
-    <div class="bento-grid">
-      <!-- Main: Communication -->
-      <a href="communication.html" class="bento-card bento-main">
-        <div class="bento-bg"></div>
-        <div class="wid-icon-wrap">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
-        <div class="bento-content">
-          <h3>Communication</h3>
-          <p>Public speaking coaching, corporate communication training, emcee work, and professional etiquette — helping individuals and organisations find their voice.</p>
-          <span class="wid-link">Explore →</span>
-        </div>
-      </a>
-
-      <!-- Sub: Leadership -->
-      <a href="leadership.html" class="bento-card bento-sub">
-        <div class="bento-bg"></div>
-        <div class="wid-icon-wrap">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        </div>
-        <div class="bento-content">
-          <h3>Leadership</h3>
-          <span class="wid-link">Explore →</span>
-        </div>
-      </a>
-
-      <!-- Sub: Business Dev -->
-      <a href="business-development.html" class="bento-card bento-sub">
-        <div class="bento-bg"></div>
-        <div class="wid-icon-wrap">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-        </div>
-        <div class="bento-content">
-          <h3>Business Dev</h3>
-          <span class="wid-link">Explore →</span>
-        </div>
-      </a>
-
-      <!-- Main: Human Resources -->
-      <a href="human-resources.html" class="bento-card bento-main">
-        <div class="bento-bg"></div>
-        <div class="wid-icon-wrap">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-        </div>
-        <div class="bento-content">
-          <h3>Human Resources</h3>
-          <p>Building cultures that retain talent, designing onboarding experiences, and bridging the gap between technical teams and human potential.</p>
-          <span class="wid-link">Explore →</span>
-        </div>
-      </a>
-
-      <!-- Main: Creative Designing -->
-      <a href="creative.html" class="bento-card bento-main">
-        <div class="bento-bg"></div>
-        <div class="wid-icon-wrap">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-        </div>
-        <div class="bento-content">
-          <h3>Creative Design</h3>
-          <p>Visual storytelling through brand identity, content design, and cinematic media — where strategic thinking meets aesthetic execution.</p>
-          <span class="wid-link">Explore →</span>
-        </div>
-      </a>
-
-      <!-- Sub: Technology -->
-      <a href="technology.html" class="bento-card bento-sub">
-        <div class="bento-bg"></div>
-        <div class="wid-icon-wrap">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-        </div>
-        <div class="bento-content">
-          <h3>Technology</h3>
-          <span class="wid-link">Explore →</span>
-        </div>
-      </a>
-    </div>
+<!-- ===================== HIGHLIGHT REEL (Auto-Rotating Carousel) ===================== -->
+<section id="highlight-reel" class="highlight-reel-section">
+  <!-- Progress Bar -->
+  <div class="reel-progress-bar"><div class="reel-progress-fill" id="reelProgress"></div></div>
+  
+  <!-- Carousel Controls -->
+  <div class="reel-controls">
+    <button id="reelPrev" class="reel-btn" aria-label="Previous Slide">←</button>
+    <span class="reel-indicator" id="reelIndicator">01 / 04</span>
+    <button id="reelNext" class="reel-btn" aria-label="Next Slide">→</button>
   </div>
-</section>
 
-<!-- ===================== ABOUT ME TEASER (moved up — builds trust early) ===================== -->
-<section id="about-teaser" style="background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
-  <div class="container">
-    <div class="story-grid reveal" style="align-items:center;">
-      <div class="story-text">
-        <span class="label" style="display:block; margin-bottom:20px;">The Person Behind The Work</span>
-        <h2 class="reveal-zoom" style="font-family:'Poppins',sans-serif; font-weight:500; font-size:clamp(2rem, 4vw, 3rem); line-height:1.15; margin-bottom:30px;">
-          From the back row to <br><em>the global stage.</em>
-        </h2>
-        <p>Before the words came, there was silence. I spent my early years paralyzed by the thought of public speaking. Today, I don't just speak—I train others to find their voice, I build technology systems that scale, and I lead high-impact teams across the globe.</p>
-        <p>My journey is built on small, deliberate repetitions and an obsession with bridging the gap between human connection and technical execution.</p>
-        <a href="about.html" style="display:inline-block; margin-top:30px; padding:16px 32px; background:#FF6A1A; color:var(--ink); text-decoration:none; font-family:'Space Mono',monospace; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; border-radius:4px; transition:transform 0.2s ease, background 0.2s ease;">Read Full Story</a>
+  <div class="reel-container" id="reelContainer">
+    
+    <!-- SLIDE 1: ABOUT -->
+    <div class="reel-slide active" id="slide-1">
+      <div class="container" style="height: 100%; display: flex; align-items: center;">
+        <div class="story-grid reveal" style="align-items:center; width: 100%;">
+          <div class="story-text">
+            <span class="label" style="display:block; margin-bottom:20px;">The Person Behind The Work</span>
+            <h2 class="reveal-zoom" style="font-family:'Poppins',sans-serif; font-weight:500; font-size:clamp(2rem, 4vw, 3rem); line-height:1.15; margin-bottom:30px;">
+              From the back row to <br><em>the global stage.</em>
+            </h2>
+            <p>Before the words came, there was silence. I spent my early years paralyzed by the thought of public speaking. Today, I don't just speak—I train others to find their voice, I build technology systems that scale, and I lead high-impact teams across the globe.</p>
+            <p>My journey is built on small, deliberate repetitions and an obsession with bridging the gap between human connection and technical execution.</p>
+            <a href="about.html" class="reel-cta-btn">Read Full Story</a>
+          </div>
+          <div class="banner-img-side" style="border-radius:12px; aspect-ratio:4/5;">
+            <img src="images/journey-glimpse.jpg" alt="Eranga Bowatte on stage">
+          </div>
+        </div>
       </div>
-      <div class="banner-img-side" style="border-radius:12px; aspect-ratio:4/5;">
-        <img src="images/journey-glimpse.jpg" alt="Eranga Bowatte on stage">
+    </div>
+
+    <!-- SLIDE 2: COMMUNICATION -->
+    <div class="reel-slide" id="slide-2">
+      <div class="teaser-split">
+        <div class="teaser-accordion-col">
+          <div class="accordion-container" style="margin-top:0; height:520px;">
+            <a href="communication.html#branding" class="acc-card active" style="background-image:url('images/mic4.jpg');"><div class="acc-content"><h3>Personal Branding</h3></div></a>
+            <a href="communication.html#training" class="acc-card" style="background-image:url('images/mastering-comm-3.jpg');"><div class="acc-content"><h3>Communication Trainings</h3></div></a>
+            <a href="communication.html#emcee" class="acc-card" style="background-image:url('images/training-session.jpg');"><div class="acc-content"><h3>Emcee / Hosting</h3></div></a>
+            <a href="communication.html#etiquette" class="acc-card" style="background-image:url('images/peoc.png');"><div class="acc-content"><h3>Etiquette &amp; Creatives</h3></div></a>
+          </div>
+        </div>
+        <div class="teaser-hook-col">
+          <span class="label" style="display:block; margin-bottom:20px;">Portfolio 01</span>
+          <h2 class="reveal-zoom" style="font-family:'Poppins', sans-serif; font-weight:800; font-size:clamp(2.5rem, 5vw, 4.5rem); line-height:1.05; margin-bottom:28px;">Voice &amp; <em style="font-style:normal; color:#FF6A1A;">Influence.</em></h2>
+          <p style="color:var(--stone); font-size:1.05rem; line-height:1.85; max-width:38ch; margin-bottom:20px;">From corporate boardrooms to national stages — 75+ sessions, 1,000+ attendees, and a growing roster of engagements that span training, hosting, and creative communication.</p>
+          <a href="communication.html" class="reel-cta-btn">Explore Full Portfolio <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: HR -->
+    <div class="reel-slide" id="slide-3">
+      <div class="teaser-split">
+        <div class="teaser-hook-col" style="order: 1;">
+          <span class="label" style="display:block; margin-bottom:20px;">Portfolio 02</span>
+          <h2 class="reveal-zoom" style="font-family:'Poppins', sans-serif; font-weight:800; font-size:clamp(2.5rem, 5vw, 4.5rem); line-height:1.05; margin-bottom:28px;">People &amp; <em style="font-style:normal; color:#FF6A1A;">Culture.</em></h2>
+          <p style="color:var(--stone); font-size:1.05rem; line-height:1.85; max-width:38ch; margin-bottom:20px;">Bridging the gap between technical execution and human connection through robust HR practices and cultural development.</p>
+          <a href="human-resources.html" class="reel-cta-btn">Explore HR Portfolio <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="teaser-accordion-col hr-cards-container" style="order: 2; display: flex; gap: 20px; align-items: center; justify-content: center; width: 100%; height: 520px; overflow: hidden; padding: 20px;">
+          <div class="flip-card-wrapper"><div class="flip-card-inner"><div class="flip-card-front"><h3 style="font-family:'Space Mono',monospace; font-size:1.5rem; letter-spacing: 2px;">AIESEC</h3></div><div class="flip-card-back" style="background-image:url('images/team.jpg');"><div class="acc-content"><h3>AIESEC Leadership</h3><a href="human-resources.html" class="visit-btn">VISIT</a></div></div></div></div>
+          <div class="flip-card-wrapper"><div class="flip-card-inner"><div class="flip-card-front"><h3 style="font-family:'Space Mono',monospace; font-size:1.5rem; letter-spacing: 2px;">VIRTUSA</h3></div><div class="flip-card-back" style="background-image:url('images/virtusa-training-1.jpg');"><div class="acc-content"><h3>Virtusa Training</h3><a href="human-resources.html" class="visit-btn">VISIT</a></div></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: CREATIVE -->
+    <div class="reel-slide" id="slide-4">
+      <div class="creative-split">
+        <div class="creative-text-col">
+          <span class="label" style="display:block; margin-bottom:20px;">Portfolio 03</span>
+          <h2 class="reveal-zoom" style="font-family:'Poppins', sans-serif; font-weight:800; font-size:clamp(2.5rem, 5vw, 4.5rem); line-height:1.05; margin-bottom:28px;">Visual <em style="font-style:normal; color:#FF6A1A;">Storytelling.</em></h2>
+          <p style="color:var(--stone); font-size:1.05rem; line-height:1.85; max-width:38ch; margin-bottom:20px;">From striking branding at Strider Seven Group to dynamic YouTube thumbnails and personal passion projects. Where logic meets aesthetic.</p>
+          <a href="creative.html" class="reel-cta-btn">Explore Creative Work <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="creative-images-col" style="min-height: 500px;">
+          <a href="creative.html#strider" class="creative-img-wrapper img-1" style="background-image:url('images/solo-branding-1.jpg'); transform:translate(0,0); opacity:1;" aria-label="Strider Seven Group"><div class="creative-img-overlay" style="opacity:1; transform:none;"><span>Strider Seven</span></div></a>
+          <a href="creative.html#youtube" class="creative-img-wrapper img-2" style="background-image:url('images/mastering-comm-2.jpg'); transform:translate(0,0); opacity:1;" aria-label="YouTube"><div class="creative-img-overlay" style="opacity:1; transform:none;"><span>YouTube</span></div></a>
+          <a href="creative.html#personal" class="creative-img-wrapper img-3" style="background-image:url('images/mic4.jpg'); transform:translate(0,0); opacity:1;" aria-label="Personal Projects"><div class="creative-img-overlay" style="opacity:1; transform:none;"><span>Personal</span></div></a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ===================== PORTFOLIOS (THE GATEWAY) ===================== -->
-<section id="portfolios" class="portfolio-nav-section disciplines-fullbleed" style="padding: 0;">
+<section id="portfolios" class="portfolio-nav-section disciplines-fullbleed" style="padding: 0; border-top: 1px solid var(--line);">
   <div class="iframe-container" style="position:relative; width: 100%; height: 100vh;">
     <iframe src="3d-disciplines/dist/index.html" style="width: 100%; height: 100%; border: none;" scrolling="no"></iframe>
-    <!-- Scroll hint overlay -->
     <div class="disciplines-scroll-hint" id="disciplinesHint">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
       Scroll inside to explore disciplines
     </div>
-  </div>
-</section>
-
-<!-- ===================== COMMUNICATION PORTFOLIO TEASER ===================== -->
-<section id="comm-teaser" class="portfolio-teaser-section">
-  <div class="teaser-split">
-
-    <!-- Left: Accordion Cards -->
-    <div class="teaser-accordion-col">
-      <div class="accordion-container" style="margin-top:0; height:520px;">
-        <a href="communication.html#branding" class="acc-card active" style="background-image:url('images/mic4.jpg');">
-          <div class="acc-content"><h3>Personal Branding</h3></div>
-        </a>
-        <a href="communication.html#training" class="acc-card" style="background-image:url('images/mastering-comm-3.jpg');">
-          <div class="acc-content"><h3>Communication Trainings</h3></div>
-        </a>
-        <a href="communication.html#emcee" class="acc-card" style="background-image:url('images/training-session.jpg');">
-          <div class="acc-content"><h3>Emcee / Hosting</h3></div>
-        </a>
-        <a href="communication.html#etiquette" class="acc-card" style="background-image:url('images/peoc.png');">
-          <div class="acc-content"><h3>Etiquette &amp; Creatives</h3></div>
-        </a>
-      </div>
-    </div>
-
-    <!-- Right: Hook Text -->
-    <div class="teaser-hook-col">
-      <span class="label" style="display:block; margin-bottom:20px;">Portfolio 01</span>
-      <h2 class="reveal-zoom" style="font-family:'Poppins', sans-serif; font-weight:800; font-size:clamp(2.5rem, 5vw, 4.5rem); line-height:1.05; margin-bottom:28px;">Voice &amp; <em style="font-style:normal; color:#FF6A1A;">Influence.</em></h2>
-      <p style="color:var(--stone); font-size:1.05rem; line-height:1.85; max-width:38ch; margin-bottom:20px;">From corporate boardrooms to national stages — 75+ sessions, 1,000+ attendees, and a growing roster of engagements that span training, hosting, and creative communication.</p>
-      <p style="color:var(--stone); font-size:0.9rem; font-family:'Space Mono',monospace; letter-spacing:0.08em; margin-bottom:40px; opacity:0.7;">← Click a card to jump directly to that section</p>
-      <a href="communication.html" style="display:inline-flex; align-items:center; gap:12px; padding:16px 32px; background:#FF6A1A; color:#0B0A09; text-decoration:none; font-family:'Space Mono',monospace; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; border-radius:4px; transition:transform 0.2s ease, background 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.background='#ff8c4a'" onmouseout="this.style.transform='translateY(0)'; this.style.background='#FF6A1A'">
-        Explore Full Portfolio
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ===================== HR PORTFOLIO TEASER ===================== -->
-<section id="hr-teaser" class="portfolio-teaser-section" style="border-top:1px solid var(--line);">
-  <div class="teaser-split">
-    
-    <!-- Left: Hook Text -->
-    <div class="teaser-hook-col" style="order: 1;">
-      <span class="label" style="display:block; margin-bottom:20px;">Portfolio 02</span>
-      <h2 class="reveal-zoom" style="font-family:'Poppins', sans-serif; font-weight:800; font-size:clamp(2.5rem, 5vw, 4.5rem); line-height:1.05; margin-bottom:28px;">People &amp; <em style="font-style:normal; color:#FF6A1A;">Culture.</em></h2>
-      <p style="color:var(--stone); font-size:1.05rem; line-height:1.85; max-width:38ch; margin-bottom:20px;">Bridging the gap between technical execution and human connection through robust HR practices and cultural development.</p>
-      <a href="human-resources.html" style="display:inline-flex; align-items:center; gap:12px; padding:16px 32px; background:#FF6A1A; color:#0B0A09; text-decoration:none; font-family:'Space Mono',monospace; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; border-radius:4px; transition:transform 0.2s ease, background 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.background='#ff8c4a'" onmouseout="this.style.transform='translateY(0)'; this.style.background='#FF6A1A'">
-        Explore HR Portfolio
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-
-    <!-- Right: Flip Cards -->
-    <div class="teaser-accordion-col hr-cards-container" style="order: 2; display: flex; gap: 20px; align-items: center; justify-content: center; width: 100%; height: 520px; overflow: hidden; padding: 20px;">
-      
-      <!-- Card 1 -->
-      <div class="flip-card-wrapper">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <h3 style="font-family:'Space Mono',monospace; font-size:1.5rem; letter-spacing: 2px;">AIESEC</h3>
-          </div>
-          <div class="flip-card-back" style="background-image:url('images/team.jpg');">
-            <div class="acc-content">
-              <h3>AIESEC Leadership</h3>
-              <a href="human-resources.html" class="visit-btn">VISIT</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="flip-card-wrapper">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <h3 style="font-family:'Space Mono',monospace; font-size:1.5rem; letter-spacing: 2px;">VIRTUSA</h3>
-          </div>
-          <div class="flip-card-back" style="background-image:url('images/virtusa-training-1.jpg');">
-            <div class="acc-content">
-              <h3>Virtusa Training</h3>
-              <a href="human-resources.html" class="visit-btn">VISIT</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-</section>
-
-
-<!-- ===================== CREATIVE PORTFOLIO TEASER ===================== -->
-<section id="creative-teaser" class="creative-teaser-section" style="border-top:1px solid var(--line);">
-  <div class="creative-split">
-    
-    <!-- Left: Hook Text -->
-    <div class="creative-text-col">
-      <span class="label" style="display:block; margin-bottom:20px;">Portfolio 03</span>
-      <h2 class="reveal-zoom" style="font-family:'Poppins', sans-serif; font-weight:800; font-size:clamp(2.5rem, 5vw, 4.5rem); line-height:1.05; margin-bottom:28px;">Visual <em style="font-style:normal; color:#FF6A1A;">Storytelling.</em></h2>
-      <p style="color:var(--stone); font-size:1.05rem; line-height:1.85; max-width:38ch; margin-bottom:20px;">From striking branding at Strider Seven Group to dynamic YouTube thumbnails and personal passion projects. Where logic meets aesthetic.</p>
-      <a href="creative.html" style="display:inline-flex; align-items:center; gap:12px; padding:16px 32px; background:#FF6A1A; color:#0B0A09; text-decoration:none; font-family:'Space Mono',monospace; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; border-radius:4px; transition:transform 0.2s ease, background 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.background='#ff8c4a'" onmouseout="this.style.transform='translateY(0)'; this.style.background='#FF6A1A'">
-        Explore Creative Work
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-
-    <!-- Right: Three overlapping slanted images -->
-    <div class="creative-images-col">
-      <a href="creative.html#strider" class="creative-img-wrapper img-1" style="background-image:url('images/solo-branding-1.jpg');" aria-label="Strider Seven Group">
-        <div class="creative-img-overlay"><span>Strider Seven</span></div>
-      </a>
-      
-      <a href="creative.html#youtube" class="creative-img-wrapper img-2" style="background-image:url('images/mastering-comm-2.jpg');" aria-label="YouTube">
-        <div class="creative-img-overlay"><span>YouTube</span></div>
-      </a>
-      
-      <a href="creative.html#personal" class="creative-img-wrapper img-3" style="background-image:url('images/mic4.jpg');" aria-label="Personal Projects">
-        <div class="creative-img-overlay"><span>Personal</span></div>
-      </a>
-    </div>
-    
   </div>
 </section>
 
