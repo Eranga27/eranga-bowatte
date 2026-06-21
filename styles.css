@@ -4242,6 +4242,42 @@
     .glass-highlight { padding: 30px 5%; }
   }
 
+  .reel-bg-glow {
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 100%, rgba(255, 106, 26, 0.08) 0%, transparent 60%);
+    pointer-events: none; z-index: 0;
+  }
+
+  .reel-scroll-indicator {
+    position: absolute;
+    bottom: 24px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    z-index: 20;
+    opacity: 0.6; transition: opacity 0.3s;
+  }
+  .reel-scroll-indicator:hover { opacity: 1; }
+  .reel-scroll-indicator .mouse {
+    width: 20px; height: 32px;
+    border: 2px solid var(--stone);
+    border-radius: 12px;
+    position: relative;
+  }
+  .reel-scroll-indicator .mouse::before {
+    content: '';
+    position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
+    width: 3px; height: 4px; background: var(--stone);
+    border-radius: 50%;
+    animation: scrollMouse 1.5s infinite;
+  }
+  .reel-scroll-indicator span {
+    font-family: 'Inter', sans-serif; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--stone);
+  }
+  @keyframes scrollMouse {
+    0% { transform: translate(-50%, 0); opacity: 1; }
+    100% { transform: translate(-50%, 8px); opacity: 0; }
+  }
+
   /* ===================== COLLABORATIONS SECTION ===================== */
   .collab-section {
     padding: 72px 0;

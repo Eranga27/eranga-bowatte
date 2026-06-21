@@ -147,11 +147,15 @@
 
 <!-- ===================== HIGHLIGHT REEL (Auto-Rotating Carousel) ===================== -->
 <section id="highlight-reel" class="highlight-reel-section">
+  <!-- Premium Background Glow -->
+  <div class="reel-bg-glow"></div>
+  
   <!-- Progress Bar -->
   <div class="reel-progress-bar"><div class="reel-progress-fill" id="reelProgress"></div></div>
   
   <!-- Carousel Controls -->
   <div class="reel-controls">
+    <span class="pause-hint" style="margin-right: 15px; font-family: 'Inter', sans-serif; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--stone); opacity: 0.6;">Hover to Pause</span>
     <button id="reelPrev" class="reel-btn" aria-label="Previous Slide">←</button>
     <span class="reel-indicator" id="reelIndicator">01 / 04</span>
     <button id="reelNext" class="reel-btn" aria-label="Next Slide">→</button>
@@ -229,8 +233,15 @@
           <a href="creative.html#youtube" class="creative-img-wrapper img-2" style="background-image:url('images/mastering-comm-2.jpg'); transform:translate(0,0); opacity:1;" aria-label="YouTube"><div class="creative-img-overlay" style="opacity:1; transform:none;"><span>YouTube</span></div></a>
           <a href="creative.html#personal" class="creative-img-wrapper img-3" style="background-image:url('images/mic4.jpg'); transform:translate(0,0); opacity:1;" aria-label="Personal Projects"><div class="creative-img-overlay" style="opacity:1; transform:none;"><span>Personal</span></div></a>
         </div>
+        </div>
       </div>
     </div>
+  </div>
+
+  <!-- Scroll Down Indicator -->
+  <div class="reel-scroll-indicator">
+    <div class="mouse"></div>
+    <span>Scroll to explore</span>
   </div>
 </section>
 
