@@ -4051,3 +4051,159 @@
   @media (max-width: 768px) {
     .disciplines-scroll-hint { font-size: 0.6rem; padding: 7px 14px; bottom: 16px; }
   }
+
+  /* ===================== WHAT I DO SECTION ===================== */
+  .what-i-do-section {
+    padding: 100px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .wid-header {
+    margin-bottom: 52px;
+  }
+
+  .wid-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .wid-card {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 40px 36px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--paper);
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .wid-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(255, 106, 26, 0.08) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .wid-card:hover {
+    border-color: rgba(255, 106, 26, 0.5);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 106, 26, 0.15);
+  }
+
+  .wid-card:hover::before {
+    opacity: 1;
+  }
+
+  .wid-icon-wrap {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: rgba(255, 106, 26, 0.12);
+    border: 1px solid rgba(255, 106, 26, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FF6A1A;
+    transition: background 0.3s ease, border-color 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .wid-card:hover .wid-icon-wrap {
+    background: rgba(255, 106, 26, 0.22);
+    border-color: rgba(255, 106, 26, 0.5);
+  }
+
+  .wid-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--paper);
+    margin: 0;
+  }
+
+  .wid-card p {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: var(--stone);
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .wid-link {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #FF6A1A;
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .wid-card:hover .wid-link {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  @media (max-width: 900px) {
+    .wid-grid { grid-template-columns: 1fr; gap: 16px; }
+    .wid-card { padding: 28px 24px; }
+    .what-i-do-section { padding: 72px 0; }
+  }
+
+  /* ===================== COLLABORATIONS SECTION ===================== */
+  .collab-section {
+    padding: 72px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .collab-header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  .collab-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px 28px;
+  }
+
+  .collab-item {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone);
+    opacity: 0.6;
+    transition: opacity 0.3s ease, color 0.3s ease;
+    cursor: default;
+  }
+
+  .collab-item:hover {
+    opacity: 1;
+    color: var(--paper);
+  }
+
+  .collab-sep {
+    color: var(--line);
+    font-size: 1.2rem;
+    user-select: none;
+  }
+
+  @media (max-width: 600px) {
+    .collab-sep { display: none; }
+    .collab-strip { gap: 12px 20px; }
+    .collab-item { font-size: 0.72rem; }
+  }
+
