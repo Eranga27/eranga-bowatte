@@ -4205,7 +4205,17 @@
     flex-shrink: 0;
     opacity: 0.3;
     transition: opacity 0.8s ease;
-    padding: 100px 0;
+    padding: 40px 0 80px 0;
+  }
+
+  .glass-highlight {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 40px 5%;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
   }
 
   .reel-slide.active {
@@ -4228,43 +4238,8 @@
     .reel-controls {
       bottom: 20px; right: 50%; transform: translateX(50%);
     }
-    .reel-slide { padding: 60px 0 100px 0; }
-  }
-
-  .reel-bg-glow {
-    position: absolute; inset: 0;
-    background: radial-gradient(circle at 50% 100%, rgba(255, 106, 26, 0.08) 0%, transparent 60%);
-    pointer-events: none; z-index: 0;
-  }
-
-  .reel-scroll-indicator {
-    position: absolute;
-    bottom: 24px; left: 50%;
-    transform: translateX(-50%);
-    display: flex; flex-direction: column; align-items: center; gap: 8px;
-    z-index: 20;
-    opacity: 0.6; transition: opacity 0.3s;
-  }
-  .reel-scroll-indicator:hover { opacity: 1; }
-  .reel-scroll-indicator .mouse {
-    width: 20px; height: 32px;
-    border: 2px solid var(--stone);
-    border-radius: 12px;
-    position: relative;
-  }
-  .reel-scroll-indicator .mouse::before {
-    content: '';
-    position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
-    width: 3px; height: 4px; background: var(--stone);
-    border-radius: 50%;
-    animation: scrollMouse 1.5s infinite;
-  }
-  .reel-scroll-indicator span {
-    font-family: 'Inter', sans-serif; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--stone);
-  }
-  @keyframes scrollMouse {
-    0% { transform: translate(-50%, 0); opacity: 1; }
-    100% { transform: translate(-50%, 8px); opacity: 0; }
+    .reel-slide { padding: 40px 0 80px 0; }
+    .glass-highlight { padding: 30px 5%; }
   }
 
   /* ===================== COLLABORATIONS SECTION ===================== */

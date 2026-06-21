@@ -147,9 +147,6 @@
 
 <!-- ===================== HIGHLIGHT REEL (Auto-Rotating Carousel) ===================== -->
 <section id="highlight-reel" class="highlight-reel-section">
-  <!-- Premium Background Glow -->
-  <div class="reel-bg-glow"></div>
-  
   <!-- Progress Bar -->
   <div class="reel-progress-bar"><div class="reel-progress-fill" id="reelProgress"></div></div>
   
@@ -164,7 +161,7 @@
     
     <!-- SLIDE 1: ABOUT -->
     <div class="reel-slide active" id="slide-1">
-      <div class="reel-glass-box">
+      <div class="container glass-highlight" style="height: 100%; display: flex; align-items: center;">
         <div class="story-grid reveal" style="align-items:center; width: 100%;">
           <div class="story-text">
             <span class="label" style="display:block; margin-bottom:20px;">The Person Behind The Work</span>
@@ -184,10 +181,9 @@
 
     <!-- SLIDE 2: COMMUNICATION -->
     <div class="reel-slide" id="slide-2">
-      <div class="reel-glass-box">
-        <div class="teaser-split" style="padding: 0;">
+      <div class="teaser-split glass-highlight">
         <div class="teaser-accordion-col">
-          <div class="accordion-container" style="margin-top:0; height:420px;">
+          <div class="accordion-container" style="margin-top:0; height:520px;">
             <a href="communication.html#branding" class="acc-card active" style="background-image:url('images/mic4.jpg');"><div class="acc-content"><h3>Personal Branding</h3></div></a>
             <a href="communication.html#training" class="acc-card" style="background-image:url('images/mastering-comm-3.jpg');"><div class="acc-content"><h3>Communication Trainings</h3></div></a>
             <a href="communication.html#emcee" class="acc-card" style="background-image:url('images/training-session.jpg');"><div class="acc-content"><h3>Emcee / Hosting</h3></div></a>
@@ -202,50 +198,39 @@
         </div>
       </div>
     </div>
-    </div>
 
     <!-- SLIDE 3: HR -->
     <div class="reel-slide" id="slide-3">
-      <div class="reel-glass-box">
-        <div class="teaser-split" style="padding: 0;">
+      <div class="teaser-split glass-highlight">
         <div class="teaser-hook-col" style="order: 1;">
           <span class="label" style="display:block; margin-bottom:20px;">Portfolio 02</span>
           <h2 class="reveal-zoom" style="font-family:'Poppins', sans-serif; font-weight:800; font-size:clamp(2.5rem, 5vw, 4.5rem); line-height:1.05; margin-bottom:28px;">People &amp; <em style="font-style:normal; color:#FF6A1A;">Culture.</em></h2>
           <p style="color:var(--stone); font-size:1.05rem; line-height:1.85; max-width:38ch; margin-bottom:20px;">Bridging the gap between technical execution and human connection through robust HR practices and cultural development.</p>
           <a href="human-resources.html" class="reel-cta-btn">Explore HR Portfolio <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
-        <div class="teaser-accordion-col hr-cards-container" style="order: 2; display: flex; gap: 20px; align-items: center; justify-content: center; width: 100%; height: 420px; overflow: hidden; padding: 20px;">
+        <div class="teaser-accordion-col hr-cards-container" style="order: 2; display: flex; gap: 20px; align-items: center; justify-content: center; width: 100%; height: 520px; overflow: hidden; padding: 20px;">
           <div class="flip-card-wrapper"><div class="flip-card-inner"><div class="flip-card-front"><h3 style="font-family:'Space Mono',monospace; font-size:1.5rem; letter-spacing: 2px;">AIESEC</h3></div><div class="flip-card-back" style="background-image:url('images/team.jpg');"><div class="acc-content"><h3>AIESEC Leadership</h3><a href="human-resources.html" class="visit-btn">VISIT</a></div></div></div></div>
           <div class="flip-card-wrapper"><div class="flip-card-inner"><div class="flip-card-front"><h3 style="font-family:'Space Mono',monospace; font-size:1.5rem; letter-spacing: 2px;">VIRTUSA</h3></div><div class="flip-card-back" style="background-image:url('images/virtusa-training-1.jpg');"><div class="acc-content"><h3>Virtusa Training</h3><a href="human-resources.html" class="visit-btn">VISIT</a></div></div></div></div>
         </div>
       </div>
     </div>
-    </div>
 
     <!-- SLIDE 4: CREATIVE -->
     <div class="reel-slide" id="slide-4">
-      <div class="reel-glass-box">
-        <div class="creative-split" style="padding: 0;">
+      <div class="creative-split glass-highlight">
         <div class="creative-text-col">
           <span class="label" style="display:block; margin-bottom:20px;">Portfolio 03</span>
           <h2 class="reveal-zoom" style="font-family:'Poppins', sans-serif; font-weight:800; font-size:clamp(2.5rem, 5vw, 4.5rem); line-height:1.05; margin-bottom:28px;">Visual <em style="font-style:normal; color:#FF6A1A;">Storytelling.</em></h2>
           <p style="color:var(--stone); font-size:1.05rem; line-height:1.85; max-width:38ch; margin-bottom:20px;">From striking branding at Strider Seven Group to dynamic YouTube thumbnails and personal passion projects. Where logic meets aesthetic.</p>
           <a href="creative.html" class="reel-cta-btn">Explore Creative Work <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
-        <div class="creative-images-col" style="min-height: 400px;">
+        <div class="creative-images-col" style="min-height: 500px;">
           <a href="creative.html#strider" class="creative-img-wrapper img-1" style="background-image:url('images/solo-branding-1.jpg'); transform:translate(0,0); opacity:1;" aria-label="Strider Seven Group"><div class="creative-img-overlay" style="opacity:1; transform:none;"><span>Strider Seven</span></div></a>
           <a href="creative.html#youtube" class="creative-img-wrapper img-2" style="background-image:url('images/mastering-comm-2.jpg'); transform:translate(0,0); opacity:1;" aria-label="YouTube"><div class="creative-img-overlay" style="opacity:1; transform:none;"><span>YouTube</span></div></a>
           <a href="creative.html#personal" class="creative-img-wrapper img-3" style="background-image:url('images/mic4.jpg'); transform:translate(0,0); opacity:1;" aria-label="Personal Projects"><div class="creative-img-overlay" style="opacity:1; transform:none;"><span>Personal</span></div></a>
         </div>
       </div>
     </div>
-    </div>
-  </div>
-
-  <!-- Scroll Down Indicator -->
-  <div class="reel-scroll-indicator">
-    <div class="mouse"></div>
-    <span>Scroll to explore</span>
   </div>
 </section>
 
