@@ -4243,15 +4243,19 @@
   .testi-card {
     width: 360px;
     flex-shrink: 0;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
     padding: 32px 28px;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
     position: relative;
+    overflow: hidden;
   }
 
   .testi-card::before {
@@ -4267,8 +4271,9 @@
   }
 
   .testi-card:hover {
-    border-color: rgba(255, 106, 26, 0.35);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    border-color: rgba(255, 106, 26, 0.4);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 106, 26, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
   }
 
   .testi-quote {
@@ -4368,19 +4373,36 @@
   .partner-pill {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 22px;
-    border: 1px solid var(--line);
+    gap: 10px;
+    padding: 10px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 100px;
     font-family: 'Space Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--stone);
+    color: rgba(255, 255, 255, 0.65);
     white-space: nowrap;
-    background: var(--surface);
-    transition: border-color 0.3s ease, color 0.3s ease;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    transition: border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
     flex-shrink: 0;
+  }
+
+  .partner-logo {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    border-radius: 4px;
+    flex-shrink: 0;
+    filter: grayscale(30%) brightness(0.95);
+    transition: filter 0.3s ease;
+  }
+
+  .partner-pill:hover .partner-logo {
+    filter: grayscale(0%) brightness(1.1);
   }
 
   .partner-pill svg {
@@ -4389,9 +4411,10 @@
     flex-shrink: 0;
   }
 
-  .partners-track:hover .partner-pill:hover {
-    border-color: rgba(255, 106, 26, 0.5);
-    color: var(--paper);
+  .partner-pill:hover {
+    border-color: rgba(255, 106, 26, 0.45);
+    color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 106, 26, 0.1);
   }
 
   .partners-disclaimer {
