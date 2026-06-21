@@ -37,8 +37,8 @@
   <a href="#top" class="side-nav-dot active" aria-label="Hero Section" data-section="top">
     <span class="side-nav-tooltip">Hero</span>
   </a>
-  <a href="#stats" class="side-nav-dot" aria-label="Snapshot" data-section="stats">
-    <span class="side-nav-tooltip">Snapshot</span>
+  <a href="#about-teaser" class="side-nav-dot" aria-label="About" data-section="about-teaser">
+    <span class="side-nav-tooltip">About</span>
   </a>
   <a href="#portfolios" class="side-nav-dot" aria-label="Portfolios" data-section="portfolios">
     <span class="side-nav-tooltip">Disciplines</span>
@@ -46,8 +46,8 @@
   <a href="#comm-teaser" class="side-nav-dot" aria-label="Communication" data-section="comm-teaser">
     <span class="side-nav-tooltip">Communication</span>
   </a>
-  <a href="#about-teaser" class="side-nav-dot" aria-label="About" data-section="about-teaser">
-    <span class="side-nav-tooltip">About</span>
+  <a href="#stats" class="side-nav-dot" aria-label="Snapshot" data-section="stats">
+    <span class="side-nav-tooltip">Snapshot</span>
   </a>
   <a href="#contact" class="side-nav-dot" aria-label="Contact" data-section="contact">
     <span class="side-nav-tooltip">Contact</span>
@@ -142,27 +142,21 @@
   </div>
 </header>
 
-<!-- ===================== SNAPSHOT ===================== -->
-<section id="stats" class="snapshot-section reveal">
-  <div class="snapshot-bg">
-    <img src="images/mic4.jpg" alt="background">
-  </div>
+<!-- ===================== ABOUT ME TEASER (moved up — builds trust early) ===================== -->
+<section id="about-teaser" style="background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
   <div class="container">
-    <div class="snapshot-inner">
-      <div class="snapshot-title-col">
-        <span class="label">By The Numbers</span>
-        <h2 class="snapshot-heading reveal-zoom">Snapshot</h2>
-        <p style="color:var(--stone); font-size:0.95rem; line-height:1.8; max-width:28ch; margin-top:16px;">Public speaking sessions, corporate communication trainings & professional etiquette workshops — conducted across Sri Lanka.</p>
+    <div class="story-grid reveal" style="align-items:center;">
+      <div class="story-text">
+        <span class="label" style="display:block; margin-bottom:20px;">The Person Behind The Work</span>
+        <h2 class="reveal-zoom" style="font-family:'Poppins',sans-serif; font-weight:500; font-size:clamp(2rem, 4vw, 3rem); line-height:1.15; margin-bottom:30px;">
+          From the back row to <br><em>the global stage.</em>
+        </h2>
+        <p>Before the words came, there was silence. I spent my early years paralyzed by the thought of public speaking. Today, I don't just speak—I train others to find their voice, I build technology systems that scale, and I lead high-impact teams across the globe.</p>
+        <p>My journey is built on small, deliberate repetitions and an obsession with bridging the gap between human connection and technical execution.</p>
+        <a href="about.html" style="display:inline-block; margin-top:30px; padding:16px 32px; background:#FF6A1A; color:var(--ink); text-decoration:none; font-family:'Space Mono',monospace; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; border-radius:4px; transition:transform 0.2s ease, background 0.2s ease;">Read Full Story</a>
       </div>
-      <div class="snapshot-cards-col">
-        <div class="snapshot-glass-card">
-          <span class="snapshot-number"><span class="counter" data-target="75">0</span>+</span>
-          <span class="snapshot-label">Sessions<br>Conducted</span>
-        </div>
-        <div class="snapshot-glass-card">
-          <span class="snapshot-number"><span class="counter" data-target="1000">0</span>+</span>
-          <span class="snapshot-label">Attendees<br>Reached</span>
-        </div>
+      <div class="banner-img-side" style="border-radius:12px; aspect-ratio:4/5;">
+        <img src="images/journey-glimpse.jpg" alt="Eranga Bowatte on stage">
       </div>
     </div>
   </div>
@@ -304,21 +298,27 @@
   </div>
 </section>
 
-<!-- ===================== ABOUT ME TEASER ===================== -->
-<section id="about-teaser" style="background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+<!-- ===================== SNAPSHOT (moved here — numbers now have full context) ===================== -->
+<section id="stats" class="snapshot-section reveal" style="border-top:1px solid var(--line);">
+  <div class="snapshot-bg">
+    <img src="images/mic4.jpg" alt="background">
+  </div>
   <div class="container">
-    <div class="story-grid reveal" style="align-items:center;">
-      <div class="story-text">
-        <span class="label" style="display:block; margin-bottom:20px;">The Person Behind The Work</span>
-        <h2 class="reveal-zoom" style="font-family:'Poppins',sans-serif; font-weight:500; font-size:clamp(2rem, 4vw, 3rem); line-height:1.15; margin-bottom:30px;">
-          From the back row to <br><em>the global stage.</em>
-        </h2>
-        <p>Before the words came, there was silence. I spent my early years paralyzed by the thought of public speaking. Today, I don't just speak—I train others to find their voice, I build technology systems that scale, and I lead high-impact teams across the globe.</p>
-        <p>My journey is built on small, deliberate repetitions and an obsession with bridging the gap between human connection and technical execution.</p>
-        <a href="about.html" style="display:inline-block; margin-top:30px; padding:16px 32px; background:#FF6A1A; color:var(--ink); text-decoration:none; font-family:'Space Mono',monospace; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; border-radius:4px; transition:transform 0.2s ease, background 0.2s ease;">Read Full Story</a>
+    <div class="snapshot-inner">
+      <div class="snapshot-title-col">
+        <span class="label">By The Numbers</span>
+        <h2 class="snapshot-heading reveal-zoom">Snapshot</h2>
+        <p style="color:var(--stone); font-size:0.95rem; line-height:1.8; max-width:28ch; margin-top:16px;">Public speaking sessions, corporate communication trainings &amp; professional etiquette workshops — conducted across Sri Lanka.</p>
       </div>
-      <div class="banner-img-side" style="border-radius:12px; aspect-ratio:4/5;">
-        <img src="images/journey-glimpse.jpg" alt="Eranga Bowatte on stage">
+      <div class="snapshot-cards-col">
+        <div class="snapshot-glass-card">
+          <span class="snapshot-number"><span class="counter" data-target="75">0</span>+</span>
+          <span class="snapshot-label">Sessions<br>Conducted</span>
+        </div>
+        <div class="snapshot-glass-card">
+          <span class="snapshot-number"><span class="counter" data-target="1000">0</span>+</span>
+          <span class="snapshot-label">Attendees<br>Reached</span>
+        </div>
       </div>
     </div>
   </div>
