@@ -4207,3 +4207,204 @@
     .collab-item { font-size: 0.72rem; }
   }
 
+  /* ===================== TESTIMONIALS MARQUEE ===================== */
+  .testimonials-section {
+    padding: 120px 0 60px;
+    overflow: hidden;
+    border-top: 1px solid var(--line);
+  }
+
+  .testimonials-header {
+    margin-bottom: 64px;
+  }
+
+  .testi-marquee-wrap {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+
+  .testi-track {
+    display: flex;
+    gap: 24px;
+    width: max-content;
+    animation: marqueeLeft 55s linear infinite;
+  }
+
+  .testi-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes marqueeLeft {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .testi-card {
+    width: 360px;
+    flex-shrink: 0;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+  }
+
+  .testi-card::before {
+    content: '\201C';
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    line-height: 1;
+    color: rgba(255, 106, 26, 0.15);
+    pointer-events: none;
+  }
+
+  .testi-card:hover {
+    border-color: rgba(255, 106, 26, 0.35);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  }
+
+  .testi-quote {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #C7C3BC;
+    font-style: italic;
+    flex-grow: 1;
+    margin: 0;
+  }
+
+  .testi-author {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+
+  .testi-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: var(--paper);
+  }
+
+  .testi-role {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--stone);
+    text-transform: uppercase;
+  }
+
+  .testi-footer-note {
+    text-align: center;
+    margin-top: 48px;
+  }
+
+  .testi-linkedin-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stone);
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .testi-linkedin-link:hover {
+    color: #0077B5;
+    border-color: rgba(0, 119, 181, 0.5);
+  }
+
+  /* ===================== PARTNER PORTAL ===================== */
+  .partners-section {
+    padding: 80px 0 40px;
+    border-top: 1px solid var(--line);
+    overflow: hidden;
+  }
+
+  .partners-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .partners-sub {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: var(--stone);
+    max-width: 58ch;
+    margin: 14px auto 0;
+  }
+
+  .partners-marquee-wrap {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    margin-bottom: 40px;
+  }
+
+  .partners-track {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: max-content;
+    animation: marqueeLeft 40s linear infinite;
+    padding: 8px 0;
+  }
+
+  .partner-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--stone);
+    white-space: nowrap;
+    background: var(--surface);
+    transition: border-color 0.3s ease, color 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .partner-pill svg {
+    color: #FF6A1A;
+    opacity: 0.7;
+    flex-shrink: 0;
+  }
+
+  .partners-track:hover .partner-pill:hover {
+    border-color: rgba(255, 106, 26, 0.5);
+    color: var(--paper);
+  }
+
+  .partners-disclaimer {
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    color: var(--stone);
+    opacity: 0.45;
+    max-width: 64ch;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    line-height: 1.6;
+  }
+
+
