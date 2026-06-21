@@ -2429,16 +2429,16 @@
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    padding-bottom:0;
-    padding-top:0;
+    padding-bottom:60px;
+    padding-top:140px; /* Prevents content from sliding up under the header on small screens */
   }
 
   @media (max-width:768px){
-    .hero-content{ min-height:80vh; padding-top:40px; }
+    .hero-content{ min-height:80vh; padding-top:120px; }
   }
 
   @media (max-width:480px){
-    .hero-content{ min-height:80vh; padding-top:40px; }
+    .hero-content{ min-height:80vh; padding-top:100px; }
   }
 
   .hero-container{
@@ -2460,8 +2460,7 @@
     opacity:0;
     transform:translateY(20px);
     animation:revealHeroSig 1s ease forwards 4s;
-    text-shadow:0 4px 12px rgba(0,0,0,0.5);
-    margin-top: 60px; /* Push down to avoid header overlap */
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5)); /* Replaced text-shadow to fix transparency bug */
   }
 
   @keyframes revealHeroSig{
