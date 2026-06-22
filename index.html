@@ -244,8 +244,13 @@
   <div class="iframe-container" style="position:relative; width: 100%; height: 100vh;">
     <iframe src="3d-disciplines/dist/index.html" style="width: 100%; height: 100%; border: none;" scrolling="no"></iframe>
     <div class="disciplines-scroll-hint" id="disciplinesHint">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-      Scroll inside to explore disciplines
+      <span class="desktop-hint">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        Scroll inside to explore disciplines
+      </span>
+      <button class="mobile-nav-btn" id="disciplinesNavBtn">
+        Tap to explore disciplines
+      </button>
     </div>
   </div>
 </section>

@@ -498,4 +498,30 @@ window.addEventListener('load', () => {
     startAutoPlay();
   }
 
+  /* ---- 3D Disciplines Mobile Nav Button ---- */
+  const disciplinesNavBtn = document.getElementById('disciplinesNavBtn');
+  const disciplinesIframeObj = document.querySelector('#portfolios iframe');
+  
+  if (disciplinesNavBtn && disciplinesIframeObj) {
+    disciplinesNavBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      try {
+        const iframeWindow = disciplinesIframeObj.contentWindow;
+        if(iframeWindow) {
+          // Scroll down by 80% of the iframe's height to show the next section
+          iframeWindow.scrollBy({ top: iframeWindow.innerHeight * 0.8, behavior: 'smooth' });
+          
+          // Also dispatch a synthetic wheel event just in case Lenis only listens to that
+          iframeWindow.dispatchEvent(new WheelEvent('wheel', {
+            deltaY: iframeWindow.innerHeight * 0.8,
+            bubbles: true
+          }));
+        }
+      } catch(err) {
+        console.warn("Could not scroll iframe programmatically. This can happen locally due to CORS.", err);
+      }
+    });
+  }
+
 
