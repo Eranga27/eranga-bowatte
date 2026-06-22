@@ -498,16 +498,4 @@ window.addEventListener('load', () => {
     startAutoPlay();
   }
 
-  /* ---- Lazy-load 3D Disciplines iframe ---- */
-  const disciplinesIframe = document.querySelector('#portfolios iframe[data-src]');
-  if (disciplinesIframe) {
-    const iframeObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          disciplinesIframe.src = disciplinesIframe.dataset.src;
-          iframeObserver.disconnect();
-        }
-      });
-    }, { rootMargin: '200px' });
-    iframeObserver.observe(disciplinesIframe);
-  }
+
