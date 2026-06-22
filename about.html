@@ -16,8 +16,8 @@
 </head>
 <body>
 <!-- Custom Cursor Elements -->
-<div id="cursorDot"></div>
-<div id="cursorRing"></div>
+<div id="cursorDot" class="cursor-dot"></div>
+<div id="cursorRing" class="cursor-ring"></div>
 
 <!-- ===================== PRELOADER ===================== -->
 <div id="preloader" class="preloader">
@@ -59,6 +59,9 @@
   </a>
   <a href="#story-ascent" class="side-nav-dot" aria-label="Ascent" data-section="story-ascent">
     <span class="side-nav-tooltip">Ascent</span>
+  </a>
+  <a href="#story-voice" class="side-nav-dot" aria-label="The Voice" data-section="story-voice">
+    <span class="side-nav-tooltip">The Voice</span>
   </a>
   <a href="#record" class="side-nav-dot" aria-label="Timeline" data-section="record">
     <span class="side-nav-tooltip">Timeline</span>
@@ -183,6 +186,25 @@
       <div class="story-text">
         <p>My entrance into the corporate world was built on a desire to support and elevate others. Starting from the ground up as a Business Partner Intern at <strong>MAS Holdings</strong>, I learned the intricate mechanics of organizational growth.</p>
         <p>Taking on more responsibility, I served as an Executive in Global Branding and Talent Attraction, and later embraced creative challenges as the Head of Branding and Design Strategy at <strong>Strider Seven Group</strong>. Today, as a Business Partner Executive at <strong>Virtusa</strong>, my focus remains unchanged: fostering a positive culture, managing end-to-end HR operations, and genuinely supporting the 350+ individuals in my care. Progress, to me, is measured by the growth of the teams I work alongside.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHAPTER 5: THE VOICE ===================== -->
+<section id="story-voice" style="position:relative; overflow:hidden; padding-top:100px; padding-bottom:100px; background:var(--bg);">
+  <div class="container" style="position:relative; z-index:2;">
+    <div class="section-head reveal" style="text-align: center; margin-bottom: 80px;">
+      <span class="label">Chapter V</span>
+      <h2 class="reveal-zoom" style="margin: 0 auto;">The Voice: <em>Empowering Others</em></h2>
+    </div>
+    <div class="story-grid reveal" style="align-items: center;">
+      <div class="story-text">
+        <p>A crucial part of my journey stems from a deep admiration for great speakers. Inspired by their ability to move people, I wanted to create a platform that gave others the same power. Alongside my university friends, we founded a start-up called <strong>Beyond the Mic</strong>.</p>
+        <p>What started as an idea grew into me becoming a Corporate Communication Trainer. I have since conducted over 50 training sessions across corporate, university, and school levels. My ultimate goal isn't just to speak well, but to strive to expand further, empowering nervous speakers to find their voice and helping people wherever I possibly can.</p>
+      </div>
+      <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
+        <img loading="lazy" src="images/training-session-placeholder.jpg" alt="Communication Trainer" style="width: 100%; display: block; object-fit: cover; aspect-ratio: 4/3; opacity: 0.8; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
       </div>
     </div>
   </div>
@@ -322,33 +344,41 @@
       <h2 class="reveal-zoom" style="margin: 0 auto;">Awards &amp; <em>Recognitions.</em></h2>
     </div>
     
-    <div class="timeline reveal">
-      <div class="timeline-fill"></div>
+    <div class="awards-grid reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
       
-      <div class="timeline-row">
-        <span class="t-year">National</span>
-        <div>
-          <div class="t-role">President Sea Scout Award Winner<span>Lyceum International School Wattala</span></div>
-          <p class="t-detail">Awarded National Colors and School Colors in Scouting.</p>
+      <!-- Award 1 -->
+      <div style="position: relative; overflow: hidden; padding: 40px 30px; background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; text-align: center; transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.4)'; this.style.borderColor='rgba(255,215,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'; this.style.borderColor='rgba(255,255,255,0.05)'">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, #FFD700, transparent); opacity: 0.5;"></div>
+        <div style="display: inline-flex; justify-content: center; align-items: center; width: 70px; height: 70px; border-radius: 50%; background: rgba(255,215,0,0.1); color: #FFD700; margin-bottom: 20px;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
         </div>
+        <span style="display: block; font-family: 'Space Mono', monospace; font-size: 0.8rem; color: #FFD700; letter-spacing: 0.1em; margin-bottom: 10px; text-transform: uppercase;">National Recognition</span>
+        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 15px; line-height: 1.4;">President Sea Scout Award</h3>
+        <p style="color: var(--stone); font-size: 0.95rem; line-height: 1.6;">Awarded National Colors &amp; School Colors in Scouting at Lyceum International.</p>
       </div>
-      
-      <div class="timeline-row">
-        <span class="t-year">Speaking</span>
-        <div>
-          <div class="t-role">All-Island Best Speakers Finalist<span>University of Kelaniya</span></div>
-          <p class="t-detail">Inter-University Debate Runners-Up (SLIIT IEEE) & Intra-University Best Speakers Runners-Up (SLIIT Gavel).</p>
+
+      <!-- Award 2 -->
+      <div style="position: relative; overflow: hidden; padding: 40px 30px; background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; text-align: center; transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.4)'; this.style.borderColor='rgba(255,106,26,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'; this.style.borderColor='rgba(255,255,255,0.05)'">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.5;"></div>
+        <div style="display: inline-flex; justify-content: center; align-items: center; width: 70px; height: 70px; border-radius: 50%; background: rgba(255,106,26,0.1); color: var(--accent); margin-bottom: 20px;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15l8.3-4.7c.4-.2.4-.8 0-1L12 4.6c-.4-.2-1-.2-1.4 0L2.3 9.3c-.4.2-.4.8 0 1L10.6 15c.4.2 1 .2 1.4 0z"/><path d="M5.4 12.3L2 14.2c-.4.2-.4.8 0 1l8.3 4.7c.4.2 1 .2 1.4 0l8.3-4.7c.4-.2.4-.8 0-1l-3.4-1.9"/></svg>
         </div>
+        <span style="display: block; font-family: 'Space Mono', monospace; font-size: 0.8rem; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 10px; text-transform: uppercase;">Speaking Excellence</span>
+        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 15px; line-height: 1.4;">All-Island Best Speakers Finalist</h3>
+        <p style="color: var(--stone); font-size: 0.95rem; line-height: 1.6;">Inter-University Debate Runners-Up (SLIIT IEEE) &amp; Intra-University Best Speakers Runners-Up.</p>
       </div>
-      
-      <div class="timeline-row">
-        <span class="t-year">AIESEC</span>
-        <div>
-          <div class="t-role">Best Emerging Incoming Global Volunteer CXP<span>Legacy Awards Night 2023</span></div>
-          <p class="t-detail">Also nominated for Best Emerging Young Leader. Recognized for delivering outstanding B2B value.</p>
+
+      <!-- Award 3 -->
+      <div style="position: relative; overflow: hidden; padding: 40px 30px; background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; text-align: center; transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.4)'; this.style.borderColor='rgba(0,191,255,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'; this.style.borderColor='rgba(255,255,255,0.05)'">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, #00BFFF, transparent); opacity: 0.5;"></div>
+        <div style="display: inline-flex; justify-content: center; align-items: center; width: 70px; height: 70px; border-radius: 50%; background: rgba(0,191,255,0.1); color: #00BFFF; margin-bottom: 20px;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
+        <span style="display: block; font-family: 'Space Mono', monospace; font-size: 0.8rem; color: #00BFFF; letter-spacing: 0.1em; margin-bottom: 10px; text-transform: uppercase;">AIESEC Impact</span>
+        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 15px; line-height: 1.4;">Best Emerging Young Leader</h3>
+        <p style="color: var(--stone); font-size: 0.95rem; line-height: 1.6;">Legacy Awards Night 2023. Awarded Best Emerging Incoming Global Volunteer CXP.</p>
       </div>
-      
+
     </div>
   </div>
 </section>
@@ -423,15 +453,18 @@
   </div>
 </section>
 
-<!-- ===================== CTA ===================== -->
-<section class="cta" id="contact" style="border-top: 1px solid var(--line);">
-  <div class="container">
-    <span class="label">Let's Connect</span>
-    <h2 class="reveal-zoom">Ready to <span class="accent-word">collaborate?</span></h2>
-    <p style="color:var(--stone); margin-top:20px; margin-bottom:40px; max-width:500px; margin-left:auto; margin-right:auto; font-size:1.1rem;">Whether you need a tech wizard, an HR strategist, a corporate trainer, or a business development lead, I'm ready to bring value to your team.</p>
-    <div class="cta-links">
-      <a class="cta-link" href="mailto:eranbwt27@gmail.com">EMAIL — eranbwt27@gmail.com</a>
-      <a class="cta-link" href="https://www.linkedin.com/in/eranga-bowatte" target="_blank" rel="noopener">LINKEDIN — Eranga Bowatte</a>
+<!-- ===================== CONCLUSION / CTA ===================== -->
+<section class="cta" id="contact" style="border-top: 1px solid var(--line); position:relative; overflow:hidden; padding: 120px 0;">
+  <div style="position:absolute; top:-50%; left:-50%; width:200%; height:200%; background:radial-gradient(circle at center, rgba(255,106,26,0.05) 0%, transparent 60%); z-index:0; pointer-events:none;"></div>
+  <div class="container" style="position:relative; z-index:1; text-align:center;">
+    <span class="label" style="display:inline-block; margin-bottom:20px; padding:6px 16px; border:1px solid rgba(255,255,255,0.1); border-radius:30px; font-size:0.8rem; letter-spacing:0.1em; color:var(--accent);">The Next Chapter</span>
+    <h2 class="reveal-zoom" style="font-size: 3.5rem; line-height: 1.1; margin-bottom:30px;">Let's Write It <span class="accent-word">Together.</span></h2>
+    <p style="color:var(--stone); margin-bottom:50px; max-width:600px; margin-left:auto; margin-right:auto; font-size:1.15rem; line-height:1.7;">
+      My journey has taught me that the best work is never done alone. Whether you're looking to build stronger teams, refine corporate strategies, or inspire through communication, I'm ready to bring my dedication to your vision.
+    </p>
+    <div class="cta-links" style="display:flex; justify-content:center; gap:30px; flex-wrap:wrap;">
+      <a class="cta-link" href="mailto:eranbwt27@gmail.com" style="background:var(--text); color:var(--bg); padding:15px 40px; border-radius:30px; font-weight:600; border:none; transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">Start a Conversation</a>
+      <a class="cta-link" href="https://www.linkedin.com/in/eranga-bowatte" target="_blank" rel="noopener" style="padding:15px 40px; border-radius:30px; font-weight:600; border:1px solid rgba(255,255,255,0.2); transition:background 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.05)'" onmouseout="this.style.background='transparent'">Connect on LinkedIn</a>
     </div>
   </div>
 </section>
