@@ -7,7 +7,7 @@ window.addEventListener('load', () => {
       setTimeout(() => {
         preloader.remove();
       }, 800);
-    }, 4800); // Wait 3.2s for signature animation to complete
+    }, 2500); // Reduced from 4800ms — animation completes by ~2.8s
   }
 });
 
@@ -46,15 +46,6 @@ window.addEventListener('load', () => {
     mobileClose.addEventListener('click', closeMenu);
   }
 
-  /* ---- Hero Text Scroll Zoom Effect ---- */
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    if (scrollY < 1500) {
-      // Zooms in as you scroll down
-      const zoom = 1 + (scrollY * 0.0004);
-      document.documentElement.style.setProperty('--scroll-zoom', zoom);
-    }
-  }, { passive: true });
   // Close on any link tap
   mobileMenu.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', closeMenu);
@@ -70,22 +61,7 @@ window.addEventListener('load', () => {
     if (e.target === mobileMenu) closeMenu();
   });
 
-  /* ---- Background Music Toggle ---- */
-  const audioToggle = document.getElementById('audioToggle');
-  const bgMusic = document.getElementById('bgMusic');
-  
-  // Set initial volume low so it's subtle
-  if(bgMusic) bgMusic.volume = 0.2;
 
-  if(audioToggle) audioToggle.addEventListener('click', () => {
-    if (bgMusic.paused) {
-      bgMusic.play();
-      audioToggle.classList.add('playing');
-    } else {
-      bgMusic.pause();
-      audioToggle.classList.remove('playing');
-    }
-  });
 
   /* ---- Custom cursor & Magnetic Effect ---- */
   const dot  = document.getElementById('cursorDot');
@@ -295,19 +271,49 @@ window.addEventListener('load', () => {
     }
   }
 
-  window.addEventListener('scroll', updateTimeline, { passive: true });
-  updateTimeline();
-
-  /* ---- Scroll progress bar ---- */
+  /* ---- Consolidated Scroll Handler (RAF-based) ---- */
   const scrollBar = document.getElementById('scrollBar');
-  function updateProgress() {
-    const scrolled  = window.scrollY;
+  const mainNav = document.querySelector('nav');
+  const heroSection = document.querySelector('.hero');
+  let scrollTicking = false;
+
+  function onScrollFrame() {
+    const scrollY = window.scrollY;
+
+    // Hero zoom effect
+    if (scrollY < 1500) {
+      const zoom = 1 + (scrollY * 0.0004);
+      document.documentElement.style.setProperty('--scroll-zoom', zoom);
+    }
+
+    // Timeline
+    updateTimeline();
+
+    // Progress bar
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const pct = docHeight > 0 ? (scrolled / docHeight) * 100 : 0;
+    const pct = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
     if(scrollBar) scrollBar.style.width = pct + '%';
+
+    // Sticky nav
+    if (mainNav) {
+      const heroBottom = heroSection ? heroSection.offsetHeight : 300;
+      if (scrollY > heroBottom - 80) {
+        mainNav.classList.add('sticky');
+      } else {
+        mainNav.classList.remove('sticky');
+      }
+    }
+
+    scrollTicking = false;
   }
-  window.addEventListener('scroll', updateProgress, { passive: true });
-  updateProgress();
+
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      requestAnimationFrame(onScrollFrame);
+      scrollTicking = true;
+    }
+  }, { passive: true });
+  onScrollFrame();
 
   /* ---- Number Counter Animation ---- */
   const counterSpeed = 40; // controls the medium pace
@@ -409,19 +415,7 @@ window.addEventListener('load', () => {
     sections.forEach(sec => sectionObserver.observe(sec));
   }
 
-  /* ---- Sticky Header Logic ---- */
-  const mainNav = document.querySelector('nav');
-  const heroSection = document.querySelector('.hero');
-  if (mainNav) {
-    window.addEventListener('scroll', () => {
-      const heroBottom = heroSection ? heroSection.offsetHeight : 300;
-      if (window.scrollY > heroBottom - 80) { // Activate slightly before passing the hero
-        mainNav.classList.add('sticky');
-      } else {
-        mainNav.classList.remove('sticky');
-      }
-    }, { passive: true });
-  }
+
 
   /* ---- Creative Section Slide-In ---- */
   const creativeTeaser = document.getElementById('creative-teaser');
@@ -502,4 +496,18 @@ window.addEventListener('load', () => {
     
     // Init
     startAutoPlay();
+  }
+
+  /* ---- Lazy-load 3D Disciplines iframe ---- */
+  const disciplinesIframe = document.querySelector('#portfolios iframe[data-src]');
+  if (disciplinesIframe) {
+    const iframeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          disciplinesIframe.src = disciplinesIframe.dataset.src;
+          iframeObserver.disconnect();
+        }
+      });
+    }, { rootMargin: '200px' });
+    iframeObserver.observe(disciplinesIframe);
   }
