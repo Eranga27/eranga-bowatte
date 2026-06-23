@@ -351,8 +351,10 @@ window.addEventListener('load', () => {
 
   const statsSection = document.querySelector('.banner-stats-side');
   const snapshotSection = document.querySelector('.snapshot-cards-col');
+  const commStatsCompact = document.querySelector('.comm-stats-compact');
   if (statsSection) counterIO.observe(statsSection);
   if (snapshotSection) counterIO.observe(snapshotSection);
+  if (commStatsCompact) counterIO.observe(commStatsCompact);
 
   /* ---- Lightbox Logic ---- */
   const lightbox = document.getElementById('lightbox');
