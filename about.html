@@ -479,6 +479,71 @@
 </div>
 
 <script src="main.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    gsap.registerPlugin(ScrollTrigger);
 
+    // 1. Image Parallax Effect
+    gsap.utils.toArray('.story-grid').forEach(grid => {
+      const img = grid.querySelector('img');
+      const imgContainer = img.parentElement;
+      
+      // Setup image for parallax
+      img.style.height = '120%';
+      img.style.width = '100%';
+      img.style.objectFit = 'cover';
+      
+      gsap.fromTo(img, 
+        { yPercent: -10 },
+        {
+          yPercent: 10,
+          ease: "none",
+          scrollTrigger: {
+            trigger: imgContainer,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true
+          }
+        }
+      );
+    });
+
+    // 2. Cinematic Text Reveal for Story Chapters
+    gsap.utils.toArray('.story-text').forEach(textBlock => {
+      const paragraphs = textBlock.querySelectorAll('p');
+      
+      // Hide initially to prevent flash
+      gsap.set(paragraphs, { opacity: 0, y: 40 });
+      
+      ScrollTrigger.create({
+        trigger: textBlock,
+        start: "top 80%",
+        onEnter: () => {
+          gsap.to(paragraphs, {
+            y: 0,
+            opacity: 1,
+            duration: 1.2,
+            stagger: 0.2,
+            ease: "power3.out"
+          });
+        }
+      });
+    });
+
+    // 3. Pinning effect for Timeline Title
+    const timelineHead = document.querySelector('#record .section-head');
+    if (timelineHead) {
+      ScrollTrigger.create({
+        trigger: '#record',
+        start: "top 100px",
+        end: "bottom 50%",
+        pin: timelineHead,
+        pinSpacing: false
+      });
+    }
+  });
+</script>
 </body>
 </html>
