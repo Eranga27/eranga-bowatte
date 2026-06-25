@@ -68,27 +68,30 @@
 </section>
 
 <div class="booking-container">
-  <form class="booking-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Booking form submitted successfully. I will be in touch shortly!'); window.location.href='index.html';">
-    
+  <form class="booking-form" action="https://formsubmit.co/erangabowatte@gmail.com" method="POST">
+    <!-- Optional: Disable Captcha and set a custom redirect page -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="New Booking Inquiry from Portfolio!">
+
     <div class="grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
       <div class="form-group">
         <label>Full Name</label>
-        <input type="text" placeholder="Jane Doe" required>
+        <input type="text" name="name" placeholder="Jane Doe" required>
       </div>
       <div class="form-group">
         <label>Email Address</label>
-        <input type="email" placeholder="jane@company.com" required>
+        <input type="email" name="email" placeholder="jane@company.com" required>
       </div>
     </div>
 
     <div class="form-group">
       <label>Organization / Company Name</label>
-      <input type="text" placeholder="E.g. Virtusa, SLIIT..." required>
+      <input type="text" name="organization" placeholder="E.g. Virtusa, SLIIT..." required>
     </div>
 
     <div class="form-group">
       <label>Type of Engagement</label>
-      <select required>
+      <select name="engagement_type" required>
         <option value="" disabled selected>Select an option...</option>
         <option value="corporate_training">Corporate Training / Cohort (Speak to Impact)</option>
         <option value="keynote">Keynote Address (60-90 min)</option>
@@ -101,7 +104,7 @@
     <div class="grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
       <div class="form-group">
         <label>Estimated Audience Size</label>
-        <select required>
+        <select name="audience_size" required>
           <option value="" disabled selected>Select size...</option>
           <option value="1-20">1 - 20 (Intimate Workshop)</option>
           <option value="21-50">21 - 50 (Team Training)</option>
@@ -111,13 +114,13 @@
       </div>
       <div class="form-group">
         <label>Target Date (Optional)</label>
-        <input type="date">
+        <input type="date" name="target_date">
       </div>
     </div>
 
     <div class="form-group">
       <label>Event Details & Goals</label>
-      <textarea placeholder="Tell me briefly about your organization and what transformation or outcome you are hoping to achieve with this engagement..." required></textarea>
+      <textarea name="event_details" placeholder="Tell me briefly about your organization and what transformation or outcome you are hoping to achieve with this engagement..." required></textarea>
     </div>
 
     <button type="submit" class="submit-btn">Request Availability</button>
