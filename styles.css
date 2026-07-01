@@ -4957,5 +4957,17 @@ footer {
   filter: grayscale(35%) brightness(0.55) contrast(1.08);
 }
 
+/* ==============================================
+   RESPONSIVE UPCOMING SESSIONS
+   ============================================== */
+.upcoming-grid {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+}
 
-
+.upcoming-card {
+  flex: 1 1 300px;
+  max-width: 450px;
+}
