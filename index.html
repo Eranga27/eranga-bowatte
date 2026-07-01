@@ -300,11 +300,9 @@
 <!-- ===================== PORTFOLIOS (THE GATEWAY) ===================== -->
 <section id="portfolios" class="portfolio-nav-section disciplines-fullbleed" style="padding: 0; border-top: 1px solid var(--line);">
   <div class="iframe-container" style="position:relative; width: 100%; height: 100vh;">
-    <!-- 3D iframe deferred: src injected by IntersectionObserver in main.js
-         so the heavy Three.js scene doesn't load until user nears this section -->
     <iframe
       id="disciplinesIframe"
-      data-src="3d-disciplines/dist/index.html"
+      src="3d-disciplines/dist/index.html"
       style="width: 100%; height: 100%; border: none;"
       scrolling="no"></iframe>
     <div class="disciplines-scroll-hint" id="disciplinesHint">

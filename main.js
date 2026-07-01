@@ -587,21 +587,9 @@ if (partnersTrack) {
   partnersMarqueeObserver.observe(partnersTrack);
 }
 
-/* ---- 3D Disciplines iframe: Deferred load ---- */
-// The Three.js scene is heavy. We load it only when the user is 300px
-// away from scrolling to the portfolio section — keeps initial load fast.
-const disciplinesIframe = document.getElementById('disciplinesIframe');
-if (disciplinesIframe) {
-  const iframeObserver = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting) {
-      disciplinesIframe.src = disciplinesIframe.dataset.src;
-      iframeObserver.disconnect();
-    }
-  }, { rootMargin: '300px' }); // preload 300px before viewport
-  iframeObserver.observe(disciplinesIframe);
-}
-
 /* ---- 3D Disciplines Mobile Nav Button ---- */
+// iframe now loads directly via src — Three.js needs immediate init for canvas sizing
+const disciplinesIframe = document.getElementById('disciplinesIframe');
 const disciplinesNavBtn = document.getElementById('disciplinesNavBtn');
 if (disciplinesNavBtn && disciplinesIframe) {
   disciplinesNavBtn.addEventListener('click', (e) => {
