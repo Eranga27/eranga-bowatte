@@ -7,6 +7,50 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <script type="module" crossorigin src="./assets/index-DDITMpZT.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-C22DXFAK.css">
+    <style>
+      .mobile-controls {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 100;
+        gap: 20px;
+        background: rgba(11, 10, 9, 0.8);
+        padding: 10px 20px;
+        border-radius: 50px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+      }
+      .mobile-controls button {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: background 0.3s;
+      }
+      .mobile-controls button:active {
+        background: rgba(255, 255, 255, 0.2);
+      }
+      @media (max-width: 768px) {
+        body, html {
+          touch-action: none; /* Prevent manual swipe scrolling */
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        ::-webkit-scrollbar {
+          display: none;
+        }
+        .mobile-controls {
+          display: flex;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- Custom Cursor Elements -->
@@ -56,5 +100,41 @@
         </section>
       </main>
     </div>
+
+    <!-- Mobile Controls -->
+    <div class="mobile-controls">
+      <button id="mobilePrevBtn" aria-label="Previous Project">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button id="mobileNextBtn" aria-label="Next Project">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const prevBtn = document.getElementById('mobilePrevBtn');
+        const nextBtn = document.getElementById('mobileNextBtn');
+        
+        let currentSection = 0;
+        const totalSections = document.querySelectorAll('.section').length;
+
+        if (prevBtn && nextBtn) {
+          prevBtn.addEventListener('click', () => {
+            if (currentSection > 0) {
+              currentSection--;
+              window.scrollTo({ top: currentSection * window.innerHeight, behavior: 'smooth' });
+            }
+          });
+          
+          nextBtn.addEventListener('click', () => {
+            if (currentSection < totalSections - 1) {
+              currentSection++;
+              window.scrollTo({ top: currentSection * window.innerHeight, behavior: 'smooth' });
+            }
+          });
+        }
+      });
+    </script>
   </body>
 </html>
