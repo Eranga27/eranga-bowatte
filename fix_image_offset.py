@@ -1,28 +1,27 @@
-import re
-
 js_file = "3d-it-portfolio/assets/index-DDITMpZT.js"
 
 with open(js_file, "r", encoding="utf-8") as f:
     content = f.read()
 
-# The image plane is positioned at n-3 (behind the 3D object).
-# This causes it to appear when scrolling INTO the NEXT section, not the current one.
-# Fix: move to n+10 so it's in front of the object, aligning with the current section's text.
+# The camera waypoints are at n+3 from each section's 3D object.
+# Current: ia.push(new D(Ar?0:-i*1.2,Ar?0:-s*1.2,n+3))
+# We need the camera to be at exactly n when the section text is visible.
+# Changing the waypoint offset from n+3 to n+8 brings the camera closer to 
+# the section before the text triggers, so text and image appear simultaneously.
 
-old = "h.position.set(Ar?0:i*.5,s,n-3),h.lookAt(0,0,n)"
-new = "h.position.set(Ar?0:i*.5,s,n+10),h.lookAt(0,0,n+10)"
+old_waypoint = "ia.push(new D(Ar?0:-i*1.2,Ar?0:-s*1.2,n+3))"
+new_waypoint = "ia.push(new D(0,0,n+8))"
 
-if old in content:
-    content = content.replace(old, new)
-    print("Image Z-position fixed successfully.")
+if old_waypoint in content:
+    content = content.replace(old_waypoint, new_waypoint)
+    print("Waypoint updated.")
 else:
-    print("ERROR: target string not found. Searching for nearby pattern...")
-    # Try to find it
-    idx = content.find("h.position.set")
+    print("Waypoint string not found. Searching...")
+    idx = content.find("ia.push")
     while idx != -1:
-        snippet = content[idx:idx+80]
-        print(f"Found at {idx}: {snippet}")
-        idx = content.find("h.position.set", idx+1)
+        print(f"  [{idx}]: {content[idx:idx+80]}")
+        idx = content.find("ia.push", idx+1)
 
 with open(js_file, "w", encoding="utf-8") as f:
     f.write(content)
+print("Done.")
