@@ -23,11 +23,35 @@
 
   body {
     background-color: #050f14;
+    color: #e0e0e0;
+  }
+
+  /* Cinematic parallax background layer */
+  #parallax-bg {
+    position: fixed;
+    top: -20%;
+    left: 0;
+    width: 100%;
+    height: 140%;
     background-image: url('images/lankaclimatehubpage/BGDesign.png');
     background-size: cover;
     background-position: center top;
-    background-attachment: fixed;
-    color: #e0e0e0;
+    will-change: transform;
+    z-index: 0;
+  }
+
+  /* Dark overlay for text readability */
+  #parallax-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 15, 20, 0.80);
+  }
+
+  /* Ensure all direct children of body stack above the parallax bg */
+  body > *:not(#parallax-bg) {
+    position: relative;
+    z-index: 1;
   }
 
   .project-hero {
@@ -244,6 +268,9 @@
 </head>
 <body>
 
+<!-- Cinematic parallax background -->
+<div id="parallax-bg"></div>
+
 <!-- PRELOADER -->
 <div id="preloader" class="preloader">
   <div class="preloader-content">
@@ -453,6 +480,23 @@
 
 <script src="main.js" defer></script>
 <script>
+  // ── Cinematic parallax background scroll ──
+  const parallaxBg = document.getElementById('parallax-bg');
+  let ticking = false;
+  function updateParallax() {
+    const scrollY = window.scrollY;
+    // Move background at 0.35x scroll speed for a smooth cinematic feel
+    parallaxBg.style.transform = 'translateY(' + (scrollY * 0.35) + 'px)';
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // ── Lightbox ──
   document.addEventListener('DOMContentLoaded', () => {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
