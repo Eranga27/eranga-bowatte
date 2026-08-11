@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+import os
+
+html_content = """<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -455,4 +457,7 @@
   });
 </script>
 </body>
-</html>
+</html>"""
+
+with open("f:/my-portfolio/eranga-bowatte/eloquent-one.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
